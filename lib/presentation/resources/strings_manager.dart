@@ -4,6 +4,13 @@ class AppStrings {
   static const retryAgain = "retryAgain";
   static const String success = "success";
 
+  // login
+  static const String userName = "userName";
+
+
+
+
+
   // error handler
   static const String badRequestError = "badRequestError";
   static const String noContent = "noContent";

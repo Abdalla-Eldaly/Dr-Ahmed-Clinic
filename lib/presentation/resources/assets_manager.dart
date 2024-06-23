@@ -21,7 +21,7 @@ class SVGAssets {
 
   static const String _basePath = "assets/svg/";
 
-  // static const String facebook = "${_basePath}facebook.svg";
+  static const String logo = "${_basePath}Logo.svg";
 }
 
 class LottieAssets {
