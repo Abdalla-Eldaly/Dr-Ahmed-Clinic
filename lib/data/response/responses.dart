@@ -41,9 +41,9 @@ class ContactsResponse {
   String? email;
 
   ContactsResponse(this.phone,this.email);
-  factory ContactsResponse.fromJson(Map<String,dynamic>json) => _$ContactsFromJson(json);
+  factory ContactsResponse.fromJson(Map<String,dynamic>json) => _$ContactsResponseFromJson(json);
 
-  Map<String,dynamic> toJson() => _$ContactsToJson(this);
+  Map<String,dynamic> toJson() => _$ContactsResponseToJson(this);
 }
 
 @JsonSerializable()
