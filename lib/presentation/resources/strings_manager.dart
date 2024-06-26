@@ -43,6 +43,7 @@ class AppStrings {
   static const String loginScreenPasswordLabel = "loginScreenPasswordLabel";
   static const String loginScreenLoginButton = "loginScreenLoginButton";
   static const String loginScreenSuccessMessage = "loginScreenSuccessMessage";
+  static const String loginScreenEmail = "loginScreenEmail";
 
   //Register Name Page
   static const String registerNamePageTitle = "registerNamePageTitle";

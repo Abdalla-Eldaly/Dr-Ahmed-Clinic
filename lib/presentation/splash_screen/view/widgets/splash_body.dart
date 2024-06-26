@@ -1,79 +1,57 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
-// Import the necessary packages for Bloc
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:zag_nights/presentation/onboarding_screen/view/onBoardingView.dart';
+import 'package:zag_nights/presentation/login_screen/view/login_screen_view.dart';
 import 'package:zag_nights/presentation/resources/assets_manager.dart';
-import 'package:zag_nights/presentation/resources/constants_manager.dart';
+import 'package:zag_nights/presentation/resources/constants_manager.dart';// Adjust the import according to your project structure
 
+class SplashViewBody extends StatefulWidget {
+  const SplashViewBody({super.key});
 
-class SplashScreen extends StatefulWidget {
-  static String routeName ='splashscreen';
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  State<SplashViewBody> createState() => _SplashViewBodyState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _animation;
+class _SplashViewBodyState extends State<SplashViewBody> {
+  Timer? _timer;
 
   @override
   void initState() {
     super.initState();
+    startDelay();
+  }
 
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds:2),
+  void startDelay() {
+    _timer = Timer(
+      const Duration(seconds: AppConstants.splashDelay),
+      goNext,
     );
+  }
 
-    _animation = CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
-
-    _controller.forward();
-
-    Timer(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(
-        PageRouteBuilder(
-          transitionDuration: const Duration(seconds: 1),
-          pageBuilder: (_, __, ___) => const OnBoardingView(),
-          transitionsBuilder: (_, animation, __, child) {
-            return FadeTransition(
-              opacity: animation,
-              child: child,
-            );
-          },
-        ),
-      );
-    });
+  void goNext() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const Login_View()),
+    );
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _timer?.cancel();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Center(
-        child: AnimatedBuilder(
-          animation: _animation,
-          builder: (BuildContext context, Widget? child) {
-            return Transform.scale(
-              scale: _animation.value,
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.7,
-                height: MediaQuery.of(context).size.height * 0.22,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                ),
-                child: SvgPicture.asset(SVGAssets.logo),
-              ),
-            );
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SvgPicture.asset(SVGAssets.logo),
+          ],
         ),
       ),
     );

@@ -12,4 +12,5 @@ class AppConstants {
 
   //ongoing event layout
   static const int ongoingEventLayoutSwitchDur = 500;
+
 }
