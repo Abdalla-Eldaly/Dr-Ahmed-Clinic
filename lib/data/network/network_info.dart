@@ -5,7 +5,7 @@ abstract class NetworkInfo {
 }
 
 class NetworkInfoImpl implements NetworkInfo {
-  final InternetConnection _internetConnectionChecker;
+  final InternetConnectionCheckerPlus _internetConnectionChecker;
 
   NetworkInfoImpl(this._internetConnectionChecker);
 
@@ -13,7 +13,7 @@ class NetworkInfoImpl implements NetworkInfo {
   Future<bool> get isConnected async {
     // return false;
     // if (Platform.isAndroid || Platform.isIOS) {
-    return await _internetConnectionChecker.hasInternetAccess;
+    return await _internetConnectionChecker.hasConnection;
     // } else {
     //   return Future(() => true);
     // }

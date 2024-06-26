@@ -26,7 +26,7 @@ Future<void> initAppModule() async {
   sl.registerLazySingleton<AppPrefs>(() => AppPrefsImpl(sharedPreferences));
 
   sl.registerLazySingleton<NetworkInfo>(
-      () => NetworkInfoImpl(InternetConnection()));
+      () => NetworkInfoImpl(InternetConnectionCheckerPlus()));
 
   // sl.registerLazySingleton<GSheetFactory>(() => GSheetFactoryImpl());
 
