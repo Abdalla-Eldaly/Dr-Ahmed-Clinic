@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3c97682f-8e3c-41f6-b613-13ab17c38042" name="Changes" comment="+ added login screen">
+      <change beforePath="$PROJECT_DIR$/lib/app/sl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/sl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/network/network_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/network/network_info.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/response/responses.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/response/responses.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/common/animated_widget/back_swivel_anim_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/common/animated_widget/fade_in_anim_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/common/animated_widget/shift_anim_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/common/animated_widget/shifted_fade_in_anim_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/common/animated_widget/swivel_anim_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/common/animated_widget/zoom_in_zoom_out_anim_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/common/freeze/freezed_data_class.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/common/freeze/freezed_data_class.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/resources/routes_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/resources/routes_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/splash_screen/view/splash_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/splash_screen/view/splash_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2iI3yDJVc5Fw2XouV6HXfP2ES1v" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Flutter.main.dart.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "master",
+    "io.flutter.reload.alreadyRun": "true",
+    "kotlin-language-version-configured": "true",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3c97682f-8e3c-41f6-b613-13ab17c38042" name="Changes" comment="" />
+      <created>1719164515528</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719164515528</updated>
+    </task>
+    <task id="LOCAL-00001" summary="+ added login screen">
+      <option name="closed" value="true" />
+      <created>1719214539646</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1719214539646</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="+ added login screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ added login screen" />
+  </component>
+</project>
