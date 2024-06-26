@@ -1,5 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../presentation/resources/strings_manager.dart';
@@ -26,7 +27,7 @@ enum DataSource {
   NO_INTERNET_CONNECTION,
   EMAIL_ALREADY_EXISTS,
   LOGIN_FAILED,
-  DEFAULT
+  DEFAULT, CONNECTION_ERROR, BAD_CERTIFICATE
 }
 
 class ResponseCode {
@@ -47,6 +48,7 @@ class ResponseCode {
   static const int NO_INTERNET_CONNECTION = -6;
   static const int EMAIL_ALREADY_EXISTS = -7;
   static const int LOGIN_FAILED = -8;
+  static const int CONNECTION_ERROR = -11;
   static const int DEFAULT = -10;
 }
 
@@ -75,6 +77,7 @@ class ResponseMessage {
   static const String EMAIL_ALREADY_EXISTS = AppStrings.emailAlreadyExists;
   static const String LOGIN_FAILED = AppStrings.loginFailed;
 
+  static const String CONNECTION_ERROR = "Connection Error";
   static const String DEFAULT = AppStrings.defaultError;
 }
 
@@ -119,6 +122,10 @@ extension DataSourceExtension on DataSource {
             ResponseMessage.LOGIN_FAILED);
       case DataSource.DEFAULT:
         return Failure(ResponseCode.DEFAULT, ResponseMessage.DEFAULT);
+      case DataSource.CONNECTION_ERROR:
+        return Failure(ResponseCode.CONNECTION_ERROR, ResponseMessage.CONNECTION_ERROR);
+      case DataSource.BAD_CERTIFICATE:
+        return Failure(ResponseCode.CONNECTION_ERROR, ResponseMessage.CONNECTION_ERROR);
     }
   }
 }
@@ -149,28 +156,43 @@ class ErrorHandler implements Exception {
     }
   }
 
-// Failure _handleError(DioError error) {
-// switch (error.type) {
+Failure _handleError(DioError error) {
+switch (error.type) {
 // case DioErrorType.connectTimeout:
 //   return DataSource.CONNECT_TIMEOUT.getFailure();
-//   case DioErrorType.sendTimeout:
-//     return DataSource.SEND_TIMEOUT.getFailure();
-//   case DioErrorType.receiveTimeout:
-//     return DataSource.RECIEVE_TIMEOUT.getFailure();
-//   case DioErrorType.response:
-//     if (error.response != null &&
-//         error.response?.statusCode != null &&
-//         error.response?.statusMessage != null) {
-//       return Failure(error.response?.statusCode ?? 0,
-//           error.response?.statusMessage ?? "");
-//     } else {
-//       return DataSource.DEFAULT.getFailure();
-//     }
-//   case DioErrorType.cancel:
-//     return DataSource.CANCEL.getFailure();
-//   case DioErrorType.other:
-//     return DataSource.DEFAULT.getFailure();
-// }
-//   return DataSource.DEFAULT.getFailure();
-// }
+  case DioErrorType.sendTimeout:
+    return DataSource.SEND_TIMEOUT.getFailure();
+  case DioErrorType.receiveTimeout:
+    return DataSource.RECIEVE_TIMEOUT.getFailure();
+  // case DioErrorType.response:
+  //   if (error.response != null &&
+  //       error.response?.statusCode != null &&
+  //       error.response?.statusMessage != null) {
+  //     return Failure(error.response?.statusCode ?? 0,
+  //         error.response?.statusMessage ?? "");
+  //   } else {
+  //     return DataSource.DEFAULT.getFailure();
+  //   }
+  case DioErrorType.cancel:
+    return DataSource.CANCEL.getFailure();
+  // case DioErrorType.other:
+  //   return DataSource.DEFAULT.getFailure();
+  case DioExceptionType.connectionTimeout:
+    return DataSource.CONNECT_TIMEOUT.getFailure();
+
+  case DioExceptionType.badCertificate:
+    return DataSource.BAD_CERTIFICATE.getFailure();
+  case DioExceptionType.badResponse:
+    return DataSource.BAD_REQUEST.getFailure();
+  case DioExceptionType.connectionError:
+    return DataSource.CONNECTION_ERROR.getFailure();
+  case DioExceptionType.unknown:
+    return DataSource.DEFAULT.getFailure();
+}
+  return DataSource.DEFAULT.getFailure();
+}
+}
+class AppInternalState {
+  static const int SUCCESS = 0;
+  static const int ERROR = 1;
 }

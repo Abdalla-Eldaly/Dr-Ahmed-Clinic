@@ -54,3 +54,16 @@ class AppLanguages {
     }
   }
 }
+extension LanguagesTypeExt on Languages{
+  String getValue(){
+
+    switch(this){
+      case Languages.ar:
+        return 'ar';
+      case Languages.en:
+        return 'en';
+      default:
+        return 'en';
+    }
+}
+}

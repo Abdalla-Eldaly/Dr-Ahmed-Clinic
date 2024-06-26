@@ -10,7 +10,6 @@ import '../data/data_source/cache_data_source.dart';
 import '../data/data_source/local_data_source.dart';
 import '../data/data_source/remote_data_source.dart';
 import '../data/data_source/runtime_data_source.dart';
-import '../data/network/app_api.dart';
 import '../data/network/app_prefs.dart';
 import '../data/network/assets_loader.dart';
 import '../data/network/dio_factory.dart';
@@ -32,11 +31,10 @@ Future<void> initAppModule() async {
   // sl.registerLazySingleton<GSheetFactory>(() => GSheetFactoryImpl());
 
   sl.registerLazySingleton<AssetsLoader>(() => AssetsLoaderImpl());
-  var dio = await DioFactory().getDio();
+  var dio = await DioFactory(sl()).getDio();
   sl.registerLazySingleton<Dio>(() => dio);
 
-  sl.registerLazySingleton<AppServiceClient>(() => AppServiceClientImpl(sl()));
-  sl.registerLazySingleton<RemoteDataSource>(() => RemoteDataSourceImpl(sl(), sl()));
+  sl.registerLazySingleton<RemoteDataSource>(() => RemoteDataSourceImpl(sl(), sl(),sl()));
   sl.registerLazySingleton<RuntimeDataSource>(() => RuntimeDataSourceImpl());
   sl.registerLazySingleton<CacheDataSource>(
     () => CacheDataSourceImpl(sl()),

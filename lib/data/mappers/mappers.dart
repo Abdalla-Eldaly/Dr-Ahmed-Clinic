@@ -1,32 +1,27 @@
-const fallbackString = "None";
-const fallbackInt = -1;
+import 'package:zag_nights/app/constants.dart';
+import 'package:zag_nights/app/extensions.dart';
+import 'package:zag_nights/domain/models/model.dart';
 
-int mapId(int? id) {
-  return id ?? -1;
+import '../response/responses.dart';
+
+extension CustomerResponseMapper on CustomerResponse? {
+  Customer toDomain() {
+    return Customer(
+        this?.id.orEmpty() ?? Constants.empty,
+        this?.name.orEmpty() ?? Constants.empty,
+        this?.numberOfNotification.orZero() ?? Constants.zero);
+  }
 }
 
-// extension NewsItemMapper on NewsItemResponse {
-//   Future<NewsItemModel> toDomain() async {
-//     return NewsItemModel(
-//       id: mapId(id),
-//       // img: mapImg('/news', img),
-//       img: mapNetworkImg(img),
-//       title: title ?? fallbackString,
-//       desc: desc ?? fallbackString,
-//     );
-//   }
-// }
-//
-// extension NewsListMapper on NewsListResponse {
-//   Future<NewsListModel> toDomain() async {
-//     List<NewsItemModel> list = [];
-//     if (news != null) {
-//       for (var item in news!) {
-//         if (item != null) list.add(await item.toDomain());
-//       }
-//     }
-//     return NewsListModel(
-//       news: list,
-//     );
-//   }
-// }
+extension ContactsResponseMapper on ContactsResponse? {
+  Contact toDomain() {
+    return Contact(this?.phone.orEmpty() ?? Constants.empty,
+        this?.email.orEmpty() ?? Constants.empty);
+  }
+}
+
+extension AuthenticationResponseMapper on AuthenticationResponse? {
+  Authentication toDomain() {
+    return Authentication(this?.customer.toDomain(), this?.contacts.toDomain());
+  }
+}

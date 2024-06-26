@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:zag_nights/presentation/onboarding_screen/view/onBoardingView.dart';
 import 'package:zag_nights/presentation/splash_screen/view/splash_view.dart';
 import '../../app/sl.dart';
 
+import '../splash_screen/view/widgets/splash_body.dart';
 import 'strings_manager.dart';
 
 class Routes {
@@ -22,7 +24,9 @@ class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.splashRoute:
-        return MaterialPageRoute(builder: (_) =>const SplashView());
+        return MaterialPageRoute(builder: (_) => SplashScreen());
+      case Routes.onboadingRoute:
+        return MaterialPageRoute(builder: (_) =>const OnBoardingView());
 
       default:
         return unDefinedRoute();

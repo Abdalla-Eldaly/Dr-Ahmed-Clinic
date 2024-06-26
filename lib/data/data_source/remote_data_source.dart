@@ -1,5 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:zag_nights/data/network/requests.dart';
+import 'package:zag_nights/data/response/responses.dart';
+
+import '../network/api.dart';
 
 abstract class RemoteDataSource {
   Future<bool> getAppStatus();
@@ -14,6 +18,8 @@ abstract class RemoteDataSource {
     required String job,
     required DateTime createdAt,
   });
+
+  Future<AuthenticationResponse> loginwithApi(LoginRequest loginRequest);
 
   Future<void> registerToAuth({
     required String email,
@@ -31,8 +37,9 @@ abstract class RemoteDataSource {
 class RemoteDataSourceImpl implements RemoteDataSource {
   final FirebaseFirestore _firestore;
   final FirebaseAuth _firebaseAuth;
+  final AppServicesClient _appServicesClient;
 
-  RemoteDataSourceImpl(this._firestore, this._firebaseAuth);
+  RemoteDataSourceImpl(this._firestore, this._firebaseAuth, this._appServicesClient);
 
   @override
   Future<bool> getAppStatus() async {
@@ -88,5 +95,10 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       email: email,
       password: password,
     );
+  }
+
+  @override
+  Future<AuthenticationResponse> loginwithApi(LoginRequest loginRequest)async {
+  return await _appServicesClient.login(loginRequest.email, loginRequest.password);
   }
 }

@@ -1,5 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:zag_nights/data/mappers/mappers.dart';
+import 'package:zag_nights/data/network/requests.dart';
+import 'package:zag_nights/domain/models/model.dart';
 
 import '../../domain/repository/repository.dart';
 import '../data_source/cache_data_source.dart';
@@ -93,28 +96,28 @@ class RepositoryImpl implements Repository {
     }
   }
 
-  @override
-  Future<Either<Failure, void>> login({
-    required String email,
-    required String password,
-  }) async {
-    try {
-      if (await _networkInfo.isConnected) {
-        void response;
-        await _remoteDataSource.login(
-          email: email,
-          password: password,
-        );
-        return Right(response);
-      } else {
-        return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
-      }
-    } on FirebaseAuthException {
-      return Left(DataSource.LOGIN_FAILED.getFailure());
-    } catch (e) {
-      return Left(ErrorHandler.handle(e).failure);
-    }
-  }
+  // @override
+  // Future<Either<Failure, void>> login({
+  //   required String email,
+  //   required String password,
+  // }) async {
+  //   try {
+  //     if (await _networkInfo.isConnected) {
+  //       void response;
+  //       await _remoteDataSource.login(
+  //         email: email,
+  //         password: password,
+  //       );
+  //       return Right(response);
+  //     } else {
+  //       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+  //     }
+  //   } on FirebaseAuthException {
+  //     return Left(DataSource.LOGIN_FAILED.getFailure());
+  //   } catch (e) {
+  //     return Left(ErrorHandler.handle(e).failure);
+  //   }
+  // }
 
   @override
   Future<Either<Failure, void>> logout() async {
@@ -125,6 +128,27 @@ class RepositoryImpl implements Repository {
     } catch (e) {
       return Left(ErrorHandler.handle(e).failure);
     }
+  }
+
+  @override
+  Future<Either<Failure, Authentication>> login(LoginRequest loginRequest)async {
+   if(await _networkInfo.isConnected){
+
+     try{
+       final response = await _remoteDataSource.loginwithApi(loginRequest);
+       if(response.status == AppInternalState.SUCCESS){
+         return Right(response.toDomain());
+
+       }else{
+         return Left(Failure(AppInternalState.ERROR, response.message ?? ResponseMessage.DEFAULT));
+       }
+     }catch(error){
+       return Left(ErrorHandler.handle(error).failure);
+     }
+
+   }else{
+     return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+   }
   }
 
 // @override

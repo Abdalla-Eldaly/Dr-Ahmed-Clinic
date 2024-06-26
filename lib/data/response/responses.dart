@@ -1,34 +1,62 @@
-part 'responses.g.dart';
+import 'package:json_annotation/json_annotation.dart';
+part 'responses.g.dart' ;
 
-// //Home Screen
-// @JsonSerializable()
-// class NewsItemResponse {
-//   @JsonKey(name: "id")
-//   int? id;
-//   @JsonKey(name: "title")
-//   String? title;
-//   @JsonKey(name: "description")
-//   String? desc;
-//   @JsonKey(name: "img")
-//   String? img;
-//
-//   factory NewsItemResponse.fromJson(Map<String, dynamic> json) =>
-//       _$NewsItemResponseFromJson(json);
-//
-//   NewsItemResponse(this.id, this.title, this.desc, this.img);
-//
-//   Map<String, dynamic> toJson() => _$NewsItemResponseToJson(this);
-// }
-//
-// @JsonSerializable()
-// class NewsListResponse {
-//   @JsonKey(name: "News")
-//   List<NewsItemResponse?>? news;
-//
-//   factory NewsListResponse.fromJson(Map<String, dynamic> json) =>
-//       _$NewsListResponseFromJson(json);
-//
-//   NewsListResponse(this.news);
-//
-//   Map<String, dynamic> toJson() => _$NewsListResponseToJson(this);
-// }
+
+@JsonSerializable()
+class BaseResponse {
+  @JsonKey(name: 'status')
+  int? status;
+
+  @JsonKey(name: 'message')
+  String? message;
+
+
+}
+
+@JsonSerializable()
+class CustomerResponse {
+  @JsonKey(name: 'id')
+  String? id;
+
+  @JsonKey(name: 'name')
+  String? name;
+
+  @JsonKey(name: 'email')
+  int? numberOfNotification;
+
+CustomerResponse(this.id,this.name,this.numberOfNotification);
+
+  factory CustomerResponse.fromJson(Map<String,dynamic>json) => _$CustomerResponseFromJson(json);
+
+  Map<String,dynamic> toJson() => _$CustomerResponseToJson(this);
+
+}
+
+@JsonSerializable()
+class ContactsResponse {
+  @JsonKey(name: 'phone')
+  String? phone;
+
+  @JsonKey(name: 'email')
+  String? email;
+
+  ContactsResponse(this.phone,this.email);
+  factory ContactsResponse.fromJson(Map<String,dynamic>json) => _$ContactsFromJson(json);
+
+  Map<String,dynamic> toJson() => _$ContactsToJson(this);
+}
+
+@JsonSerializable()
+class AuthenticationResponse extends BaseResponse{
+  @JsonKey(name: 'customer')
+  CustomerResponse? customer;
+
+  @JsonKey(name: 'contacts')
+  ContactsResponse? contacts;
+
+  AuthenticationResponse(this.customer,this.contacts);
+
+  factory AuthenticationResponse.fromJson(Map<String,dynamic>json) => _$AuthenticationResponseFromJson(json);
+
+  Map<String,dynamic> toJson() => _$AuthenticationResponseToJson(this);
+}
