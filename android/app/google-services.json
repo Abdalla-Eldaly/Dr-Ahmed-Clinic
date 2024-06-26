@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "533250368394",
+    "project_id": "dr-ahmed-clinic-d6e86",
+    "storage_bucket": "dr-ahmed-clinic-d6e86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533250368394:android:0a8ff4f5af83f4c2085e73",
+        "android_client_info": {
+          "package_name": "com.example.dr_ahmed_clinic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXkG8DCsAm6f43zyRvJcGorjYCrkp4YuM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
