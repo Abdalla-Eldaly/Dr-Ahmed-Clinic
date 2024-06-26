@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zag_nights/presentation/login_screen/login_screen_view/login_header.dart';
-import 'package:zag_nights/presentation/login_screen/login_screen_view/login_page_form.dart';
+import 'package:zag_nights/presentation/login_screen/view/widgets/login_header.dart';
+import 'package:zag_nights/presentation/login_screen/view/widgets/login_page_form.dart';
 
 class Login_View extends StatelessWidget {
   const Login_View({super.key});

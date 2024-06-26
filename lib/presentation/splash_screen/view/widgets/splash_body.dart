@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:zag_nights/presentation/login_screen/login_screen_view/login_screen_view.dart';
+import 'package:zag_nights/presentation/login_screen/view/login_screen_view.dart';
 import 'package:zag_nights/presentation/resources/assets_manager.dart';
 import 'package:zag_nights/presentation/resources/constants_manager.dart';// Adjust the import according to your project structure
 
