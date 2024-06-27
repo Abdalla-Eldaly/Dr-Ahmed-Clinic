@@ -23,16 +23,15 @@ class AppTextStyles {
   static TextStyle baseStatesElevatedBtnTextStyle(BuildContext? context) =>
       getBoldStyle(
         fontFamily: (context!.language == Languages.en)
-          ? FontConstants.english
-          : FontConstants.arabic,
+            ? FontConstants.english
+            : FontConstants.arabic,
         color: ColorManager.white,
         fontSize: FontSize.f14,
       );
 
   //Main
 
-  static TextStyle appButtonTextStyle(BuildContext? context) =>
-      getRegularStyle(
+  static TextStyle appButtonTextStyle(BuildContext? context) => getRegularStyle(
         fontFamily: (context!.language == Languages.en)
             ? FontConstants.english
             : FontConstants.arabic,
@@ -51,7 +50,8 @@ class AppTextStyles {
         fontSize: FontSize.f20,
       );
 
-  static TextStyle selectionScreenRegisterButtonTextStyle(BuildContext? context) =>
+  static TextStyle selectionScreenRegisterButtonTextStyle(
+          BuildContext? context) =>
       getRegularStyle(
         fontFamily: (context!.language == Languages.en)
             ? FontConstants.english
@@ -80,33 +80,29 @@ class AppTextStyles {
         fontSize: FontSize.f18,
       );
 
-  static TextStyle authErrorTextStyle(BuildContext? context) =>
-      getBoldStyle(
+  static TextStyle authErrorTextStyle(BuildContext? context) => getBoldStyle(
+        fontFamily: (context!.language == Languages.en)
+            ? FontConstants.english
+            : FontConstants.arabic,
+        color: ColorManager.error,
+        fontSize: FontSize.f12,
+      );
+
+  static TextStyle authLabelTextStyle(BuildContext context) => getRegularStyle(
         fontFamily: (context!.language == Languages.en)
             ? FontConstants.english
             : FontConstants.arabic,
         color: ColorManager.secondary,
-        fontSize: FontSize.f20,
+        fontSize: FontSize.f18,
       );
 
-
-
-  static TextStyle authLabelTextStyle(BuildContext context) => getRegularStyle(
-    fontFamily: (context!.language == Languages.en)
-        ? FontConstants.english
-        : FontConstants.arabic,
-    color: ColorManager.white,
-    fontSize: FontSize.f18,
-  );
-
   static TextStyle authHintTextStyle(BuildContext context) => getRegularStyle(
-    fontFamily: (context!.language == Languages.en)
-        ? FontConstants.english
-        : FontConstants.arabic,
-    color: ColorManager.white,
-    fontSize: FontSize.f18,
-  );
-
+        fontFamily: (context!.language == Languages.en)
+            ? FontConstants.english
+            : FontConstants.arabic,
+        color: ColorManager.tertiary,
+        fontSize: FontSize.f16,
+      );
 
   //Login Screen
 
@@ -130,7 +126,8 @@ class AppTextStyles {
         fontSize: FontSize.f48,
       );
 
-  static TextStyle registerDetailsPageGenderTextStyle(BuildContext? context, Color color) =>
+  static TextStyle registerDetailsPageGenderTextStyle(
+          BuildContext? context, Color color) =>
       getBoldStyle(
         fontFamily: (context!.language == Languages.en)
             ? FontConstants.english
@@ -166,5 +163,4 @@ class AppTextStyles {
         color: ColorManager.tertiary,
         fontSize: FontSize.f32,
       );
-
 }

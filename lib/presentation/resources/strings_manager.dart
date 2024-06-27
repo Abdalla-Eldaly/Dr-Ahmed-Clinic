@@ -47,6 +47,7 @@ class AppStrings {
   static const String loginScreenSuccessMessage = "loginScreenSuccessMessage";
   static const String loginScreenEmail = "loginScreenEmail";
   static const String loginScreenPassword = "loginScreenPassword";
+  static const String loginScreenForgetPassword = "loginScreenForgetPassword";
 
   //Register Name Page
   static const String registerNamePageTitle = "registerNamePageTitle";

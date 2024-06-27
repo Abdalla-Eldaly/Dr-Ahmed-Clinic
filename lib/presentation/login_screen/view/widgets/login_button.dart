@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:zag_nights/presentation/resources/strings_manager.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({
@@ -14,7 +16,7 @@ class LoginButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: onPressed,
-        child: const Text('Login'),
+        child:  Text(AppStrings.loginScreenLoginButton.tr()),
       ),
     );
   }

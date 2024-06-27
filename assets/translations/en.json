@@ -4,6 +4,8 @@
 
   "loginScreenEmailHint": "type your Email",
   "loginScreenPasswordHint": "type your Password",
+  "loginScreenForgetPassword": "Forget Password?",
+  "loginScreenLoginButton": "Login",
 
 
 
