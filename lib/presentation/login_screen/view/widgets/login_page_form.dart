@@ -5,47 +5,38 @@ import 'package:zag_nights/presentation/login_screen/view/widgets/login_button.d
 import 'package:zag_nights/presentation/resources/strings_manager.dart';
 import 'package:zag_nights/presentation/resources/values_manager.dart';
 
-class LoginPageForm extends StatefulWidget {
+import '../../../common/widget/main_text_field.dart';
+
+class LoginPageForm extends StatelessWidget {
   const LoginPageForm({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+    required this.onPressed,
+    required this.email_controller,
+    required this.password_controller,
+  });
 
-  @override
-  State<LoginPageForm> createState() => _LoginPageFormState();
-}
+  static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final void Function() onPressed;
+  final TextEditingController email_controller;
+  final TextEditingController password_controller;
 
-class _LoginPageFormState extends State<LoginPageForm> {
-  final _key = GlobalKey<FormState>();
-
-  bool isPasswordShown = false;
-
-  void onPassShowClicked() {
-    isPasswordShown = !isPasswordShown;
-    setState(() {});
-  }
-
-  void onLogin() {
-    final bool isFormOkay = _key.currentState?.validate() ?? false;
-    if (isFormOkay) {
-      // Handle login
-    }
-  }
+  static final FocusNode emailFocusNode = FocusNode();
+  static final FocusNode passwordFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(AppPadding.p14),
       child: Form(
-        key: _key,
+        key: _formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            // Email Field
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Text(AppStrings.loginScreenLoginButton.tr()),
-                const SizedBox(height: 8),
+                Text(AppStrings.loginScreenLoginButton.tr()),
+                const SizedBox(height: AppSize.s8),
                 TextFormField(
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
@@ -53,32 +44,37 @@ class _LoginPageFormState extends State<LoginPageForm> {
                 ),
               ],
             ),
-            const SizedBox(height: AppPadding.p14),
+            const SizedBox(height: AppSize.s8),
 
             // Password Field
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text("Password"),
-                const SizedBox(height: 8),
-                TextFormField(
-                  onFieldSubmitted: (v) => onLogin(),
-                  textInputAction: TextInputAction.done,
-                  obscureText: !isPasswordShown,
-                  decoration: InputDecoration(
-                    suffixIcon: IconButton(
-                      onPressed: onPassShowClicked,
-                      icon: Icon(
-                        isPasswordShown ? Icons.visibility : Icons.visibility_off,
-                      ),
-                    ),
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your password';
-                    }
-                    return null;
-                  },
+                const SizedBox(height: AppSize.s8),
+                MainTextField(
+                  maxLines: 1,
+                  controller: email_controller,
+                  focusNode: emailFocusNode,
+                  nextFocus: passwordFocusNode,
+                  validation: AppValidators.validateLogin,
+                  label: AppStrings.loginScreenEmailLabel.tr(),
+                  isObscured: false,
+                  hint: AppStrings.loginScreenEmailHint.tr(),
+                  textInputType: TextInputType.emailAddress,
+                ),
+                const SizedBox(height: AppSize.s20),
+
+                MainTextField(
+                  maxLines: 1,
+                  controller: password_controller,
+                  focusNode: passwordFocusNode,
+                  validation: AppValidators.validateLogin,
+                  label: AppStrings.loginScreenPasswordLabel.tr(),
+                  isObscured: true,
+                  hint: AppStrings.loginScreenPasswordHint.tr(),
+                  iconData: Icons.remove_red_eye_outlined,
+                  textInputType: TextInputType.text,
                 ),
               ],
             ),
@@ -93,7 +89,7 @@ class _LoginPageFormState extends State<LoginPageForm> {
             ),
 
             // Login Button
-            LoginButton(onPressed: onLogin),
+            LoginButton(onPressed: onPressed),
           ],
         ),
       ),

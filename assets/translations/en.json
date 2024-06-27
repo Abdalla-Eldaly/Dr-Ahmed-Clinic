@@ -1,5 +1,9 @@
 {
 "loginScreenEmail": "Email",
+"loginScreenPassword": "Password",
+
+  "loginScreenEmailHint": "type your Email",
+  "loginScreenPasswordHint": "type your Password",
 
 
 

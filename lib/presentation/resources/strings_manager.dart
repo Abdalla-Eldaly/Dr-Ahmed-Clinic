@@ -6,6 +6,8 @@ class AppStrings {
 
   // login
   static const String userName = "userName";
+  static const String loginScreenPasswordHint = "loginScreenPasswordHint";
+  static const String loginScreenEmailHint = "loginScreenEmailHint";
 
 
 
@@ -44,6 +46,7 @@ class AppStrings {
   static const String loginScreenLoginButton = "loginScreenLoginButton";
   static const String loginScreenSuccessMessage = "loginScreenSuccessMessage";
   static const String loginScreenEmail = "loginScreenEmail";
+  static const String loginScreenPassword = "loginScreenPassword";
 
   //Register Name Page
   static const String registerNamePageTitle = "registerNamePageTitle";

@@ -80,6 +80,34 @@ class AppTextStyles {
         fontSize: FontSize.f18,
       );
 
+  static TextStyle authErrorTextStyle(BuildContext? context) =>
+      getBoldStyle(
+        fontFamily: (context!.language == Languages.en)
+            ? FontConstants.english
+            : FontConstants.arabic,
+        color: ColorManager.secondary,
+        fontSize: FontSize.f20,
+      );
+
+
+
+  static TextStyle authLabelTextStyle(BuildContext context) => getRegularStyle(
+    fontFamily: (context!.language == Languages.en)
+        ? FontConstants.english
+        : FontConstants.arabic,
+    color: ColorManager.white,
+    fontSize: FontSize.f18,
+  );
+
+  static TextStyle authHintTextStyle(BuildContext context) => getRegularStyle(
+    fontFamily: (context!.language == Languages.en)
+        ? FontConstants.english
+        : FontConstants.arabic,
+    color: ColorManager.white,
+    fontSize: FontSize.f18,
+  );
+
+
   //Login Screen
 
   static TextStyle loginScreenLoginButtonTextStyle(BuildContext? context) =>

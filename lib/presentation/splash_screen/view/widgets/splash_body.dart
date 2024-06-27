@@ -32,7 +32,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void goNext() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const Login_View()),
+      MaterialPageRoute(builder: (context) => const LoginScreen()),
     );
   }
 

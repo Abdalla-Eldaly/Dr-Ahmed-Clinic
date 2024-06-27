@@ -1,7 +1,9 @@
 {
 
   "loginScreenEmail": "البريد الالكتروني",
-
+  "loginScreenPassword": "الرقم السري",
+  "loginScreenEmailHint": "ادخل البريد الالكتروني",
+  "loginScreenPasswordHint": "ادخل الرقم السري",
 
 
 
