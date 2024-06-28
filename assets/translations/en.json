@@ -20,6 +20,7 @@
   "loginScreenCreatePassword" : "Don't have account? Create Account",
   "loginUserNameScreenEmail" : "Name",
   "loginUserNameHintScreenEmail" : "Enter your name",
+  "loginScreenPasswordConfirmationHint" : "password confirmation",
 
 
 

@@ -72,7 +72,19 @@ class AppValidators {
     }
   }
 
+
   static String? validateConfirmPassword(String? val, String? password) {
+    if (val == null || val.isEmpty) {
+      return AppStrings.validationsFieldRequired.tr();
+    } else if (val != password) {
+      return AppStrings.validationsEnterTheSamePassword.tr();
+    } else {
+      return null;
+    }
+  }
+}
+
+   String? validateConfirmPassword(String? val, String? password) {
     if (val == null || val.isEmpty) {
       return AppStrings.validationsFieldRequired.tr();
     } else if (val != password) {
@@ -93,4 +105,4 @@ class AppValidators {
   //     return null;
   //   }
   // }
-}
+

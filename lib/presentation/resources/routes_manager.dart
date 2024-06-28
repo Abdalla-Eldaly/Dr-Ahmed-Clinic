@@ -41,7 +41,7 @@ class RouteGenerator {
 
 
       case Routes.registerRoute:
-
+        initRegisterUseCase();
         return MaterialPageRoute(builder: (_) =>const RegisterScreen());
 
       case Routes.mainLayoutRoute:

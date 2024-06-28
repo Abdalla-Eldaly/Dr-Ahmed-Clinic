@@ -7,6 +7,7 @@ class AppStrings {
   // login
   static const String userName = "userName";
   static const String loginScreenPasswordHint = "loginScreenPasswordHint";
+  static const String loginScreenPasswordConfirmationHint = "loginScreenPasswordConfirmationHint";
   static const String loginScreenEmailHint = "loginScreenEmailHint";
 
 

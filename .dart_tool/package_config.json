@@ -722,6 +722,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "sprintf",
+      "rootUri": "file:///C:/Users/abdallah/AppData/Local/Pub/Cache/hosted/pub.dev/sprintf-7.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "stack_trace",
       "rootUri": "file:///C:/Users/abdallah/AppData/Local/Pub/Cache/hosted/pub.dev/stack_trace-1.11.1",
       "packageUri": "lib/",
@@ -824,6 +830,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "uuid",
+      "rootUri": "file:///C:/Users/abdallah/AppData/Local/Pub/Cache/hosted/pub.dev/uuid-4.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "vector_graphics",
       "rootUri": "file:///C:/Users/abdallah/AppData/Local/Pub/Cache/hosted/pub.dev/vector_graphics-1.1.11+1",
       "packageUri": "lib/",
@@ -902,7 +914,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-06-28T16:43:32.927675Z",
+  "generated": "2024-06-28T19:08:26.797565Z",
   "generator": "pub",
   "generatorVersion": "3.3.4"
 }

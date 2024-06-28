@@ -21,6 +21,7 @@ import '../domain/repository/repository.dart';
 
 import '../domain/usecase/login_usecase.dart';
 
+import '../domain/usecase/register_usecase.dart';
 import 'date_ntp.dart';
 
 final sl = GetIt.instance;
@@ -67,6 +68,11 @@ Future<void> initAppModule() async {
 void initLoginUseCase() {
   if (GetIt.instance.isRegistered<LoginUseCase>() == false) {
     sl.registerFactory<LoginUseCase>(() => LoginUseCase(sl()));
+  }
+}
+void initRegisterUseCase() {
+  if (GetIt.instance.isRegistered<RegisteruseCase>() == false) {
+    sl.registerFactory<RegisteruseCase>(() => RegisteruseCase(sl()));
   }
 }
 
