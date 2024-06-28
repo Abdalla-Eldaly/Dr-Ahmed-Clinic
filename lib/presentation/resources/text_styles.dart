@@ -10,157 +10,162 @@ class AppTextStyles {
   AppTextStyles._();
 
   //Base States
-
-  static TextStyle baseStatesMessageTextStyle(BuildContext? context) =>
+  static TextStyle baseStatesMessageTextStyle(BuildContext context,
+      [Color? textColor]) =>
       getBoldStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.tertiary,
-        fontSize: FontSize.f20,
+        fontFamily: AppLanguages.getPrimaryFont(context),
+        color: textColor ?? ColorManager.white,
+        fontSize: FontSize.f22,
       );
 
-  static TextStyle baseStatesElevatedBtnTextStyle(BuildContext? context) =>
+  static TextStyle baseStatesElevatedBtnTextStyle(BuildContext context) =>
       getBoldStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
+        fontFamily: AppLanguages.getPrimaryFont(context),
         color: ColorManager.white,
         fontSize: FontSize.f14,
       );
 
-  //Main
+  ///Splash Text Styles
 
-  static TextStyle appButtonTextStyle(BuildContext? context) => getRegularStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.white,
-        fontSize: FontSize.f20,
-      );
+  // static TextStyle splashScreenTitleTextStyle(BuildContext context) =>
+  //     getBoldStyle(
+  //       fontFamily: AppLanguages.getPrimaryFont(context),
+  //       color: ColorManager.lightGrey,
+  //       fontSize: FontSize.f32,
+  //     );
+  //
+  // static TextStyle splashScreenSubTitleTextStyle(BuildContext context) =>
+  //     getLightStyle(
+  //       fontFamily: AppLanguages.getPrimaryFont(context),
+  //       color: ColorManager.offwhite.withOpacity(.6),
+  //       fontSize: FontSize.f18,
+  //     );
 
-  //Selection Screen
+  ///onBoarding Text Styles
 
-  static TextStyle selectionScreenLoginButtonTextStyle(BuildContext? context) =>
-      getRegularStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.white,
-        fontSize: FontSize.f20,
-      );
+  // static TextStyle onBoardingTextStyle(BuildContext context) => getLightStyle(
+  //   fontFamily: AppLanguages.getPrimaryFont(context),
+  //   color: ColorManager.offwhite.withOpacity(.6),
+  //   fontSize: FontSize.f24,
+  // );
+  //
+  // static TextStyle onBoardingButtonTextStyle(BuildContext context) =>
+  //     getBoldStyle(
+  //       fontFamily: AppLanguages.getPrimaryFont(context),
+  //       color: ColorManager.primary,
+  //       fontSize: FontSize.f30,
+  //     );
 
-  static TextStyle selectionScreenRegisterButtonTextStyle(
-          BuildContext? context) =>
-      getRegularStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.white,
-        fontSize: FontSize.f20,
-      );
+  ///Selection Text Styles
 
-  //Text Fields
+  // static TextStyle selectionTitleTextStyle(BuildContext context) =>
+  //     getBoldStyle(
+  //       fontFamily: AppLanguages.getPrimaryFont(context),
+  //       color: ColorManager.lightGrey,
+  //       fontSize: FontSize.f35,
+  //     );
+  //
+  // static TextStyle selectionSubTitleTextStyle(BuildContext context) =>
+  //     getLightStyle(
+  //       fontFamily: AppLanguages.getPrimaryFont(context),
+  //       color: ColorManager.offwhite.withOpacity(.6),
+  //       fontSize: FontSize.f24,
+  //     );
+  //
+  // static TextStyle selectionOptionTextStyle(BuildContext context) =>
+  //     getBoldStyle(
+  //       fontFamily: AppLanguages.getPrimaryFont(context),
+  //       color: ColorManager.primary,
+  //       fontSize: FontSize.f30,
+  //     );
 
-  static TextStyle textFieldLabelTextStyle(BuildContext? context) =>
-      getMediumStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.white,
-        fontSize: FontSize.f18,
-      );
-
-  static TextStyle textFieldValueTextStyle(BuildContext? context) =>
-      getRegularStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.white,
-        fontSize: FontSize.f18,
-      );
-
-  static TextStyle authErrorTextStyle(BuildContext? context) => getBoldStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.error,
-        fontSize: FontSize.f12,
-      );
-
+  /// Auth Text Style
+  //
   static TextStyle authLabelTextStyle(BuildContext context) => getRegularStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.secondary,
-        fontSize: FontSize.f18,
-      );
+    fontFamily: AppLanguages.getPrimaryFont(context),
+    color: ColorManager.black,
+    fontSize: FontSize.f16,
+  );
 
-  static TextStyle authHintTextStyle(BuildContext context) => getRegularStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.tertiary,
-        fontSize: FontSize.f16,
-      );
+  static TextStyle authHintTextStyle(BuildContext context) => getLightStyle(
+    fontFamily: AppLanguages.getPrimaryFont(context),
+    color: ColorManager.tertiary.withOpacity(.6),
+    fontSize: FontSize.f17,
+  );
 
-  //Login Screen
+  static TextStyle createAccountTextStyle(BuildContext context) => getRegularStyle(
+    fontFamily: AppLanguages.getPrimaryFont(context),
+    color: ColorManager.black.withOpacity(.7),
+    fontSize: FontSize.f15,
+  );
 
-  static TextStyle loginScreenLoginButtonTextStyle(BuildContext? context) =>
+  static TextStyle authErrorTextStyle(BuildContext context) => getRegularStyle(
+    fontFamily: AppLanguages.getPrimaryFont(context),
+    color: ColorManager.error,
+    fontSize: FontSize.f14,
+  );
+
+  ///Login Text Styles
+
+  static TextStyle appButtonTextStyle(BuildContext context) => getBoldStyle(
+    fontFamily: AppLanguages.getPrimaryFont(context),
+    color: ColorManager.white,
+    fontSize: FontSize.f20,
+  );
+
+  // static TextStyle loginTitleTextStyle(BuildContext context) => getBoldStyle(
+  //   fontFamily: AppLanguages.getPrimaryFont(context),
+  //   color: ColorManager.lightGrey,
+  //   fontSize: FontSize.f24,
+  // );
+
+  ///Login Text Styles
+
+  // static TextStyle registerTitleTextStyle(BuildContext context) => getBoldStyle(
+  //   fontFamily: AppLanguages.getPrimaryFont(context),
+  //   color: ColorManager.lightGrey,
+  //   fontSize: FontSize.f24,
+  // );
+
+  static TextStyle registerDialogTitleTextStyle(BuildContext context) =>
       getRegularStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
+        fontFamily: AppLanguages.getPrimaryFont(context),
+        color: ColorManager.primary,
+        fontSize: FontSize.f30,
+      );
+
+  static TextStyle registerDialogItemTextStyle(BuildContext context) =>
+      getRegularStyle(
+        fontFamily: AppLanguages.getPrimaryFont(context),
+        color: ColorManager.primary,
+        fontSize: FontSize.f20,
+      );
+
+  ///Forgot Password Text Styles
+
+  static TextStyle forgotPasswordTitleTextStyle(BuildContext context) =>
+      getBoldStyle(
+        fontFamily: AppLanguages.getPrimaryFont(context),
+        color: ColorManager.primary,
+        fontSize: FontSize.f24,
+      );
+
+  static TextStyle forgotPasswordEmailValueTextStyle(BuildContext context) =>
+      getLightStyle(
+        fontFamily: AppLanguages.getPrimaryFont(context),
+        color: ColorManager.primary.withOpacity(.3),
+        fontSize: FontSize.f20,
+      );
+
+  static TextStyle forgotPasswordSendCodeTextStyle(BuildContext context) =>
+      getBoldStyle(
+        fontFamily: AppLanguages.getPrimaryFont(context),
         color: ColorManager.white,
-        fontSize: FontSize.f20,
+        fontSize: FontSize.f30,
       );
 
-  //Register Screen
 
-  static TextStyle registerPagesTitleTextStyle(BuildContext? context) =>
-      getBoldStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.tertiary,
-        fontSize: FontSize.f48,
-      );
 
-  static TextStyle registerDetailsPageGenderTextStyle(
-          BuildContext? context, Color color) =>
-      getBoldStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: color,
-        fontSize: FontSize.f20,
-      );
 
-  static TextStyle registerJobsDialogTitleTextStyle(BuildContext? context) =>
-      getExtraBoldStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.tertiary,
-        fontSize: FontSize.f20,
-      );
 
-  static TextStyle registerJobsDialogItemTextStyle(BuildContext? context) =>
-      getMediumStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.tertiary,
-        fontSize: FontSize.f16,
-      );
-
-  //Soon Screen
-  static TextStyle soonScreenTitleTextStyle(BuildContext? context) =>
-      getBoldStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.tertiary,
-        fontSize: FontSize.f32,
-      );
 }
