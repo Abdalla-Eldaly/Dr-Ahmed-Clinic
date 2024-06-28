@@ -46,15 +46,15 @@ class AppStrings {
   static const String loginScreenLoginButton = "loginScreenLoginButton";
   static const String loginScreenSuccessMessage = "loginScreenSuccessMessage";
   static const String loginScreenEmail = "loginScreenEmail";
+  static const String loginUserNameScreenEmail = "loginUserNameScreenEmail";
+  static const String loginUserNameHintScreenEmail = "loginUserNameHintScreenEmail";
   static const String loginScreenPassword = "loginScreenPassword";
   static const String loginScreenForgetPassword = "loginScreenForgetPassword";
   static const String loginScreenCreatePassword = "loginScreenCreatePassword";
 
   //Register Name Page
-  static const String registerNamePageTitle = "registerNamePageTitle";
-  static const String registerNamePageFirstNameLabel = "registerNamePageFirstNameLabel";
-  static const String registerNamePageLastNameLabel = "registerNamePageLastNameLabel";
-  static const String registerNamePageButton = "registerNamePageButton";
+  static const String registerBtn = "registerBtn";
+
 
   //Register Details Page
   static const String registerDetailsPageTitle = "registerDetailsPageTitle";

@@ -84,7 +84,7 @@ class AppTextStyles {
   static TextStyle authLabelTextStyle(BuildContext context) => getRegularStyle(
     fontFamily: AppLanguages.getPrimaryFont(context),
     color: ColorManager.black,
-    fontSize: FontSize.f16,
+    fontSize: FontSize.f14,
   );
 
   static TextStyle authHintTextStyle(BuildContext context) => getLightStyle(
@@ -110,7 +110,7 @@ class AppTextStyles {
   static TextStyle appButtonTextStyle(BuildContext context) => getBoldStyle(
     fontFamily: AppLanguages.getPrimaryFont(context),
     color: ColorManager.white,
-    fontSize: FontSize.f20,
+    fontSize: FontSize.f18,
   );
 
   // static TextStyle loginTitleTextStyle(BuildContext context) => getBoldStyle(

@@ -24,19 +24,20 @@ class LoginBody extends StatefulWidget {
 class _LoginBodyState extends State<LoginBody> {
   static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-
-   final FocusNode emailFocusNode = FocusNode();
-   final FocusNode passwordFocusNode = FocusNode();
+  final FocusNode emailFocusNode = FocusNode();
+  final FocusNode passwordFocusNode = FocusNode();
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: Center(
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const LoginPageHeader(),
-              SizedBox(height: BuildContextExt(context).minDim()*.12,),
+              SizedBox(
+                height: BuildContextExt(context).minDim() * .12,
+              ),
               Padding(
                 padding: const EdgeInsets.all(AppPadding.p14),
                 child: Form(
@@ -45,7 +46,6 @@ class _LoginBodyState extends State<LoginBody> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-
                       // Password Field
                       MainTextField(
                         maxLines: 1,
@@ -73,46 +73,52 @@ class _LoginBodyState extends State<LoginBody> {
                       ),
 
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: AppSize.s10),
+                        padding:
+                            const EdgeInsets.symmetric(vertical: AppSize.s10),
                         child: InkWell(
-                          onTap: () {
-
-                          },
-                          child: Text(AppStrings.loginScreenForgetPassword.tr(), style: const TextStyle(
-                            decoration: TextDecoration.underline,
-                            color: ColorManager.primary,
-
-                          ),),
+                          onTap: () {},
+                          child: Text(
+                            AppStrings.loginScreenForgetPassword.tr(),
+                            style: const TextStyle(
+                              decoration: TextDecoration.underline,
+                              color: ColorManager.primary,
+                            ),
+                          ),
                         ),
                       ),
 
-
-                       Center(
-                         child: SizedBox(
-                           child: AppButton(text: AppStrings.loginScreenLoginButton.tr(),onPressed: () {
-
-                           },),
-                         ),
-                       ),
-
+                      Center(
+                        child: SizedBox(
+                          child: AppButton(
+                            text: AppStrings.loginScreenLoginButton.tr(),
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                widget.viewModel.login();
+                              }
+                            },
+                          ),
+                        ),
+                      ),
 
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: AppSize.s10),
+                        padding:
+                            const EdgeInsets.symmetric(vertical: AppSize.s10),
                         child: InkWell(
                           onTap: () {
-                            Navigator.pushNamed(context, Routes.mainLayoutRoute);
+                            Navigator.pushNamed(
+                                context, Routes.registerRoute);
                           },
-                          child:  Text(AppStrings.loginScreenCreatePassword.tr(),style: AppTextStyles.createAccountTextStyle(context),),
+                          child: Text(
+                            AppStrings.loginScreenCreatePassword.tr(),
+                            style:
+                                AppTextStyles.createAccountTextStyle(context),
+                          ),
                         ),
                       ),
-
-
-
                     ],
                   ),
                 ),
               ),
-
             ],
           ),
         ),

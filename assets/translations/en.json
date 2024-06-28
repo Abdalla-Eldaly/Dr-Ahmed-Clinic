@@ -8,8 +8,12 @@
   "loginScreenLoginButton": "Login",
   "Forget Password?" : "Forget Password?",
   "loginScreenCreatePassword" : "Don't have account? Create Account",
+  "loginUserNameScreenEmail" : "Name",
+  "loginUserNameHintScreenEmail" : "Enter your name",
 
 
+
+  "registerBtn": "Register",
 
 
 

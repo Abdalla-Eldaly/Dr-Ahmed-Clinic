@@ -8,7 +8,14 @@
   "loginScreenLoginButton": "تسجيل الدخول",
   "Forget Password?" : "هل نسيت كلمة المرور ؟",
   "loginScreenCreatePassword" : "ليس لديك حساب؟ إنشاء حساب",
+  "loginUserNameScreenEmail" : "الاسم",
+  "loginUserNameHintScreenEmail" : "ادخل اسم",
 
+
+
+
+
+  "registerBtn": "تسجيل دخول",
 
 
 
