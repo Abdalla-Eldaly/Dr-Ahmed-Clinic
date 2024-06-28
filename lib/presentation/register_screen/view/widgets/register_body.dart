@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:zag_nights/presentation/common/widget/app_button.dart';
 import 'package:zag_nights/presentation/common/widget/main_text_field.dart';
-import 'package:zag_nights/presentation/register_screen/view/widgets/sign_up_button.dart';
 import 'package:zag_nights/presentation/register_screen/view/widgets/sign_up_page_header.dart';
 import 'package:zag_nights/presentation/resources/strings_manager.dart';
-import 'package:zag_nights/presentation/resources/text_styles.dart';
-
 import '../../../../app/App_Defults.dart';
 import '../../../common/validators/validators.dart';
 import '../../../resources/values_manager.dart';
