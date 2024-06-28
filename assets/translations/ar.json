@@ -4,6 +4,8 @@
   "loginScreenPassword": "الرقم السري",
   "loginScreenEmailHint": "ادخل البريد الالكتروني",
   "loginScreenPasswordHint": "ادخل الرقم السري",
+  "loginScreenForgetPassword": "هل نسيت كلمه المرور؟",
+  "loginScreenLoginButton": "تسجيل الدخول",
   "Forget Password?" : "هل نسيت كلمة المرور ؟",
 
 

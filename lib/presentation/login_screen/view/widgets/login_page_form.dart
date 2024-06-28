@@ -30,55 +30,44 @@ class LoginPageForm extends StatelessWidget {
       child: Form(
         key: _formKey,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(AppStrings.loginScreenLoginButton.tr()),
-                const SizedBox(height: AppSize.s8),
-                TextFormField(
-                  keyboardType: TextInputType.emailAddress,
-                  textInputAction: TextInputAction.next,
-                  validator: AppValidators.validateEmail,
-                ),
-              ],
-            ),
-            const SizedBox(height: AppSize.s8),
 
             // Password Field
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text("Password"),
-                const SizedBox(height: AppSize.s8),
-                MainTextField(
-                  maxLines: 1,
-                  controller: email_controller,
-                  focusNode: emailFocusNode,
-                  nextFocus: passwordFocusNode,
-                  validation: AppValidators.validateLogin,
-                  label: AppStrings.loginScreenEmailLabel.tr(),
-                  isObscured: false,
-                  hint: AppStrings.loginScreenEmailHint.tr(),
-                  textInputType: TextInputType.emailAddress,
-                ),
-                const SizedBox(height: AppSize.s20),
+            MainTextField(
+              maxLines: 1,
+              controller: email_controller,
+              focusNode: emailFocusNode,
+              nextFocus: passwordFocusNode,
+              validation: AppValidators.validateEmail,
+              label: AppStrings.loginScreenEmail.tr(),
+              isObscured: false,
+              hint: AppStrings.loginScreenEmailHint.tr(),
+              textInputType: TextInputType.emailAddress,
+            ),
+            const SizedBox(height: AppSize.s20),
 
-                MainTextField(
-                  maxLines: 1,
-                  controller: password_controller,
-                  focusNode: passwordFocusNode,
-                  validation: AppValidators.validateLogin,
-                  label: AppStrings.loginScreenPasswordLabel.tr(),
-                  isObscured: true,
-                  hint: AppStrings.loginScreenPasswordHint.tr(),
-                  iconData: Icons.remove_red_eye_outlined,
-                  textInputType: TextInputType.text,
-                ),
-              ],
+            MainTextField(
+              maxLines: 1,
+              controller: password_controller,
+              focusNode: passwordFocusNode,
+              validation: AppValidators.validatePassword,
+              label: AppStrings.loginScreenPassword.tr(),
+              isObscured: true,
+              hint: AppStrings.loginScreenPasswordHint.tr(),
+              iconData: Icons.remove_red_eye_outlined,
+              textInputType: TextInputType.text,
             ),
 
+            Row(
+              children: [
+                const Spacer(),
+                TextButton(
+                  onPressed: () {},
+                  child:  Text(AppStrings.loginScreenForgetPassword.tr()),
+                ),
+              ],
             // Forget Password label
             Align(
               alignment: Alignment.centerLeft,
@@ -89,7 +78,11 @@ class LoginPageForm extends StatelessWidget {
             ),
 
             // Login Button
-            LoginButton(onPressed: onPressed),
+            LoginButton(onPressed:() {
+              if (_formKey.currentState!.validate()) {
+                onPressed();
+              }
+            },),
           ],
         ),
       ),
