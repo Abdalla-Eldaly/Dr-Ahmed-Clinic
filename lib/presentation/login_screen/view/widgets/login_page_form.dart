@@ -69,20 +69,10 @@ class LoginPageForm extends StatelessWidget {
                 ),
               ],
             // Forget Password label
-            Align(
-              alignment: Alignment.centerLeft,
-              child: TextButton(
-                onPressed: () {},
-                child: const Text('Forget Password?'),
-              ),
-            ),
+
 
             // Login Button
-            LoginButton(onPressed:() {
-              if (_formKey.currentState!.validate()) {
-                onPressed();
-              }
-            },),
+            ),
           ],
         ),
       ),
