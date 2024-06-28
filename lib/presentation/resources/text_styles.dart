@@ -58,13 +58,13 @@ class AppTextStyles {
 
   ///Selection Text Styles
 
-  // static TextStyle selectionTitleTextStyle(BuildContext context) =>
-  //     getBoldStyle(
-  //       fontFamily: AppLanguages.getPrimaryFont(context),
-  //       color: ColorManager.lightGrey,
-  //       fontSize: FontSize.f35,
-  //     );
-  //
+  static TextStyle selectionTitleTextStyle(BuildContext context) =>
+      getBoldStyle(
+        fontFamily: AppLanguages.getPrimaryFont(context),
+        color: ColorManager.white,
+        fontSize: FontSize.f20,
+      );
+
   // static TextStyle selectionSubTitleTextStyle(BuildContext context) =>
   //     getLightStyle(
   //       fontFamily: AppLanguages.getPrimaryFont(context),

@@ -1,5 +1,10 @@
 {
 
+  "selectionScreenNurseButton": "ممرضة",
+  "selectionScreenDoctorButton": "الطبيب",
+
+
+
   "loginScreenEmail": "البريد الالكتروني",
   "loginScreenPassword": "الرقم السري",
   "loginScreenEmailHint": "ادخل البريد الالكتروني",

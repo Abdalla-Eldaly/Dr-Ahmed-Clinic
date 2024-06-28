@@ -36,8 +36,8 @@ class AppStrings {
   static const String cancel = "cancel";
 
   //Selection Screen
-  static const String selectionScreenLoginButton = "selectionScreenLoginButton";
-  static const String selectionScreenRegisterButton = "selectionScreenRegisterButton";
+  static const String selectionScreenDoctorButton = "selectionScreenDoctorButton";
+  static const String selectionScreenNurseButton = "selectionScreenNurseButton";
   static const String selectionScreenLanguageButton = "selectionScreenLanguageButton";
 
   //Login Screen

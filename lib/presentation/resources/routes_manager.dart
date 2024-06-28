@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:zag_nights/presentation/login_screen/view/login_screen_view.dart';
 import 'package:zag_nights/presentation/mainlayout_screen.dart';
+import 'package:zag_nights/presentation/selection_screen/view/selection_view.dart';
 import 'package:zag_nights/presentation/splash_screen/view/widgets/splash_body.dart';
 import '../../app/sl.dart';
 
@@ -27,7 +28,9 @@ class RouteGenerator {
     switch (settings.name) {
       // case Routes.splashRoute:
       //   return MaterialPageRoute(builder: (_) =>const SplashViewBody());
+      case Routes.selectionRoute:
 
+        return MaterialPageRoute(builder: (_) =>const SelectionScreen());
       case Routes.loginRoute:
         initLoginUseCase();
 

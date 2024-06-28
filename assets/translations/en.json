@@ -1,4 +1,14 @@
 {
+
+
+  "selectionScreenNuresButton": "Nurse",
+  "selectionScreenDoctorButton": "Doctor",
+
+
+
+
+
+
 "loginScreenEmail": "Email",
 "loginScreenPassword": "Password",
 
@@ -10,6 +20,9 @@
   "loginScreenCreatePassword" : "Don't have account? Create Account",
   "loginUserNameScreenEmail" : "Name",
   "loginUserNameHintScreenEmail" : "Enter your name",
+
+
+
 
 
 

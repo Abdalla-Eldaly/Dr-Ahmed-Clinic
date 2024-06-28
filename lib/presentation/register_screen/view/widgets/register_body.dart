@@ -17,7 +17,7 @@ class RegisterBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SignUpPageHeader(),
+        const SignUpPageHeader(),
         Container(
           margin: const EdgeInsets.all(AppMargin.m16),
           padding: const EdgeInsets.all(AppSize.s14),
@@ -37,9 +37,9 @@ class RegisterBody extends StatelessWidget {
                 // focusNode: emailFocusNode,
                 // nextFocus: passwordFocusNode,
                 validation: AppValidators.validateName,
-                label: AppStrings.loginScreenEmail.tr(),
+                label: AppStrings.loginUserNameScreenEmail.tr(),
                 isObscured: false,
-                textInputType: TextInputType.emailAddress,
+                textInputType: TextInputType.name,
               ),
               const SizedBox(height: AppSize.s20),
               MainTextField(
