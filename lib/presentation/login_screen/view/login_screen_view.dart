@@ -1,17 +1,10 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
-
-
 import '../../../app/sl.dart';
 import '../../base/base_states.dart';
 import '../../base/cubit_builder.dart';
 import '../../base/cubit_listener.dart';
-import '../../common/widget/main_app_bar.dart';
 import '../../resources/routes_manager.dart';
-import '../../resources/strings_manager.dart';
-import '../../resources/text_styles.dart';
 import '../viewmodel/login_viewmodel.dart';
 import 'widgets/login_body.dart';
 

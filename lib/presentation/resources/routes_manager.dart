@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:zag_nights/presentation/login_screen/view/login_screen_view.dart';
-import 'package:zag_nights/presentation/splash_screen/view/splash_view.dart';
+import 'package:zag_nights/presentation/sign_up/view/sign_up_page.dart';
 import 'package:zag_nights/presentation/splash_screen/view/widgets/splash_body.dart';
 import '../../app/sl.dart';
 
@@ -31,6 +31,11 @@ class RouteGenerator {
         initLoginUseCase();
 
         return MaterialPageRoute(builder: (_) =>const LoginScreen());
+
+      case Routes.registerRoute:
+        initLoginUseCase();
+
+        return MaterialPageRoute(builder: (_) =>const SignUpPage());
 
       default:
         return unDefinedRoute();

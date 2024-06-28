@@ -78,6 +78,7 @@ class AppStrings {
   static const String registerPasswordPagePasswordLabel = "registerPasswordPagePasswordLabel";
   static const String registerPasswordPageConfirmPasswordLabel = "registerPasswordPageConfirmPasswordLabel";
   static const String registerPasswordPageButton = "registerPasswordPageButton";
+  static const String registerScreenPasswordHint = "registerScreenPasswordHint";
 
   //Register Layout
   static const String registerLayoutSuccessMessage = "registerLayoutSuccessMessage";
