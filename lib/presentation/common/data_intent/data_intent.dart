@@ -24,6 +24,10 @@ class DataIntent {
 
   static User? _fireAuthUser;
 
+  static UserModel getUser() {
+    return _user!;
+  }
+
   static User? getFireAuthUser() {
     return _fireAuthUser;
   }

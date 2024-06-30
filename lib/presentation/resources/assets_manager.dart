@@ -5,7 +5,7 @@ class ImageAssets {
 
   static const String logoDark = "${_basePath}logo_dark.png";
   static const String logoLight = "${_basePath}logo_light.png";
-  static const String background = "${_basePath}background.jpg";
+  static const String background = "${_basePath}Screenshot (109).png";
 }
 
 class IconsAssets {

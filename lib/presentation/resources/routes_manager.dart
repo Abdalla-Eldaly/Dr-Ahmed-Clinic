@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:zag_nights/presentation/login_screen/view/login_screen_view.dart';
 import 'package:zag_nights/presentation/mainlayout_screen.dart';
+import 'package:zag_nights/presentation/onboarding_screen/view/onBoardingView.dart';
 import 'package:zag_nights/presentation/selection_screen/view/selection_view.dart';
-import 'package:zag_nights/presentation/splash_screen/view/widgets/splash_body.dart';
+import 'package:zag_nights/presentation/splash_screen/view/splash_view.dart';
 import '../../app/sl.dart';
 
 import '../register_screen/view/sign_up_page.dart';
@@ -26,11 +27,14 @@ class RouteGenerator {
 
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
-      // case Routes.splashRoute:
-      //   return MaterialPageRoute(builder: (_) =>const SplashViewBody());
-      case Routes.selectionRoute:
+      case Routes.splashRoute:
+        initGetSignedUserUseCase();
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
 
-        return MaterialPageRoute(builder: (_) =>const SelectionScreen());
+      case Routes.onBoardingRoute:
+        return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
+      case Routes.selectionRoute:
+        return MaterialPageRoute(builder: (_) => const SelectionScreen());
       case Routes.loginRoute:
         initLoginUseCase();
         initPasswordResetUseCase();
@@ -39,14 +43,12 @@ class RouteGenerator {
           builder: (_) => const LoginScreen(),
         );
 
-
       case Routes.registerRoute:
         initRegisterUseCase();
-        return MaterialPageRoute(builder: (_) =>const RegisterScreen());
+        return MaterialPageRoute(builder: (_) => const RegisterScreen());
 
       case Routes.mainLayoutRoute:
-
-        return MaterialPageRoute(builder: (_) =>const MainLayOut());
+        return MaterialPageRoute(builder: (_) => const MainLayOut());
 
       default:
         return unDefinedRoute();

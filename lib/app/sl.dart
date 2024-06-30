@@ -19,6 +19,7 @@ import '../data/network/network_info.dart';
 import '../data/repository/repository_impl.dart';
 import '../domain/repository/repository.dart';
 
+import '../domain/usecase/get_signeduser_usecase.dart';
 import '../domain/usecase/login_usecase.dart';
 
 import '../domain/usecase/register_usecase.dart';
@@ -79,5 +80,10 @@ void initRegisterUseCase() {
 void initPasswordResetUseCase() {
   if (GetIt.instance.isRegistered<ResetPasswordUseCase>() == false) {
     sl.registerFactory<ResetPasswordUseCase>(() => ResetPasswordUseCase(sl()));
+  }
+}
+void initGetSignedUserUseCase() {
+  if (GetIt.instance.isRegistered<GetSignedUserUseCase>() == false) {
+    sl.registerFactory<GetSignedUserUseCase>(() => GetSignedUserUseCase(sl()));
   }
 }

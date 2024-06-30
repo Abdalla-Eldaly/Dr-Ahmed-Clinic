@@ -17,5 +17,6 @@ Future<Either<Failure, void>> register({
   required UserRole userType,
 });
 
+Future<Either<Failure, User?>> fetchCurrentUser();
 
 }
