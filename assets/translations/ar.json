@@ -16,6 +16,8 @@
   "loginUserNameScreenEmail" : "الاسم",
   "loginUserNameHintScreenEmail" : "ادخل اسم",
   "loginScreenPasswordConfirmationHint" : "تأكيد كلمة المرور",
+  "loginScreenHaveAccount" : "هل لديك حساب بالفعل؟ تسجيل الدخول",
+  "loginScreenSendCode" : "إرسال الرمز",
 
 
 

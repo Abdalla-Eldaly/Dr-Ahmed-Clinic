@@ -4,14 +4,18 @@ import 'package:zag_nights/domain/usecase/login_usecase.dart';
 import 'package:zag_nights/presentation/base/base_cubit.dart';
 import 'package:zag_nights/presentation/base/base_states.dart';
 
+import '../../../domain/usecase/resetPassword_usecase.dart';
+import '../states/login_states.dart';
+
 class LoginViewModel extends BaseCubit
     implements LoginViewModelInput, LoginViewModelOutput {
   static LoginViewModel get(BuildContext context) =>
       BlocProvider.of<LoginViewModel>(context);
 
   final LoginUseCase _loginUseCase;
+  final ResetPasswordUseCase _resetPasswordUseCase;
 
-  LoginViewModel(this._loginUseCase);
+  LoginViewModel(this._loginUseCase, this._resetPasswordUseCase);
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -32,6 +36,17 @@ class LoginViewModel extends BaseCubit
       emit(ErrorState(failure: l, displayType: DisplayType.popUpDialog));
     }, (r) => emit(SuccessState('Login Successfully')));
   }
+
+
+  Future<void> resetPassword() async {
+    emit(LoadingState(displayType: DisplayType.popUpDialog));
+    (await _resetPasswordUseCase(
+        ResetPasswordUseCaseInput(_emailController.text)))
+        .fold((l) {
+      emit(ErrorState(failure: l, displayType: DisplayType.popUpDialog));
+    }, (r) => emit(ResetPasswordState()));
+  }
+
 }
 
 abstract class LoginViewModelInput {}

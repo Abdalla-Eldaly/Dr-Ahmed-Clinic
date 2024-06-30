@@ -52,6 +52,9 @@ class AppStrings {
   static const String loginScreenPassword = "loginScreenPassword";
   static const String loginScreenForgetPassword = "loginScreenForgetPassword";
   static const String loginScreenCreatePassword = "loginScreenCreatePassword";
+  static const String loginScreenHaveAccount = "loginScreenHaveAccount";
+  static const String loginScreenForgetPasswordHint = "Re****@gmail.com";
+  static const String loginScreenSendCode= "loginScreenSendCode";
 
   //Register Name Page
   static const String registerBtn = "registerBtn";

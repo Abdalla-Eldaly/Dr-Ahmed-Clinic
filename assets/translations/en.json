@@ -21,6 +21,8 @@
   "loginUserNameScreenEmail" : "Name",
   "loginUserNameHintScreenEmail" : "Enter your name",
   "loginScreenPasswordConfirmationHint" : "password confirmation",
+  "loginScreenHaveAccount" : "Already have an account? Login",
+  "loginScreenSendCode" : "Send Code",
 
 
 

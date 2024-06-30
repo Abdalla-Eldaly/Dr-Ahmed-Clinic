@@ -33,7 +33,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) =>const SelectionScreen());
       case Routes.loginRoute:
         initLoginUseCase();
-
+        initPasswordResetUseCase();
         return MaterialPageRoute(
           settings: RouteSettings(name: settings.name),
           builder: (_) => const LoginScreen(),

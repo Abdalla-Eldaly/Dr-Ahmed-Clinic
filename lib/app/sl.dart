@@ -22,6 +22,7 @@ import '../domain/repository/repository.dart';
 import '../domain/usecase/login_usecase.dart';
 
 import '../domain/usecase/register_usecase.dart';
+import '../domain/usecase/resetPassword_usecase.dart';
 import 'date_ntp.dart';
 
 final sl = GetIt.instance;
@@ -75,7 +76,8 @@ void initRegisterUseCase() {
     sl.registerFactory<RegisteruseCase>(() => RegisteruseCase(sl()));
   }
 }
-
-
-
-
+void initPasswordResetUseCase() {
+  if (GetIt.instance.isRegistered<ResetPasswordUseCase>() == false) {
+    sl.registerFactory<ResetPasswordUseCase>(() => ResetPasswordUseCase(sl()));
+  }
+}

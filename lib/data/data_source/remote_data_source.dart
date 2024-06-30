@@ -11,6 +11,10 @@ abstract class RemoteDataSource {
     required LoginRequest loginRequest,
   });
 
+  Future<void> resetPassword({
+    required String email,
+});
+
   Future<void> saveDoctorToDataBase({
    required String id,
    required String name,
@@ -102,5 +106,10 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       },
     );
     return user;
+  }
+
+  @override
+  Future<void> resetPassword({required String email}) async{
+   await _firebaseAuth.sendPasswordResetEmail(email: email);
   }
 }

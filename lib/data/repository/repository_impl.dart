@@ -41,7 +41,8 @@ class RepositoryImpl implements Repository {
     try {
       if (await _networkInfo.isConnected) {
         void response;
-        await _remoteDataSource.login(loginRequest: LoginRequest(email, password));
+        await _remoteDataSource.login(
+            loginRequest: LoginRequest(email, password));
         return Right(response);
       } else {
         return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
@@ -58,17 +59,17 @@ class RepositoryImpl implements Repository {
     required String username,
     required String email,
     required String? password,
-
     required UserRole userType,
   }) async {
     try {
       if (await _networkInfo.isConnected) {
         String uuid = _uuidGenerator.v1();
         if (userType == UserRole.doctor) {
-          await _remoteDataSource.saveDoctorToDataBase(id: uuid, name: username, email: email, password: password);
+          await _remoteDataSource.saveDoctorToDataBase(
+              id: uuid, name: username, email: email, password: password);
         } else {
-          await _remoteDataSource.saveNurseToDataBase(id: uuid, name: username, email: email, password: password);
-
+          await _remoteDataSource.saveNurseToDataBase(
+              id: uuid, name: username, email: email, password: password);
         }
         await fetchCurrentUser(email);
         return const Right(null);
@@ -79,11 +80,6 @@ class RepositoryImpl implements Repository {
       return Left(ErrorHandler.handle(e).failure);
     }
   }
-
-
-
-
-
 
   Future<Either<Failure, User?>> fetchCurrentUser([String? email]) async {
     try {
@@ -112,5 +108,25 @@ class RepositoryImpl implements Repository {
     }
   }
 
-
+  @override
+  Future<Either<Failure, void>> passwordReset({
+    required String email,
+  }) async {
+    try {
+      if (await _networkInfo.isConnected) {
+        void response;
+        await _remoteDataSource.resetPassword(
+          email: email,
+        );
+        fetchCurrentUser(email);
+        return Right(response);
+      } else {
+        return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+      }
+    } on FirebaseAuthException {
+      return Left(DataSource.LOGIN_FAILED.getFailure());
+    } catch (e) {
+      return Left(ErrorHandler.handle(e).failure);
+    }
+  }
 }

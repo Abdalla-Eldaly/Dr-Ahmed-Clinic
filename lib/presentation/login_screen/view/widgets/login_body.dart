@@ -76,7 +76,45 @@ class _LoginBodyState extends State<LoginBody> {
                         padding:
                             const EdgeInsets.symmetric(vertical: AppSize.s10),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            showModalBottomSheet(
+                              backgroundColor: ColorManager.white,
+                              context: context,
+                              builder: (context) {
+                                return SizedBox(
+                                  width: double.infinity,
+                                  child: Column(
+                                    children: [
+                                      const SizedBox(
+                                        height: AppSize.s50,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(
+                                            AppPadding.p22),
+                                        child: MainTextField(
+                                          maxLines: 1,
+                                          controller: widget
+                                              .viewModel.getEmailController,
+                                          label:
+                                              AppStrings.loginScreenEmail.tr(),
+                                          hint: AppStrings
+                                              .loginScreenForgetPasswordHint
+                                              .tr(),
+                                        ),
+                                      ),
+                                      AppButton(
+                                      text: AppStrings.loginScreenSendCode.tr()
+                                      ,
+                                        onPressed: () {
+                                          widget.viewModel.resetPassword();
+                                        },
+                                      )
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          },
                           child: Text(
                             AppStrings.loginScreenForgetPassword.tr(),
                             style: const TextStyle(
@@ -105,8 +143,7 @@ class _LoginBodyState extends State<LoginBody> {
                             const EdgeInsets.symmetric(vertical: AppSize.s10),
                         child: InkWell(
                           onTap: () {
-                            Navigator.pushNamed(
-                                context, Routes.registerRoute);
+                            Navigator.pushNamed(context, Routes.registerRoute);
                           },
                           child: Text(
                             AppStrings.loginScreenCreatePassword.tr(),

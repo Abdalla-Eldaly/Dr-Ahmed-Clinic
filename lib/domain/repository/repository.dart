@@ -8,6 +8,7 @@ import '../models/enums.dart';
 
 abstract class Repository {
 Future<Either<Failure,void>> login({required String email , required String password});
+Future<Either<Failure,void>> passwordReset({required String email});
 
 Future<Either<Failure, void>> register({
   required String username,
