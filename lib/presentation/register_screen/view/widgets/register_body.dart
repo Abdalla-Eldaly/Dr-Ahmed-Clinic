@@ -9,14 +9,13 @@ import 'package:zag_nights/presentation/resources/routes_manager.dart';
 import 'package:zag_nights/presentation/resources/strings_manager.dart';
 import '../../../../app/App_Defults.dart';
 import '../../../common/validators/validators.dart';
-import '../../../resources/color_manager.dart';
 import '../../../resources/text_styles.dart';
 import '../../../resources/values_manager.dart';
 
 class RegisterBody extends StatelessWidget {
-  const RegisterBody({super.key, required this.viewModel});
+   RegisterBody({super.key, required this.viewModel});
   final RegistereViewmodel viewModel;
-  static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Center(

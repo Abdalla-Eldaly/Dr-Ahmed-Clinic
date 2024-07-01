@@ -1,7 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:zag_nights/app/extensions.dart';
 import 'package:zag_nights/presentation/login_screen/viewmodel/login_viewmodel.dart';
+import 'package:zag_nights/presentation/resources/assets_manager.dart';
 import 'package:zag_nights/presentation/resources/text_styles.dart';
 
 import '../../../common/validators/validators.dart';
@@ -22,7 +25,7 @@ class LoginBody extends StatefulWidget {
 }
 
 class _LoginBodyState extends State<LoginBody> {
-  static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final FocusNode emailFocusNode = FocusNode();
   final FocusNode passwordFocusNode = FocusNode();
@@ -103,8 +106,8 @@ class _LoginBodyState extends State<LoginBody> {
                                         ),
                                       ),
                                       AppButton(
-                                      text: AppStrings.loginScreenSendCode.tr()
-                                      ,
+                                        text:
+                                            AppStrings.loginScreenSendCode.tr(),
                                         onPressed: () {
                                           widget.viewModel.resetPassword();
                                         },
@@ -152,6 +155,18 @@ class _LoginBodyState extends State<LoginBody> {
                           ),
                         ),
                       ),
+
+
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                        Text(AppStrings.loginScreenGoogleSignIn.tr(),style:
+                        AppTextStyles.createAccountTextStyle(context),),
+                        SizedBox(
+                            width: AppSize.s50,
+                            height: AppSize.s50,
+                            child: SvgPicture.asset(SVGAssets.google))
+                      ]),
                     ],
                   ),
                 ),

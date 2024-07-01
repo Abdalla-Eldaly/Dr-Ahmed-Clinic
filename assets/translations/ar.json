@@ -18,6 +18,7 @@
   "loginScreenPasswordConfirmationHint" : "تأكيد كلمة المرور",
   "loginScreenHaveAccount" : "هل لديك حساب بالفعل؟ تسجيل الدخول",
   "loginScreenSendCode" : "إرسال الرمز",
+  "loginScreenGoogleSignIn" : "تسجيل الدخول باستخدام جوجل",
 
 
 
@@ -26,6 +27,7 @@
   "registerBtn": "تسجيل دخول",
 
 
+  "selectionGetStart" : "ابدأ",
 
 
   "areYouSure": "هل أنت متأكد؟",

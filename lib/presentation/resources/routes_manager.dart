@@ -7,6 +7,7 @@ import 'package:zag_nights/presentation/selection_screen/view/selection_view.dar
 import 'package:zag_nights/presentation/splash_screen/view/splash_view.dart';
 import '../../app/sl.dart';
 
+import '../common/animation/animation.dart';
 import '../register_screen/view/sign_up_page.dart';
 import 'strings_manager.dart';
 
@@ -32,7 +33,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const SplashScreen());
 
       case Routes.onBoardingRoute:
-        return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
+        return goTo(const OnBoardingScreen());
       case Routes.selectionRoute:
         return MaterialPageRoute(builder: (_) => const SelectionScreen());
       case Routes.loginRoute:

@@ -22,6 +22,7 @@ class SVGAssets {
   static const String _basePath = "assets/svg/";
 
   static const String logo = "${_basePath}Logo.svg";
+  static const String google = "${_basePath}google.svg";
 }
 
 class LottieAssets {
@@ -34,4 +35,5 @@ class LottieAssets {
   static const String loading = "${_basePath}loading.json";
   static const String success = "${_basePath}success.json";
   static const String error = "${_basePath}error.json";
+  static const String doctor = "${_basePath}doctor.json";
 }

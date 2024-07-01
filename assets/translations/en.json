@@ -23,6 +23,7 @@
   "loginScreenPasswordConfirmationHint" : "password confirmation",
   "loginScreenHaveAccount" : "Already have an account? Login",
   "loginScreenSendCode" : "Send Code",
+  "loginScreenGoogleSignIn" : "Sign in with google",
 
 
 
@@ -31,6 +32,9 @@
 
   "registerBtn": "Register",
 
+
+
+  "selectionGetStart" : "Get Start",
 
 
   "areYouSure": "Are You Sure",

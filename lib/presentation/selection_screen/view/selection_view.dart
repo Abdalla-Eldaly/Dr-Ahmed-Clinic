@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:zag_nights/presentation/selection_screen/view/widgets/selection_body.dart';
-
 import '../../../app/sl.dart';
 import '../../common/data_intent/data_intent.dart';
 

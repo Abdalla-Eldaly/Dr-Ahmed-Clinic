@@ -9,6 +9,7 @@ class AppStrings {
   static const String loginScreenPasswordHint = "loginScreenPasswordHint";
   static const String loginScreenPasswordConfirmationHint = "loginScreenPasswordConfirmationHint";
   static const String loginScreenEmailHint = "loginScreenEmailHint";
+  static const String loginScreenGoogleSignIn = "loginScreenGoogleSignIn";
 
 
 
@@ -85,6 +86,12 @@ class AppStrings {
   static const String registerPasswordPageConfirmPasswordLabel = "registerPasswordPageConfirmPasswordLabel";
   static const String registerPasswordPageButton = "registerPasswordPageButton";
   static const String registerScreenPasswordHint = "registerScreenPasswordHint";
+
+
+
+  //selection screen
+  static const String selectionGetStart = "selectionGetStart";
+
 
   //Register Layout
   static const String registerLayoutSuccessMessage = "registerLayoutSuccessMessage";
