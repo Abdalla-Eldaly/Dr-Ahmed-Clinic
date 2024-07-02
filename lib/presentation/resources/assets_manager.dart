@@ -6,6 +6,10 @@ class ImageAssets {
   static const String logoDark = "${_basePath}logo_dark.png";
   static const String logoLight = "${_basePath}logo_light.png";
   static const String background = "${_basePath}Screenshot (109).png";
+  static const String loginBackGround1 = "${_basePath}615585842833496297.jpeg";
+  static const String registerBackGround1 = "${_basePath}615585842833496297.jpeg";
+  static const String loginBackGround2 = "${_basePath}Download premium vector of Doctor and hospital themed phone background vector by Kappy about doctor phone, doctor's day, hospital, doctors background, and instagram story medical.jpeg";
+  static const String registerBackGround2 = "${_basePath}Download premium vector of Doctor and hospital themed phone background vector by Kappy about doctor phone, doctor's day, hospital, doctors background, and instagram story medical.jpeg";
 }
 
 class IconsAssets {

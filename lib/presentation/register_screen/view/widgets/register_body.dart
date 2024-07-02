@@ -13,6 +13,7 @@ import '../../../../app/App_Defults.dart';
 import '../../../common/validators/validators.dart';
 import '../../../resources/text_styles.dart';
 import '../../../resources/values_manager.dart';
+import 'package:zag_nights/presentation/resources/assets_manager.dart';
 
 class RegisterBody extends StatelessWidget {
   final RegistereViewmodel viewModel;
@@ -26,10 +27,9 @@ class RegisterBody extends StatelessWidget {
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [ColorManager.primary, ColorManager.secondary],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
+            image: DecorationImage(
+              image: AssetImage(ImageAssets.registerBackGround2),
+              fit: BoxFit.cover,
             ),
           ),
           child: Center(
@@ -48,7 +48,7 @@ class RegisterBody extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15.0),
                       ),
                       elevation: 5,
-                      color: Colors.white.withOpacity(0.85), // Semi-transparent card
+                      color: Colors.white.withOpacity(0.96), // Semi-transparent card
                       child: Padding(
                         padding: const EdgeInsets.all(AppPadding.p20),
                         child: Form(

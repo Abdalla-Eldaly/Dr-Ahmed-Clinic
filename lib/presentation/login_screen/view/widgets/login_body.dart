@@ -6,7 +6,6 @@ import 'package:zag_nights/app/extensions.dart';
 import 'package:zag_nights/presentation/login_screen/viewmodel/login_viewmodel.dart';
 import 'package:zag_nights/presentation/resources/assets_manager.dart';
 import 'package:zag_nights/presentation/resources/text_styles.dart';
-
 import '../../../common/validators/validators.dart';
 import '../../../common/widget/app_button.dart';
 import '../../../common/widget/main_text_field.dart';
@@ -36,10 +35,9 @@ class _LoginBodyState extends State<LoginBody> {
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [ColorManager.primary, ColorManager.secondary],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
+            image: DecorationImage(
+              image: AssetImage(ImageAssets.loginBackGround2),
+              fit: BoxFit.cover,
             ),
           ),
           child: Center(
@@ -58,7 +56,7 @@ class _LoginBodyState extends State<LoginBody> {
                         borderRadius: BorderRadius.circular(15.0),
                       ),
                       elevation: 5,
-                      color: Colors.white.withOpacity(0.85), // Change the card color and make it semi-transparent
+                      color: Colors.white.withOpacity(0.95),
                       child: Padding(
                         padding: const EdgeInsets.all(AppPadding.p20),
                         child: Form(
@@ -176,7 +174,6 @@ class _LoginBodyState extends State<LoginBody> {
                         ),
                       ),
                     ),
-
                   ),
                 ],
               ),
