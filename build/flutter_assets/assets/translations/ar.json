@@ -1,13 +1,33 @@
 {
 
+  "selectionScreenNurseButton": "ممرضة",
+  "selectionScreenDoctorButton": "الطبيب",
+
+
+
   "loginScreenEmail": "البريد الالكتروني",
   "loginScreenPassword": "الرقم السري",
   "loginScreenEmailHint": "ادخل البريد الالكتروني",
   "loginScreenPasswordHint": "ادخل الرقم السري",
+  "loginScreenForgetPassword": "هل نسيت كلمه المرور؟",
+  "loginScreenLoginButton": "تسجيل الدخول",
   "Forget Password?" : "هل نسيت كلمة المرور ؟",
+  "loginScreenCreatePassword" : "ليس لديك حساب؟ إنشاء حساب",
+  "loginUserNameScreenEmail" : "الاسم",
+  "loginUserNameHintScreenEmail" : "ادخل اسم",
+  "loginScreenPasswordConfirmationHint" : "تأكيد كلمة المرور",
+  "loginScreenHaveAccount" : "هل لديك حساب بالفعل؟ تسجيل الدخول",
+  "loginScreenSendCode" : "إرسال الرمز",
+  "loginScreenGoogleSignIn" : "تسجيل الدخول باستخدام جوجل",
 
 
 
+
+
+  "registerBtn": "تسجيل دخول",
+
+
+  "selectionGetStart" : "ابدأ",
 
 
   "areYouSure": "هل أنت متأكد؟",
