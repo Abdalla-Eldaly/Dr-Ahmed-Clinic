@@ -156,7 +156,7 @@ class _LoginBodyState extends State<LoginBody> {
                         ),
                       ),
 
-
+const Divider(color: ColorManager.primary,),
                       Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [

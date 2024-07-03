@@ -1,13 +1,40 @@
 {
+
+
+  "selectionScreenNuresButton": "Nurse",
+  "selectionScreenDoctorButton": "Doctor",
+
+
+
+
+
+
 "loginScreenEmail": "Email",
 "loginScreenPassword": "Password",
 
   "loginScreenEmailHint": "type your Email",
   "loginScreenPasswordHint": "type your Password",
+  "loginScreenForgetPassword": "Forget Password?",
+  "loginScreenLoginButton": "Login",
   "Forget Password?" : "Forget Password?",
+  "loginScreenCreatePassword" : "Don't have account? Create Account",
+  "loginUserNameScreenEmail" : "Name",
+  "loginUserNameHintScreenEmail" : "Enter your name",
+  "loginScreenPasswordConfirmationHint" : "password confirmation",
+  "loginScreenHaveAccount" : "Already have an account? Login",
+  "loginScreenSendCode" : "Send Code",
+  "loginScreenGoogleSignIn" : "Sign in with google",
 
 
 
+
+
+
+  "registerBtn": "Register",
+
+
+
+  "selectionGetStart" : "Get Start",
 
 
   "areYouSure": "Are You Sure",

@@ -1,37 +1,45 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zag_nights/domain/models/enums.dart';
 
-import '../../../domain/usecase/get_signeduser_usecase.dart';
+import '../../../app/sl.dart';
+import '../../../domain/usecase/get_current_user_usecase.dart';
 import '../../base/base_cubit.dart';
 import '../../base/base_states.dart';
-import '../../common/data_intent/data_intent.dart';
 import '../states/splash_states.dart';
 
 class SplashViewModel extends BaseCubit
     implements SplashViewModelInput, SplashViewModelOutput {
   static SplashViewModel get(context) => BlocProvider.of(context);
 
-  final GetSignedUserUseCase _signedUserUseCase;
-
-  SplashViewModel(this._signedUserUseCase);
+  final GetCurrentUserUseCase _getCurrentUserUseCase =
+  sl<GetCurrentUserUseCase>();
 
   @override
-  void start() async {
-    await _signedUserUseCase(null).then(
+  void start() {
+    print('splash started');
+  }
+
+  Future<void> getCurrentUser() async {
+    await _getCurrentUserUseCase(null).then(
           (value) {
         value.fold(
               (l) {
-            ErrorState(failure: l);
+            emit(
+              ErrorState(
+                failure: l,
+                retry: () async {
+                  emit(LoadingState());
+                  await getCurrentUser();
+                },
+              ),
+            );
           },
-              (r) async {
+              (r) {
+            print(r);
             if (r == null) {
               emit(UserNotSignedState());
             } else {
-              if (DataIntent.getUserRole() == UserRole.doctor) {
-                emit(DoctorSignedState());
-              } else {
-                emit(NurserSignedState());
-              }
+              print('-1111111111');
+              emit(UserSignedState());
             }
           },
         );

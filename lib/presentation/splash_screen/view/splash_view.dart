@@ -1,8 +1,11 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:zag_nights/presentation/common/data_intent/data_intent.dart';
+
 import '../../../../app/sl.dart';
 import '../../base/base_states.dart';
 import '../../base/cubit_listener.dart';
@@ -87,7 +90,7 @@ class _SplashScreenState extends State<SplashScreen>
       backgroundColor: ColorManager.black,
       body: BlocProvider(
         create: (context) => SplashViewModel(
-          sl(),
+
         )..start(),
         child: BlocConsumer<SplashViewModel, BaseStates>(
           listener: (context, state) {
@@ -100,16 +103,11 @@ class _SplashScreenState extends State<SplashScreen>
                       context, Routes.onBoardingRoute);
                 },
               );
-            } else if (state is DoctorSignedState) {
-              Future.delayed(const Duration(seconds: 1), () {
-                Navigator.pushReplacementNamed(context, Routes.mainLayoutRoute);
-              });
-            } else if (state is NurserSignedState) {
+            } else if (state is UserSignedState) {
               Future.delayed(const Duration(seconds: 1), () {
                 Navigator.pushReplacementNamed(context, Routes.mainLayoutRoute);
               });
             }
-
             baseListener(context, state);
           },
           builder: (context, state) {

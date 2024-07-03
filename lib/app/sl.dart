@@ -19,6 +19,7 @@ import '../data/network/network_info.dart';
 import '../data/repository/repository_impl.dart';
 import '../domain/repository/repository.dart';
 
+import '../domain/usecase/get_current_user_usecase.dart';
 import '../domain/usecase/get_signeduser_usecase.dart';
 import '../domain/usecase/login_usecase.dart';
 
@@ -49,6 +50,7 @@ Future<void> initAppModule() async {
   var fireAuth = await FireAuthFactoryImpl().create();
   sl.registerLazySingleton<FirebaseAuth>(() => fireAuth);
 
+  sl.registerLazySingleton<GetCurrentUserUseCase>(() => GetCurrentUserUseCase(sl()));
 
 
   sl.registerLazySingleton<AppServicesClient>(() => AppServiceClientImpl(sl()));

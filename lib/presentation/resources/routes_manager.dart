@@ -31,7 +31,6 @@ class RouteGenerator {
       case Routes.splashRoute:
         initGetSignedUserUseCase();
         return MaterialPageRoute(builder: (_) => const SplashScreen());
-
       case Routes.onBoardingRoute:
         return goTo(const OnBoardingScreen());
       case Routes.selectionRoute:
