@@ -59,6 +59,7 @@ dependencies:
   freezed:
   firebase_storage: ^12.1.0
   uuid: ^4.4.0
+  rive: ^0.13.9
 
 dev_dependencies:
   flutter_test:
