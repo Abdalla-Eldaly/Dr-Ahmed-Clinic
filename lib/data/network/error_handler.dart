@@ -27,6 +27,8 @@ enum DataSource {
   NO_INTERNET_CONNECTION,
   EMAIL_ALREADY_EXISTS,
   LOGIN_FAILED,
+  MISSING_DATA,
+
   DEFAULT, CONNECTION_ERROR, BAD_CERTIFICATE
 }
 
@@ -38,6 +40,7 @@ class ResponseCode {
   static const int FORBIDDEN = 403; //  failure, API rejected request
   static const int INTERNAL_SERVER_ERROR = 500; // failure, crash in server side
   static const int NOT_FOUND = 404; // failure, not found
+  static const int MISSING_DATA = -16;
 
   // local status code
   static const int CONNECT_TIMEOUT = -1;
@@ -66,6 +69,7 @@ class ResponseMessage {
       AppStrings.internalServerError; // failure, crash in server side
   static const String NOT_FOUND =
       AppStrings.notFoundError; // failure, crash in server side
+  static const String MISSING_DATA = AppStrings.missingDataError;
 
   // local status code
   static const String CONNECT_TIMEOUT = AppStrings.timeoutError;
@@ -84,6 +88,11 @@ class ResponseMessage {
 extension DataSourceExtension on DataSource {
   Failure getFailure() {
     switch (this) {
+      case DataSource.MISSING_DATA:
+        return Failure(
+          ResponseCode.MISSING_DATA,
+          ResponseMessage.MISSING_DATA,
+        );
       case DataSource.SUCCESS:
         return Failure(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
       case DataSource.NO_CONTENT:

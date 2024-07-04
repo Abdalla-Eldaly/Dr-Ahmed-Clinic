@@ -19,12 +19,13 @@
   "loginScreenHaveAccount" : "هل لديك حساب بالفعل؟ تسجيل الدخول",
   "loginScreenSendCode" : "إرسال الرمز",
   "loginScreenGoogleSignIn" : "تسجيل الدخول باستخدام جوجل",
+  "loginFailed" : "كلمة المرور أو البريد الإلكتروني خاطئ\nحاول مرة أخرى",
 
 
 
 
 
-  "registerBtn": "تسجيل دخول",
+  "registerBtn": "انشاء الحساب",
 
 
   "selectionGetStart" : "ابدأ",

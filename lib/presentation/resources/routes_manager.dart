@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:zag_nights/presentation/login_screen/view/login_screen_view.dart';
-import 'package:zag_nights/presentation/mainlayout_screen.dart';
+import 'package:zag_nights/presentation/mainlayout_screen/view/doctor_mainlayout_screen.dart';
+import 'package:zag_nights/presentation/mainlayout_screen/view/nurse_mainlayout_screen.dart';
 import 'package:zag_nights/presentation/onboarding_screen/view/onBoardingView.dart';
 import 'package:zag_nights/presentation/selection_screen/view/selection_view.dart';
 import 'package:zag_nights/presentation/splash_screen/view/splash_view.dart';
@@ -20,7 +21,8 @@ class Routes {
   static const String loginRoute = "/login";
   static const String registerRoute = "/register";
   static const String homeRoute = "/home";
-  static const String mainLayoutRoute = "/MainLayout";
+  static const String nurseMainLayoutRoute = "/nurseMainLayout";
+  static const String doctorMainLayoutRoute = "/doctorMainLayout";
 }
 
 class RouteGenerator {
@@ -38,6 +40,7 @@ class RouteGenerator {
       case Routes.loginRoute:
         initLoginUseCase();
         initPasswordResetUseCase();
+        initSignWithGoogleUseCase();
         return MaterialPageRoute(
           settings: RouteSettings(name: settings.name),
           builder: (_) => const LoginScreen(),
@@ -47,8 +50,11 @@ class RouteGenerator {
         initRegisterUseCase();
         return MaterialPageRoute(builder: (_) => const RegisterScreen());
 
-      case Routes.mainLayoutRoute:
-        return MaterialPageRoute(builder: (_) => const MainLayOut());
+      case Routes.nurseMainLayoutRoute:
+        return MaterialPageRoute(builder: (_) => const NurseMainLayOutScreen());
+      case Routes.doctorMainLayoutRoute:
+        return MaterialPageRoute(builder: (_) => const DoctorMainLayOut());
+
 
       default:
         return unDefinedRoute();

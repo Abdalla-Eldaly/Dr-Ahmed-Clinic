@@ -25,6 +25,8 @@ import '../domain/usecase/login_usecase.dart';
 
 import '../domain/usecase/register_usecase.dart';
 import '../domain/usecase/resetPassword_usecase.dart';
+import '../domain/usecase/sign_in_with_google_usecase.dart';
+import '../presentation/common/data_intent/data_intent.dart';
 import 'date_ntp.dart';
 
 final sl = GetIt.instance;
@@ -38,6 +40,7 @@ Future<void> initAppModule() async {
           () => NetworkInfoImpl(InternetConnection()));
 
   // sl.registerLazySingleton<GSheetFactory>(() => GSheetFactoryImpl());
+  sl.registerLazySingleton<UserManager>(() => UserManager());
 
   sl.registerLazySingleton<AssetsLoader>(() => AssetsLoaderImpl());
 
@@ -55,7 +58,7 @@ Future<void> initAppModule() async {
 
   sl.registerLazySingleton<AppServicesClient>(() => AppServiceClientImpl(sl()));
   sl.registerLazySingleton<RemoteDataSource>(
-          () => RemoteDataSourceImpl(sl(), sl(), sl(), ));
+          () => RemoteDataSourceImpl(sl(), sl(), ));
   sl.registerLazySingleton<RuntimeDataSource>(() => RuntimeDataSourceImpl());
   sl.registerLazySingleton<CacheDataSource>(
         () => CacheDataSourceImpl(sl()),
@@ -87,5 +90,11 @@ void initPasswordResetUseCase() {
 void initGetSignedUserUseCase() {
   if (GetIt.instance.isRegistered<GetSignedUserUseCase>() == false) {
     sl.registerFactory<GetSignedUserUseCase>(() => GetSignedUserUseCase(sl()));
+  }
+}
+void initSignWithGoogleUseCase() {
+  if (GetIt.instance.isRegistered<SignWithGoogleUseCase>() == false) {
+    sl.registerFactory<SignWithGoogleUseCase>(
+            () => SignWithGoogleUseCase(sl()));
   }
 }

@@ -89,9 +89,7 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
       backgroundColor: ColorManager.black,
       body: BlocProvider(
-        create: (context) => SplashViewModel(
-
-        )..start(),
+        create: (context) => SplashViewModel(sl(), sl())..start(),
         child: BlocConsumer<SplashViewModel, BaseStates>(
           listener: (context, state) {
             if (state is UserNotSignedState) {
@@ -103,9 +101,15 @@ class _SplashScreenState extends State<SplashScreen>
                       context, Routes.onBoardingRoute);
                 },
               );
-            } else if (state is UserSignedState) {
+            } else if (state is DoctorState) {
               Future.delayed(const Duration(seconds: 1), () {
-                Navigator.pushReplacementNamed(context, Routes.mainLayoutRoute);
+                Navigator.pushReplacementNamed(
+                    context, Routes.doctorMainLayoutRoute);
+              });
+            } else if (state is NurseState) {
+              Future.delayed(const Duration(seconds: 1), () {
+                Navigator.pushReplacementNamed(
+                    context, Routes.nurseMainLayoutRoute);
               });
             }
             baseListener(context, state);

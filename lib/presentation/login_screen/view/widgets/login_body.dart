@@ -164,11 +164,16 @@ const Divider(color: ColorManager.primary,),
                           children: [
                         Text(AppStrings.loginScreenGoogleSignIn.tr(),style:
                         AppTextStyles.createAccountTextStyle(context),),
-                        SizedBox(
-                            width: AppSize.s50,
-                            height: AppSize.s50,
-                            child: SvgPicture.asset(SVGAssets.google),
-                                  ),
+                        InkWell(
+                          onTap: () {
+                            widget.viewModel.signInWithGoogle();
+                          },
+                          child: SizedBox(
+                              width: AppSize.s50,
+                              height: AppSize.s50,
+                              child: SvgPicture.asset(SVGAssets.google),
+                                    ),
+                        ),
                                 ],
                               ),
                             ],

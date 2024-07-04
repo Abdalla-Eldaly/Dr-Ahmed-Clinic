@@ -24,6 +24,7 @@
   "loginScreenHaveAccount" : "Already have an account? Login",
   "loginScreenSendCode" : "Send Code",
   "loginScreenGoogleSignIn" : "Sign in with google",
+  "loginFailed" : "Password or email is wrong\ntry again",
 
 
 
@@ -53,6 +54,9 @@
   "validationsEnterTheSamePassword": "please enter the same password",
   "validationsInvalidCardExpirationDate": "Card Expiration Date is Invalid",
   "validationsUsername": "use letters and numbers only",
-  "validationsTitle": "Enter an appropriate title "
+  "validationsTitle": "Enter an appropriate title ",
+  "defaultError": "An error has occurred. Please try again.",
+  "retryAgain": "Retry Again",
+  "noInternetError": "No internet connection. Please check your network settings."
 
 }

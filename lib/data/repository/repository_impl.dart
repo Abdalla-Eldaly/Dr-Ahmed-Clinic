@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:uuid/uuid.dart';
 import 'package:zag_nights/data/mappers/mappers.dart';
 import 'package:zag_nights/data/network/requests.dart';
@@ -81,6 +82,7 @@ class RepositoryImpl implements Repository {
     }
   }
 
+  @override
   Future<Either<Failure, User?>> fetchCurrentUser([String? email]) async {
     try {
       if (await _networkInfo.isConnected) {
@@ -129,4 +131,28 @@ class RepositoryImpl implements Repository {
       return Left(ErrorHandler.handle(e).failure);
     }
   }
-}
+
+  @override
+  Future<Either<Failure, User?>> signInWithGoogle() async {
+    try {
+      if (await _networkInfo.isConnected) {
+        GoogleSignInAccount? googleAccount =
+        await _remoteDataSource.selectGoogleAccount();
+        bool userExists = (await _remoteDataSource.doesUserExists(
+            email: googleAccount!.email)) ==
+            RegisteredBeforeError.emailUsed;
+        User? user = await _remoteDataSource.signInWithGoogle(googleAccount);
+        if (!userExists) {
+          DataIntent.pushFireAuthUser(user);
+          return Left(DataSource.MISSING_DATA.getFailure());
+        } else {
+          await fetchCurrentUser();
+          return Right(user);
+        }
+      } else {
+        return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+      }
+    } catch (e) {
+      return Left(ErrorHandler.handle(e).failure);
+    }
+  }}

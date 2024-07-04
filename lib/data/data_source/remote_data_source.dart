@@ -1,19 +1,29 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:zag_nights/data/network/requests.dart';
 import 'package:zag_nights/data/response/responses.dart';
 
+import '../../domain/models/enums.dart';
 import '../network/api.dart';
 
 abstract class RemoteDataSource {
   Future<void> login({
     required LoginRequest loginRequest,
   });
+  Future<User?> signInWithGoogle(GoogleSignInAccount? googleAccount);
+
+  Future<GoogleSignInAccount?> selectGoogleAccount();
+
 
   Future<void> resetPassword({
     required String email,
 });
+
+  Future<RegisteredBeforeError?> doesUserExists({
+    required String email,
+  });
 
   Future<void> saveDoctorToDataBase({
    required String id,
@@ -35,10 +45,9 @@ abstract class RemoteDataSource {
 class RemoteDataSourceImpl implements RemoteDataSource {
   final FirebaseFirestore _firestore;
   final FirebaseAuth _firebaseAuth;
-  final AppServicesClient _appServicesClient;
 
   RemoteDataSourceImpl(
-      this._firestore, this._firebaseAuth, this._appServicesClient);
+      this._firestore, this._firebaseAuth,);
 
   @override
   Future<void> login({required LoginRequest loginRequest}) async {
@@ -46,6 +55,19 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       email: loginRequest.email,
       password: loginRequest.password,
     );
+  }
+  @override
+  Future<User?> signInWithGoogle(GoogleSignInAccount? googleAccount) async {
+    GoogleSignInAuthentication? googleAuth =
+    await googleAccount?.authentication;
+
+    OAuthCredential credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+    UserCredential userCredential =
+    await _firebaseAuth.signInWithCredential(credential);
+    return userCredential.user;
   }
 
   @override
@@ -112,4 +134,33 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   Future<void> resetPassword({required String email}) async{
    await _firebaseAuth.sendPasswordResetEmail(email: email);
   }
+
+  @override
+  Future<GoogleSignInAccount?> selectGoogleAccount() async {
+    return await GoogleSignIn().signIn();
+  }
+  @override
+  Future<RegisteredBeforeError?> doesUserExists({
+    required String email,
+  }) async {
+    bool emailUsed = false;
+    await _firestore
+        .collection('users')
+        .where('email', isEqualTo: email)
+        .get()
+        .then(
+          (value) {
+        if (value.docs.isNotEmpty) {
+          emailUsed = true;
+        }
+      },
+    );
+
+    if (emailUsed) {
+      return RegisteredBeforeError.emailUsed;
+    } else {
+      return null;
+    }
+  }
+
 }

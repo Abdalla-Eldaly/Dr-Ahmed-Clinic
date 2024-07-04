@@ -19,6 +19,7 @@
   "loginScreenHaveAccount" : "هل لديك حساب بالفعل؟ تسجيل الدخول",
   "loginScreenSendCode" : "إرسال الرمز",
   "loginScreenGoogleSignIn" : "تسجيل الدخول باستخدام جوجل",
+  "loginFailed" : "كلمة المرور أو البريد الإلكتروني خاطئ\nحاول مرة أخرى",
 
 
 
@@ -45,5 +46,9 @@
   "validationsEnterTheSamePassword": "يرجي كتابة نفس كلمة المرور",
   "validationsInvalidCardExpirationDate": "تاريخ البطاقة غير صالح",
   "validationsUsername": "استعمل حروف و أرقام فقط",
-  "validationsTitle": "ادخل عنوان مناسب"
+  "validationsTitle": "ادخل عنوان مناسب",
+  "defaultError": "حدث خطأ. يرجى المحاولة مرة أخرى",
+  "retryAgain": "إعادة المحاولة مرة أخرى",
+  "noInternetError": "لا يوجد اتصال بالإنترنت. يرجى التحقق من إعدادات الشبكة."
+
 }

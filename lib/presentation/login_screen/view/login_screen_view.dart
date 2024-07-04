@@ -19,18 +19,31 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider(
-        create: (_) => LoginViewModel(sl(),sl() )..start(),
+        create: (_) => LoginViewModel(sl(),sl(),sl() ,sl())..start(),
         child: BlocConsumer<LoginViewModel, BaseStates>(
           listener: (context, state) {
             if(state is ErrorState){
               Navigator.pop(context);
             }
-            if(state is SuccessState){
+           else if(state is DoctorLoginState){
               Navigator.pushNamedAndRemoveUntil(
                 context,
-                Routes.mainLayoutRoute,
+                Routes.doctorMainLayoutRoute,
                 ModalRoute.withName('/'),
               );
+            }
+
+            else if(state is NurseLoginState){
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                Routes.doctorMainLayoutRoute,
+                ModalRoute.withName('/'),
+              );
+            }
+
+            else if (state is SocialLoginState) {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, Routes.selectionRoute);
             }
             else if (state is ResetPasswordState) {
               Navigator.pop(context);

@@ -24,6 +24,7 @@
   "loginScreenHaveAccount" : "Already have an account? Login",
   "loginScreenSendCode" : "Send Code",
   "loginScreenGoogleSignIn" : "Sign in with google",
+  "loginFailed" : "Password or email is wrong\ntry again",
 
 
 

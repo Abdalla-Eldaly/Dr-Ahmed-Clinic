@@ -2,6 +2,7 @@ import '../../base/base_states.dart';
 
 class UserNotSignedState extends BaseStates {}
 
-class UserSignedState extends BaseStates {}
+class DoctorState extends BaseStates {}
+class NurseState extends BaseStates {}
 
 

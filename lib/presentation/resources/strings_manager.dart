@@ -100,6 +100,9 @@ class AppStrings {
   static const String soonScreenTitle = "soonScreenTitle";
   static const String soonScreenLogOut = "soonScreenLogOut";
 
+  static const String missingDataError = "missingDataError";
+
+
   //Validation Messages
   static const String validationsFieldRequired = "validationsFieldRequired";
   static const String validationsArabicAndEnglishLetters = "validationsArabicAndEnglishLetters";
