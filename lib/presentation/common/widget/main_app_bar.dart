@@ -1,47 +1,37 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zag_nights/presentation/common/widget/app_button.dart';
+import 'package:flutter/services.dart';
 
 import '../../resources/color_manager.dart';
-import '../../resources/font_manager.dart';
 import '../../resources/langauge_manager.dart';
-import '../../resources/strings_manager.dart';
-import '../../resources/styles_manager.dart';
 import '../../resources/values_manager.dart';
 
-//
-AppBar buildMainAppBar(
-  BuildContext context, {
-  Color? color = ColorManager.transparent,
-  double elevation = 4,
-}) {
+AppBar buildMainAppBar(BuildContext context, Widget? title,
+    [Color color = ColorManager.transparent]) {
   return AppBar(
+    toolbarHeight: AppSize.s80,
     backgroundColor: color,
-    leadingWidth: AppSize.s100,
-    leading: AppButton(
-      onPressed: () {
-        AppLanguages.toggleLocal(context);
-      },
-      color: ColorManager.transparent,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          const Icon(
-            Icons.language_outlined,
-            size: AppSize.s20,
-            color: ColorManager.white,
-          ),
-          Text(
-            AppStrings.selectionScreenLanguageButton.tr(),
-            style: getBoldStyle(
-              color: ColorManager.white,
-              fontSize: FontSize.f12,
-            ),
-          ),
-        ],
+    systemOverlayStyle:SystemUiOverlayStyle.dark ,
+    centerTitle: false,
+    title: title, 
+    scrolledUnderElevation: AppSize.s0,
+    bottom: PreferredSize(
+      preferredSize:  const Size.fromHeight(AppSize.s1_2),
+      child: Container(
+        color: ColorManager.tertiary ,
+        height: AppSize.s1_2,
       ),
     ),
-    elevation: elevation,
+    actions: title is Text
+        ? [
+      IconButton(
+        icon: const Icon(Icons.language_rounded,color: ColorManager.tertiary,size: AppSize.s35,),
+        onPressed: () {
+          AppLanguages.toggleLocal(context);
+        },
+      ),
+    ]
+        : null,
+    elevation: AppSize.s0,
     shadowColor: const Color.fromRGBO(0, 0, 0, 0.25),
   );
 }

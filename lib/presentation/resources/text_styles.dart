@@ -25,6 +25,13 @@ class AppTextStyles {
         fontSize: FontSize.f14,
       );
 
+  static TextStyle generalTextStyle(BuildContext context, Color color , double fontSize) =>
+      getBoldStyle(
+        fontFamily: AppLanguages.getPrimaryFont(context),
+        color: color,
+        fontSize: fontSize,
+      );
+
   ///Splash Text Styles
 
   // static TextStyle splashScreenTitleTextStyle(BuildContext context) =>
@@ -113,19 +120,6 @@ class AppTextStyles {
     fontSize: FontSize.f18,
   );
 
-  // static TextStyle loginTitleTextStyle(BuildContext context) => getBoldStyle(
-  //   fontFamily: AppLanguages.getPrimaryFont(context),
-  //   color: ColorManager.lightGrey,
-  //   fontSize: FontSize.f24,
-  // );
-
-  ///Login Text Styles
-
-  // static TextStyle registerTitleTextStyle(BuildContext context) => getBoldStyle(
-  //   fontFamily: AppLanguages.getPrimaryFont(context),
-  //   color: ColorManager.lightGrey,
-  //   fontSize: FontSize.f24,
-  // );
 
   static TextStyle registerDialogTitleTextStyle(BuildContext context) =>
       getRegularStyle(
@@ -165,6 +159,14 @@ class AppTextStyles {
       );
 
 
+  ///nurse screen
+
+  static TextStyle nurseTitleTextStyle(BuildContext context) =>
+      getBoldStyle(
+        fontFamily: AppLanguages.getPrimaryFont(context),
+        color: ColorManager.primary,
+        fontSize: FontSize.f30,
+      );
 
 
 

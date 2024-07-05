@@ -29,6 +29,25 @@
 
 
   "selectionGetStart" : "ابدأ",
+  "selectionScreenLanguageButton":"العربيه",
+
+
+
+  "nurseScreenTitle" : "السكرتيره",
+  "nurseScreenSearch" : "البحث",
+  "nurseScreenSearchHint" : "البحث...",
+  "patientName" : "اسم المريض",
+  "patientNameHint" : "أدخل اسم المريض",
+  "patientAge" : "سن المريض",
+  "patientAgeHint" : "أدخل سن المريض",
+  "patientGender" : "جنس المريض",
+  "patientGenderHint" : "أدخل جنس المريض",
+  "patientPhone" : "رقم الهاتف",
+  "patientPhoneHint" : "أدخل رقم الهاتف",
+  "patientAddress" : "عنوان المريض",
+  "patientAddressHint" : "أدخل عنوان المريض",
+  "patientServices" : " خدمة المريض",
+  "patientServicesHint" : "أدخل خدمة المريض",
 
 
   "areYouSure": "هل أنت متأكد؟",

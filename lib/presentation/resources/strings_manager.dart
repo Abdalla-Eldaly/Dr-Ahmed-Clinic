@@ -7,13 +7,10 @@ class AppStrings {
   // login
   static const String userName = "userName";
   static const String loginScreenPasswordHint = "loginScreenPasswordHint";
-  static const String loginScreenPasswordConfirmationHint = "loginScreenPasswordConfirmationHint";
+  static const String loginScreenPasswordConfirmationHint =
+      "loginScreenPasswordConfirmationHint";
   static const String loginScreenEmailHint = "loginScreenEmailHint";
   static const String loginScreenGoogleSignIn = "loginScreenGoogleSignIn";
-
-
-
-
 
   // error handler
   static const String badRequestError = "badRequestError";
@@ -38,9 +35,11 @@ class AppStrings {
   static const String cancel = "cancel";
 
   //Selection Screen
-  static const String selectionScreenDoctorButton = "selectionScreenDoctorButton";
+  static const String selectionScreenDoctorButton =
+      "selectionScreenDoctorButton";
   static const String selectionScreenNurseButton = "selectionScreenNurseButton";
-  static const String selectionScreenLanguageButton = "selectionScreenLanguageButton";
+  static const String selectionScreenLanguageButton =
+      "selectionScreenLanguageButton";
 
   //Login Screen
   static const String loginScreenEmailLabel = "loginScreenEmailLabel";
@@ -49,29 +48,32 @@ class AppStrings {
   static const String loginScreenSuccessMessage = "loginScreenSuccessMessage";
   static const String loginScreenEmail = "loginScreenEmail";
   static const String loginUserNameScreenEmail = "loginUserNameScreenEmail";
-  static const String loginUserNameHintScreenEmail = "loginUserNameHintScreenEmail";
+  static const String loginUserNameHintScreenEmail =
+      "loginUserNameHintScreenEmail";
   static const String loginScreenPassword = "loginScreenPassword";
   static const String loginScreenForgetPassword = "loginScreenForgetPassword";
   static const String loginScreenCreatePassword = "loginScreenCreatePassword";
   static const String loginScreenHaveAccount = "loginScreenHaveAccount";
   static const String loginScreenForgetPasswordHint = "Re****@gmail.com";
-  static const String loginScreenSendCode= "loginScreenSendCode";
+  static const String loginScreenSendCode = "loginScreenSendCode";
 
   //Register Name Page
   static const String registerBtn = "registerBtn";
-
 
   //Register Details Page
   static const String registerDetailsPageTitle = "registerDetailsPageTitle";
   static const String registerDetailsPageMale = "registerDetailsPageMale";
   static const String registerDetailsPageFemale = "registerDetailsPageFemale";
-  static const String registerDetailsPageAgeLabel = "registerDetailsPageAgeLabel";
+  static const String registerDetailsPageAgeLabel =
+      "registerDetailsPageAgeLabel";
   static const String registerDetailsPageButton = "registerDetailsPageButton";
 
   //Register Contact Page
   static const String registerContactPageTitle = "registerContactPageTitle";
-  static const String registerContactPageEmailLabel = "registerContactPageEmailLabel";
-  static const String registerContactPagePhoneNumberLabel = "registerContactPagePhoneNumberLabel";
+  static const String registerContactPageEmailLabel =
+      "registerContactPageEmailLabel";
+  static const String registerContactPagePhoneNumberLabel =
+      "registerContactPagePhoneNumberLabel";
   static const String registerContactPageButton = "registerContactPageButton";
 
   //Register Job Page
@@ -82,19 +84,19 @@ class AppStrings {
 
   //Register Password Page
   static const String registerPasswordPageTitle = "registerPasswordPageTitle";
-  static const String registerPasswordPagePasswordLabel = "registerPasswordPagePasswordLabel";
-  static const String registerPasswordPageConfirmPasswordLabel = "registerPasswordPageConfirmPasswordLabel";
+  static const String registerPasswordPagePasswordLabel =
+      "registerPasswordPagePasswordLabel";
+  static const String registerPasswordPageConfirmPasswordLabel =
+      "registerPasswordPageConfirmPasswordLabel";
   static const String registerPasswordPageButton = "registerPasswordPageButton";
   static const String registerScreenPasswordHint = "registerScreenPasswordHint";
-
-
 
   //selection screen
   static const String selectionGetStart = "selectionGetStart";
 
-
   //Register Layout
-  static const String registerLayoutSuccessMessage = "registerLayoutSuccessMessage";
+  static const String registerLayoutSuccessMessage =
+      "registerLayoutSuccessMessage";
 
   //Soon Screen
   static const String soonScreenTitle = "soonScreenTitle";
@@ -102,13 +104,32 @@ class AppStrings {
 
   static const String missingDataError = "missingDataError";
 
+  // nurse
+  static const String nurseScreenTitle = "nurseScreenTitle";
+  static const String nurseScreenSearch = "nurseScreenSearch";
+  static const String nurseScreenSearchHint = "nurseScreenSearchHint";
+  static const String patientName = "patientName";
+  static const String patientNameHint = "patientNameHint";
+  static const String patientAge = "patientAge";
+  static const String patientAgeHint = "patientAgeHint";
+  static const String patientGender = "patientGender";
+  static const String patientGenderHint = "patientGenderHint";
+  static const String patientPhoneHint = "patientPhoneHint";
+  static const String patientAddress = "patientAddress";
+  static const String patientAddressHint = "patientAddressHint";
+  static const String patientServices = "patientServices";
+  static const String patientServicesHint = "patientServicesHint";
 
   //Validation Messages
   static const String validationsFieldRequired = "validationsFieldRequired";
-  static const String validationsArabicAndEnglishLetters = "validationsArabicAndEnglishLetters";
+  static const String validationsArabicAndEnglishLetters =
+      "validationsArabicAndEnglishLetters";
   static const String validationsNumbersOnly = "validationsNumbersOnly";
   static const String validationsValidEmail = "validationsValidEmail";
-  static const String validationsNumbersMustEqual11Digit = "validationsNumbersMustEqual11Digit";
-  static const String validationsPasswordSpecifications = "validationsPasswordSpecifications";
-  static const String validationsEnterTheSamePassword = "validationsEnterTheSamePassword";
+  static const String validationsNumbersMustEqual11Digit =
+      "validationsNumbersMustEqual11Digit";
+  static const String validationsPasswordSpecifications =
+      "validationsPasswordSpecifications";
+  static const String validationsEnterTheSamePassword =
+      "validationsEnterTheSamePassword";
 }

@@ -24,7 +24,7 @@ class MainTextField extends StatefulWidget {
     this.readOnly = false,
     this.validation,
     this.onTap,
-    this.maxLines,
+    this.maxLines, this.prefixIcon,
   });
 
   final TextEditingController? controller;
@@ -35,6 +35,7 @@ class MainTextField extends StatefulWidget {
   final String hint;
   final TextInputType textInputType;
   final IconData? iconData;
+  final IconData? prefixIcon;
   final Color? backgroundColor;
   final TextStyle? hintTextStyle;
   final TextStyle? labelTextStyle;
@@ -74,6 +75,7 @@ class _MainTextFieldState extends State<MainTextField> {
           obscureText: hidden,
           keyboardType: widget.textInputType,
           obscuringCharacter: '*',
+
           cursorColor: widget.cursorColor,
           onTap: widget.onTap,
           onEditingComplete: () {
@@ -100,6 +102,7 @@ class _MainTextFieldState extends State<MainTextField> {
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(AppPadding.p12),
             hintText: widget.hint,
+            prefixIcon: Icon(widget.prefixIcon),
             suffixIcon: widget.isObscured
                 ? IconButton(
                     onPressed: () {

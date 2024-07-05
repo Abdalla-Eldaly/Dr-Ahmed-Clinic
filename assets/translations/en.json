@@ -38,6 +38,28 @@
   "selectionGetStart" : "Get Start",
 
 
+
+
+  "nurseScreenTitle" : "Secretary",
+  "nurseScreenSearch" : "Search",
+  "nurseScreenSearchHint" : "Search...",
+  "patientName" : "Patient name",
+  "patientNameHint" : "Enter patient name",
+  "patientAge" : "Patient age",
+  "patientAgeHint" : "enter patient age",
+  "patientGender" : "Patient gender",
+  "patientGenderHint" : "enter patient gender",
+  "patientPhone" : "Phone",
+  "patientPhoneHint" : "Enter patient phone",
+  "patientAddress" : "Patient address",
+  "patientAddressHint" : "Enter patient address",
+  "patientServices" : "Patient services",
+  "patientServicesHint" : "Enter patient services",
+
+
+
+
+"selectionScreenLanguageButton":"English",
   "areYouSure": "Are You Sure",
   "sure": "Sure",
   "cancel": "Cancel",
