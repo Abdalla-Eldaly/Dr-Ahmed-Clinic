@@ -6,3 +6,4 @@ enum RegisteredBeforeError {
 }
 
 enum UserType { doctor, nurse ,none }
+enum RegisterType {  doctor, nurse  }

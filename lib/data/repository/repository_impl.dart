@@ -23,7 +23,7 @@ class RepositoryImpl implements Repository {
   final CacheDataSource _cacheDataSource;
   final NetworkInfo _networkInfo;
   final Uuid _uuidGenerator = const Uuid();
-
+  final UserManager _userManager;
   // final GSheetFactory _gSheetFactory;
   // final DateNTP _dateNTP;
 
@@ -31,7 +31,7 @@ class RepositoryImpl implements Repository {
     this._remoteDataSource,
     // this._localDataSource,
     this._networkInfo,
-    this._cacheDataSource,
+    this._cacheDataSource, this._userManager,
     // this._gSheetFactory,
     // this._dateNTP,
   );
@@ -72,7 +72,7 @@ class RepositoryImpl implements Repository {
           await _remoteDataSource.saveNurseToDataBase(
               id: uuid, name: username, email: email, password: password);
         }
-        await fetchCurrentUser(email);
+        await fetchCurrentUser();
         return const Right(null);
       } else {
         return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
@@ -83,22 +83,19 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  Future<Either<Failure, User?>> fetchCurrentUser([String? email]) async {
+  Future<Either<Failure, User?>> fetchCurrentUser() async {
     try {
       if (await _networkInfo.isConnected) {
-        var data = _cacheDataSource.getSignedUser();
-        print(1);
-        print(data);
+        User? data = _cacheDataSource.getSignedUser();
         if (data != null) {
           Map<String, dynamic>? userData = await _remoteDataSource.getUserData(
             email: data.email!,
           );
-          UserModel userModel = UserModel.fromMap(userData!);
-          DataIntent.pushUser(userModel);
-          if (userData['user_type'].toLowerCase() == 'doctor') {
-            DataIntent.setUserRole(UserRole.doctor);
+          userData?['created_at'] = userData['created_at'].toString();
+          if (userData?['user_type'] == 'doctor') {
+            _userManager.setCurrentDoctor(DoctorModel.fromMap(userData!));
           } else {
-            DataIntent.setUserRole(UserRole.nurse);
+            _userManager.setCurrentNurse(NurseModel.fromMap(userData!));
           }
         }
         return Right(data);
@@ -109,7 +106,6 @@ class RepositoryImpl implements Repository {
       return Left(ErrorHandler.handle(e).failure);
     }
   }
-
   @override
   Future<Either<Failure, void>> passwordReset({
     required String email,
@@ -120,7 +116,7 @@ class RepositoryImpl implements Repository {
         await _remoteDataSource.resetPassword(
           email: email,
         );
-        fetchCurrentUser(email);
+        fetchCurrentUser();
         return Right(response);
       } else {
         return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
@@ -131,6 +127,18 @@ class RepositoryImpl implements Repository {
       return Left(ErrorHandler.handle(e).failure);
     }
   }
+
+
+  @override
+  Future<Either<Failure, void>> logout() async {
+    try {
+      await _cacheDataSource.logout();
+      return const Right(null);
+    } catch (e) {
+      return Left(ErrorHandler.handle(e).failure);
+    }
+  }
+
 
   @override
   Future<Either<Failure, User?>> signInWithGoogle() async {

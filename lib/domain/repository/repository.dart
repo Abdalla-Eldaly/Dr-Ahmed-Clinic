@@ -17,5 +17,6 @@ Future<Either<Failure, void>> register({
 Future<Either<Failure, User?>> fetchCurrentUser();
 
 Future<Either<Failure, User?>> signInWithGoogle();
+Future<Either<Failure, void>> logout();
 
 }

@@ -41,7 +41,7 @@ class AppButton extends StatelessWidget {
                     : ColorManager.white,
               )
             : TextButton.styleFrom(
-                backgroundColor: color ?? ColorManager.primary,
+                backgroundColor: color ?? ColorManager.secondary,
                 foregroundColor: outlined
                     ? (color ?? ColorManager.transparent)
                     : ColorManager.transparent,

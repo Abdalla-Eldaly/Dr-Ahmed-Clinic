@@ -97,6 +97,8 @@ class AppStrings {
   //Register Layout
   static const String registerLayoutSuccessMessage =
       "registerLayoutSuccessMessage";
+  static const String successOperation =
+      "successOperation";
 
   //Soon Screen
   static const String soonScreenTitle = "soonScreenTitle";
@@ -119,6 +121,8 @@ class AppStrings {
   static const String patientAddressHint = "patientAddressHint";
   static const String patientServices = "patientServices";
   static const String patientServicesHint = "patientServicesHint";
+  static const String home = "home";
+  static const String addPatient = "addPatient";
 
   //Validation Messages
   static const String validationsFieldRequired = "validationsFieldRequired";

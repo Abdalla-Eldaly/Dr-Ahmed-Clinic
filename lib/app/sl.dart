@@ -23,6 +23,7 @@ import '../domain/usecase/get_current_user_usecase.dart';
 import '../domain/usecase/get_signeduser_usecase.dart';
 import '../domain/usecase/login_usecase.dart';
 
+import '../domain/usecase/logout_usecase.dart';
 import '../domain/usecase/register_usecase.dart';
 import '../domain/usecase/resetPassword_usecase.dart';
 import '../domain/usecase/sign_in_with_google_usecase.dart';
@@ -66,7 +67,7 @@ Future<void> initAppModule() async {
 
   sl.registerLazySingleton<LocalDataSource>(() => LocalDataSourceImpl(sl()));
 
-  sl.registerLazySingleton<Repository>(() => RepositoryImpl(sl(), sl(), sl()));
+  sl.registerLazySingleton<Repository>(() => RepositoryImpl(sl(), sl(), sl(),sl()));
 }
 
 
@@ -96,5 +97,11 @@ void initSignWithGoogleUseCase() {
   if (GetIt.instance.isRegistered<SignWithGoogleUseCase>() == false) {
     sl.registerFactory<SignWithGoogleUseCase>(
             () => SignWithGoogleUseCase(sl()));
+  }
+}
+
+void initLogOutUseCase() {
+  if (GetIt.instance.isRegistered<LogoutUseCase>() == false) {
+    sl.registerFactory<LogoutUseCase>(() => LogoutUseCase(sl()));
   }
 }

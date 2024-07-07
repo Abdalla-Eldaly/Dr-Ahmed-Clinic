@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,9 +9,10 @@ import '../../../domain/models/enums.dart';
 import '../../base/base_cubit.dart';
 import '../../base/base_states.dart';
 import '../../common/data_intent/data_intent.dart';
+import '../../resources/strings_manager.dart';
 
 class RegistereViewmodel extends BaseCubit
-    implements RegistereViewmodelOutput, RegistereViewmodelInput {
+    implements RegisterViewModelOutput, RegisterViewModelInput {
   final RegisteruseCase _registeruseCase;
   late UserRole _registerType;
 
@@ -20,7 +22,6 @@ class RegistereViewmodel extends BaseCubit
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
 
   final FocusNode nameFocusNode = FocusNode();
   final FocusNode emailFocusNode = FocusNode();
@@ -79,7 +80,16 @@ class RegistereViewmodel extends BaseCubit
             );
           },
           (r) {
-            emit(SuccessState('Registered Successfully'));
+            if (_registerType == UserRole.doctor) {
+              emit(RegisterDoctorState());
+              emit(SuccessState(AppStrings.successOperation.tr()));
+
+            } else {
+
+              emit(RegisterNurseState());
+              emit(SuccessState(AppStrings.successOperation.tr()));
+
+            }
           },
         );
       },
@@ -99,9 +109,9 @@ class RegistereViewmodel extends BaseCubit
   String? get getFireAuthUsername => _fireAuthUsername;
 }
 
-abstract class RegistereViewmodelInput {}
+abstract class RegisterViewModelInput {}
 
-abstract class RegistereViewmodelOutput {
+abstract class RegisterViewModelOutput {
   TextEditingController get getNameController;
 
   TextEditingController get getEmailController;
@@ -115,4 +125,6 @@ abstract class RegistereViewmodelOutput {
   String? get getFireAuthUsername;
 
   String? get getFireAuthEmail;
+
+  UserRole get getRegisterType;
 }

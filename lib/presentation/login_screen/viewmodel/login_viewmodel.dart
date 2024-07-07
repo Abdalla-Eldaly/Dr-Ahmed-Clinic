@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:zag_nights/domain/usecase/login_usecase.dart';
 import 'package:zag_nights/presentation/base/base_cubit.dart';
 import 'package:zag_nights/presentation/base/base_states.dart';
+import 'package:zag_nights/presentation/resources/strings_manager.dart';
 
 import '../../../data/network/error_handler.dart';
 import '../../../domain/models/enums.dart';
@@ -43,12 +45,14 @@ class LoginViewModel extends BaseCubit
             LoginUseCaseInput(_emailController.text, _passwordController.text)))
         .fold((l) {
       emit(ErrorState(failure: l, displayType: DisplayType.popUpDialog));
-    }, (r) { emit(SuccessState('Login Successfully'));
+    }, (r) {
 
     if (_userManager.getCurrentUserType == UserType.doctor) {
       emit(DoctorLoginState());
+      emit(SuccessState(AppStrings.successOperation.tr()));
     } else {
       emit(NurseLoginState());
+      emit(SuccessState(AppStrings.successOperation.tr()));
     }
 
         });

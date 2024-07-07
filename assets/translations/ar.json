@@ -48,15 +48,23 @@
   "patientAddressHint" : "أدخل عنوان المريض",
   "patientServices" : " خدمة المريض",
   "patientServicesHint" : "أدخل خدمة المريض",
+  "home" : "الصفحه الرئيسية ",
+  "addPatient" : " أضف المريض",
 
 
   "areYouSure": "هل أنت متأكد؟",
   "sure": "نعم",
   "cancel": "لا",
+  "successOperation": "تم تسجيل الدخول بنجاح",
+
+
+
   "validationsFieldRequired": "هذا الحقل مطلوب",
   "validationsFieldLengthMoreThan6": "يجب ان يحتوي علي 6 حروف او اكتر",
   "validationsValidEmail": "أدخل بريد ألكتروني صحيح",
   "validationsNumbersOnly": "استعمل أرقام فقط",
+  "validationsArabicAndEnglishLetters": "أدخل الاسم يطريقه صحيحه",
+
   "validationsNumbersMustEqual16Digit": "يرجي كتابة 16 رقما",
   "validationsNumbersMustEqual14Digit": "يرجي كتابة 14 رقما",
   "validationsNumbersMustEqual11Digit": "يرجي كتابة 11 رقما",

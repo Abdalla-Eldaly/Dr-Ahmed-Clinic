@@ -23,6 +23,24 @@ class AppValidators {
     }
   }
 
+  static String? validateNotEmpty(String? val) {
+    if (val == null || val.isEmpty) {
+      return AppStrings.validationsFieldRequired.tr();
+    }
+    else {
+      return null;
+    }
+  }
+  static String? validateEmpty(String? val) {
+    if (val == null || val.isEmpty || val.length > 5) {
+      return AppStrings.validationsFieldRequired.tr();
+    }
+
+    else {
+      return null;
+    }
+  }
+
   static String? validateAge(String? val) {
     if (val == null || val.isEmpty) {
       return AppStrings.validationsFieldRequired.tr();

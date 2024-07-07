@@ -41,6 +41,17 @@ class DataIntent {
     _fireAuthUser = fireAuthUser;
   }
 
+
+
+
+  static UserType _selection = UserType.none;
+
+  static void setSelection(UserType item) => _selection = item;
+
+  static UserType getSelection() {
+    return _selection;
+  }
+
 }
 
 
@@ -60,13 +71,13 @@ class UserManager {
 
   UserType? get getCurrentUserType => _currentUserType;
 
-  void setCurrentPassenger(DoctorModel doctorModel)  {
+  void setCurrentDoctor(DoctorModel doctorModel)  {
     _currentDoctor = doctorModel;
     _currentUserType = UserType.doctor;
     _currentNurse = null;
   }
 
-  void setCurrentDriver(NurseModel nurseModel) {
+  void setCurrentNurse(NurseModel nurseModel) {
     _currentNurse = nurseModel;
     _currentUserType = UserType.nurse;
     _currentDoctor = null;

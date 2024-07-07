@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:zag_nights/presentation/login_screen/view/login_screen_view.dart';
-import 'package:zag_nights/presentation/mainlayout_screen/view/doctor_mainlayout_screen.dart';
-import 'package:zag_nights/presentation/mainlayout_screen/view/nurse_mainlayout_screen.dart';
-import 'package:zag_nights/presentation/onboarding_screen/view/onBoardingView.dart';
 import 'package:zag_nights/presentation/selection_screen/view/selection_view.dart';
 import 'package:zag_nights/presentation/splash_screen/view/splash_view.dart';
 import '../../app/sl.dart';
 
 import '../common/animation/animation.dart';
+import '../doctor_mainlayout_screen/doctor_mainlayout_screen.dart';
+import '../nures_mainlayout_screen/view/nurse_mainlayout_screen.dart';
+import '../onboarding_screen/view/onBoardingView.dart';
 import '../register_screen/view/sign_up_page.dart';
 import 'strings_manager.dart';
 
@@ -51,10 +51,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const RegisterScreen());
 
       case Routes.nurseMainLayoutRoute:
+        initLogOutUseCase();
         return MaterialPageRoute(builder: (_) => const NurseMainLayOutScreen());
       case Routes.doctorMainLayoutRoute:
         return MaterialPageRoute(builder: (_) => const DoctorMainLayOut());
-
 
       default:
         return unDefinedRoute();

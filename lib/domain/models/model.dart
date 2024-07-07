@@ -4,103 +4,92 @@ class UserModel {
   final String? uid;
   final String? username;
   final String? email;
-  final UserRole? userRole;
+  final UserType userType;
 
   UserModel({
     required this.uid,
     required this.username,
     required this.email,
-    required this.userRole,
+    required this.userType,
   });
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
-    UserRole userRole;
+    UserType userType;
     if (map['user_type'].toLowerCase() == 'doctor') {
-      userRole = UserRole.doctor;
+      userType = UserType.doctor;
     } else {
-      userRole = UserRole.nurse;
+      userType = UserType.nurse;
     }
 
     return UserModel(
       uid: map['id'],
       username: map['username'],
       email: map['email'],
-      userRole: userRole,
+      userType: userType,
     );
   }
-
-
-
-
 }
 
-
-class DoctorModel extends UserModel {
+class DoctorModel {
   final String uid;
   final String username;
   final String email;
-  final UserRole userRole;
+  final UserType userType;
 
   DoctorModel({
     required this.uid,
     required this.username,
     required this.email,
-    required this.userRole,
-  }) : super(uid: uid , username: username, email: email, userRole: UserRole.doctor);
+    required this.userType,
+  });
 
   factory DoctorModel.fromMap(Map<String, dynamic> map) {
-    UserRole userRole;
-    if (map['user_type'].toLowerCase() == 'doctor') {
-      userRole = UserRole.doctor;
-    } else {
-      userRole = UserRole.nurse;
-    }
-
     return DoctorModel(
       uid: map['id'],
-      username: map['username'],
+      username: map['user_name'],
       email: map['email'],
-      userRole: userRole,
+      userType: UserType.doctor,
     );
   }
 
-
-
-
+  Map<String, dynamic> toMap() {
+    return {
+      'id': uid,
+      'user_name': username,
+      'email': email,
+      'user_type': UserType.doctor,
+    };
+  }
 }
 
-class NurseModel extends UserModel {
+class NurseModel {
   final String uid;
   final String username;
   final String email;
-  final UserRole userRole;
+  final UserType userType;
 
   NurseModel({
     required this.uid,
     required this.username,
     required this.email,
-    required this.userRole,
-  }) : super(uid: uid , username: username, email: email, userRole: UserRole.doctor);
+    required this.userType,
+  });
 
   factory NurseModel.fromMap(Map<String, dynamic> map) {
-    UserRole userRole;
-    if (map['user_type'].toLowerCase() == 'nurse') {
-      userRole = UserRole.doctor;
-    } else {
-      userRole = UserRole.nurse;
-    }
-
     return NurseModel(
       uid: map['id'],
-      username: map['username'],
+      username: map['user_name'],
       email: map['email'],
-      userRole: userRole,
+      userType: UserType.nurse,
     );
   }
 
-
-
-
+  Map<String, dynamic> toMap() {
+    return {
+      'id': uid,
+      'user_name': username,
+      'email': email,
+      'user_type': UserType.nurse,
+    };
+  }
 }
-
-

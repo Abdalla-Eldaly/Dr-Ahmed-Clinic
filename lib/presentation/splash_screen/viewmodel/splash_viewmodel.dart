@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/models/enums.dart';
@@ -28,10 +29,16 @@ class SplashViewModel extends BaseCubit
             if (r == null) {
               emit(UserNotSignedState());
             } else {
-              if (_userManager.getCurrentUserType == UserType.doctor) {
+              UserType userType = _userManager.getCurrentUserType ?? UserType.none;
+              if (userType == UserType.doctor) {
                 emit(DoctorState());
-              } else {
+              } else if (userType == UserType.nurse) {
                 emit(NurseState());
+              } else {
+                emit(UserNotSignedState());
+                if (kDebugMode) {
+                  print('no user type');
+                }
               }
             }
           },
