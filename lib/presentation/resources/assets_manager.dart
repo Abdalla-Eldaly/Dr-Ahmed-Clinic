@@ -8,8 +8,10 @@ class ImageAssets {
   static const String background = "${_basePath}Screenshot (109).png";
   static const String loginBackGround1 = "${_basePath}615585842833496297.jpeg";
   static const String registerBackGround1 = "${_basePath}615585842833496297.jpeg";
-  static const String loginBackGround2 = "${_basePath}Download premium vector of Doctor and hospital themed phone background vector by Kappy about doctor phone, doctor's day, hospital, doctors background, and instagram story medical.jpeg";
-  static const String registerBackGround2 = "${_basePath}Download premium vector of Doctor and hospital themed phone background vector by Kappy about doctor phone, doctor's day, hospital, doctors background, and instagram story medical.jpeg";
+  static const String loginBackGround2 = "${_basePath}background.jpeg";
+  static const String registerBackGround2 = "${_basePath}background.jpeg";
+  static const String femaleAvatar = "${_basePath}hairstyle.png";
+  static const String nurseScreenHome = "${_basePath}download.png";
 }
 
 class IconsAssets {
@@ -27,6 +29,9 @@ class SVGAssets {
 
   static const String logo = "${_basePath}Logo.svg";
   static const String google = "${_basePath}google.svg";
+  static const String menu = "${_basePath}navbar.svg";
+  static const String patient = "${_basePath}mdi_patient.svg";
+  static const String calender = "${_basePath}Vector (1).svg";
 }
 
 class LottieAssets {

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../resources/color_manager.dart';
 import '../../resources/text_styles.dart';
@@ -24,7 +25,7 @@ class MainTextField extends StatefulWidget {
     this.readOnly = false,
     this.validation,
     this.onTap,
-    this.maxLines, this.prefixIcon,
+    this.maxLines, this.prefixIcon, this.inputFormatters, this.onChanged,
   });
 
   final TextEditingController? controller;
@@ -44,6 +45,8 @@ class MainTextField extends StatefulWidget {
   final int? maxLines;
   final String? Function(String?)? validation;
   final void Function()? onTap;
+  final List<TextInputFormatter>? inputFormatters;
+  final void Function(String)? onChanged;
 
   @override
   State<MainTextField> createState() => _MainTextFieldState();
@@ -66,6 +69,9 @@ class _MainTextFieldState extends State<MainTextField> {
               )
             : const SizedBox(),
         TextFormField(
+          inputFormatters: widget.inputFormatters,
+          onChanged: widget.onChanged,
+
           maxLines: widget.maxLines,
           controller: widget.controller,
           focusNode: widget.focusNode,
@@ -102,6 +108,7 @@ class _MainTextFieldState extends State<MainTextField> {
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(AppPadding.p12),
             hintText: widget.hint,
+
             prefixIcon: Icon(widget.prefixIcon),
             suffixIcon: widget.isObscured
                 ? IconButton(

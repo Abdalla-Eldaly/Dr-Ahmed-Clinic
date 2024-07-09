@@ -1,11 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zag_nights/presentation/base/base_states.dart';
-import 'package:zag_nights/presentation/common/widget/main_app_bar.dart';
-
 import 'package:zag_nights/presentation/nures_mainlayout_screen/view/widgets/nurse_body.dart';
+
 import 'package:zag_nights/presentation/resources/color_manager.dart';
+import 'package:zag_nights/presentation/resources/font_manager.dart';
+import 'package:zag_nights/presentation/resources/text_styles.dart';
+import 'package:zag_nights/presentation/resources/values_manager.dart';
 import '../../../app/sl.dart';
 import '../../resources/routes_manager.dart';
 import '../../resources/strings_manager.dart';
@@ -25,10 +28,29 @@ class _NurseMainLayOutScreenState extends State<NurseMainLayOutScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.white,
-      appBar: buildMainAppBar(
-        context,
-        AppStrings.selectionScreenLanguageButton.tr(),
-
+      appBar: AppBar(
+        backgroundColor: ColorManager.white,
+        elevation: 0,
+        toolbarHeight: AppSize.s2,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: ColorManager.gray,
+          statusBarIconBrightness: Brightness.light,
+        ),
+      ),
+      floatingActionButton: SizedBox(
+        width: MediaQuery.of(context).size.width * .4,
+        child: FloatingActionButton(
+          backgroundColor: ColorManager.tertiary.withOpacity(.6),
+          onPressed: () {
+            Navigator.pushNamed(context, Routes.nurseHomeScreenRoute);
+          },
+          child: FittedBox(
+              child: Text(
+            AppStrings.addPatient.tr(),
+            style: AppTextStyles.generalTextStyle(
+                context, ColorManager.gray, FontSize.f22),
+          )),
+        ),
       ),
       body: BlocProvider(
         create: (_) => NurseViewModel(sl())..start(),
@@ -44,6 +66,7 @@ class _NurseMainLayOutScreenState extends State<NurseMainLayOutScreen> {
           },
         ),
       ),
+
     );
   }
 }

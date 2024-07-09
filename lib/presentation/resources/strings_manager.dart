@@ -32,6 +32,7 @@ class AppStrings {
   static const String intentError = "intentError";
   static const String areYouSure = "areYouSure";
   static const String sure = "sure";
+  static const String confirm = "confirm";
   static const String cancel = "cancel";
 
   //Selection Screen
@@ -115,14 +116,22 @@ class AppStrings {
   static const String patientAge = "patientAge";
   static const String patientAgeHint = "patientAgeHint";
   static const String patientGender = "patientGender";
+  static const String patientMale = "patientMale";
+  static const String patientFemale = "patientFemale";
   static const String patientGenderHint = "patientGenderHint";
   static const String patientPhoneHint = "patientPhoneHint";
   static const String patientAddress = "patientAddress";
   static const String patientAddressHint = "patientAddressHint";
   static const String patientServices = "patientServices";
+  static const String patientServices1 = "كشف";
+  static const String patientServices2 = "استشاره";
+  static const String patientServices3 = "غيار";
+  static const String patientServices4 = "عمليه";
+  static const String patientServices5 = "عرض";
   static const String patientServicesHint = "patientServicesHint";
   static const String home = "home";
   static const String addPatient = "addPatient";
+  static const String patient = "patient";
 
   //Validation Messages
   static const String validationsFieldRequired = "validationsFieldRequired";

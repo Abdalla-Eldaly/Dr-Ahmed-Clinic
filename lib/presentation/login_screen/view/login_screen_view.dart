@@ -36,7 +36,7 @@ class LoginScreen extends StatelessWidget {
             else if(state is NurseLoginState){
               Navigator.pushNamedAndRemoveUntil(
                 context,
-                Routes.doctorMainLayoutRoute,
+                Routes.nurseMainLayoutRoute,
                 ModalRoute.withName('/'),
               );
             }

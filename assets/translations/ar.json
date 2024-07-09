@@ -50,10 +50,13 @@
   "patientServicesHint" : "أدخل خدمة المريض",
   "home" : "الصفحه الرئيسية ",
   "addPatient" : " أضف المريض",
-
+  "patientMale" : "ذكر",
+  "patientFemale" : "أنثى",
+  "patient" : "مرضي",
 
   "areYouSure": "هل أنت متأكد؟",
   "sure": "نعم",
+  "confirm": "تأكٍيد",
   "cancel": "لا",
   "successOperation": "تم تسجيل الدخول بنجاح",
 

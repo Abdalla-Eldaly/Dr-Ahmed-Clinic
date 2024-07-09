@@ -168,6 +168,32 @@ class AppTextStyles {
         fontSize: FontSize.f30,
       );
 
+  static TextStyle nurseSearchTextStyle(BuildContext context) =>
+      getBoldStyle(
+        fontFamily: AppLanguages.getPrimaryFont(context),
+        color: ColorManager.gray,
+        fontSize: FontSize.f12,
+      );
+
+  static TextStyle smallNurseTextStyle(BuildContext context) =>
+      getLightStyle(
+        fontFamily: AppLanguages.getPrimaryFont(context),
+        color: ColorManager.gray,
+        fontSize: FontSize.f16,
+      );
+  static TextStyle smallNurseTextStyleNumber(BuildContext context) =>
+      getSemiBoldStyle(
+        fontFamily: AppLanguages.getPrimaryFont(context),
+        color: ColorManager.red,
+        fontSize: FontSize.f16,
+      );
+  static TextStyle dateNurseTextStyleNumber(BuildContext context) =>
+      getSemiBoldStyle(
+        fontFamily: AppLanguages.getPrimaryFont(context),
+        color: ColorManager.lightGreen,
+        fontSize: FontSize.f16,
+      );
+
 
 
 }

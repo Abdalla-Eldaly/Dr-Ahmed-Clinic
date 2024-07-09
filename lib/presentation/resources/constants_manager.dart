@@ -13,4 +13,8 @@ class AppConstants {
   //ongoing event layout
   static const int ongoingEventLayoutSwitchDur = 500;
 
+
+  //dialog
+  static const int dialogDur = 375;
+
 }

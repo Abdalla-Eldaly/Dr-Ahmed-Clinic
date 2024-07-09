@@ -57,6 +57,9 @@
   "patientServicesHint" : "Enter patient services",
   "home" : "Home",
   "addPatient" : "Add patient",
+  "patientMale" : "Male",
+  "patientFemale" : "Female",
+  "patient" : "Patient",
 
 
 
@@ -64,6 +67,7 @@
 "selectionScreenLanguageButton":"English",
   "areYouSure": "Are You Sure",
   "sure": "Sure",
+  "confirm": "Confirm",
   "cancel": "Cancel",
   "successOperation": "Login Successfully",
 

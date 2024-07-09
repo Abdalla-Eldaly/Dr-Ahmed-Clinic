@@ -332,6 +332,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "flutter_staggered_animations",
+      "rootUri": "file:///C:/Users/abdallah/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_staggered_animations-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "flutter_svg",
       "rootUri": "file:///C:/Users/abdallah/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_svg-2.0.10+1",
       "packageUri": "lib/",
@@ -956,7 +962,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-07-03T13:12:44.054489Z",
+  "generated": "2024-07-09T06:57:44.702252Z",
   "generator": "pub",
   "generatorVersion": "3.3.4"
 }
