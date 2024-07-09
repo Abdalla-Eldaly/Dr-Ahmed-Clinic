@@ -163,4 +163,24 @@ class RepositoryImpl implements Repository {
     } catch (e) {
       return Left(ErrorHandler.handle(e).failure);
     }
+  }
+
+  @override
+  Future<Either<Failure, void>> addPatient(PatientRequest patientRequest) async{
+    try{
+      if(await _networkInfo.isConnected){
+
+        await _remoteDataSource.addPatient(
+          patientRequest: patientRequest
+
+        );
+        return const Right(null);
+      }else{
+        return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+      }
+
+    }catch(error){
+      return Left(ErrorHandler.handle(error).failure);
+    }
+
   }}

@@ -99,6 +99,11 @@ class AppTextStyles {
     color: ColorManager.tertiary.withOpacity(.6),
     fontSize: FontSize.f17,
   );
+  static TextStyle authTextStyle(BuildContext context) => getSemiBoldStyle(
+    fontFamily: AppLanguages.getPrimaryFont(context),
+    color: ColorManager.gray,
+    fontSize: FontSize.f17,
+  );
 
   static TextStyle createAccountTextStyle(BuildContext context) => getRegularStyle(
     fontFamily: AppLanguages.getPrimaryFont(context),

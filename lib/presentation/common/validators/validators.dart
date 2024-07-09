@@ -32,8 +32,12 @@ class AppValidators {
     }
   }
   static String? validateEmpty(String? val) {
-    if (val == null || val.isEmpty || val.length > 5) {
+    if (val == null || val.isEmpty ) {
       return AppStrings.validationsFieldRequired.tr();
+    }
+    else if( val.length < 5){
+      return AppStrings.validationsValidValue.tr();
+
     }
 
     else {

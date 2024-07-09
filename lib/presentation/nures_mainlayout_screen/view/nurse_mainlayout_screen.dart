@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zag_nights/presentation/base/base_states.dart';
+import 'package:zag_nights/presentation/nures_mainlayout_screen/view/widgets/home/view/nurse_home_screen.dart';
 import 'package:zag_nights/presentation/nures_mainlayout_screen/view/widgets/nurse_body.dart';
 
 import 'package:zag_nights/presentation/resources/color_manager.dart';
@@ -43,6 +44,10 @@ class _NurseMainLayOutScreenState extends State<NurseMainLayOutScreen> {
           backgroundColor: ColorManager.tertiary.withOpacity(.6),
           onPressed: () {
             Navigator.pushNamed(context, Routes.nurseHomeScreenRoute);
+
+            // Navigator.push(context, MaterialPageRoute(builder: (context) {
+            //   return const NurseHomeScreen();
+            // },));
           },
           child: FittedBox(
               child: Text(

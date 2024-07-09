@@ -12,33 +12,37 @@ abstract class RemoteDataSource {
   Future<void> login({
     required LoginRequest loginRequest,
   });
+
+  Future<void> addPatient({
+    required PatientRequest patientRequest,
+  });
+
   Future<User?> signInWithGoogle(GoogleSignInAccount? googleAccount);
 
   Future<GoogleSignInAccount?> selectGoogleAccount();
 
-
   Future<void> resetPassword({
     required String email,
-});
+  });
 
   Future<RegisteredBeforeError?> doesUserExists({
     required String email,
   });
 
   Future<void> saveDoctorToDataBase({
-   required String id,
-   required String name,
-   required String email,
-   required String? password,
+    required String id,
+    required String name,
+    required String email,
+    required String? password,
   });
   Future<Map<String, dynamic>?> getUserData({
     required String email,
   });
   Future<void> saveNurseToDataBase({
-   required String id,
-   required String name,
-   required String email,
-   required String? password,
+    required String id,
+    required String name,
+    required String email,
+    required String? password,
   });
 }
 
@@ -47,7 +51,9 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   final FirebaseAuth _firebaseAuth;
 
   RemoteDataSourceImpl(
-      this._firestore, this._firebaseAuth,);
+    this._firestore,
+    this._firebaseAuth,
+  );
 
   @override
   Future<void> login({required LoginRequest loginRequest}) async {
@@ -56,17 +62,18 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       password: loginRequest.password,
     );
   }
+
   @override
   Future<User?> signInWithGoogle(GoogleSignInAccount? googleAccount) async {
     GoogleSignInAuthentication? googleAuth =
-    await googleAccount?.authentication;
+        await googleAccount?.authentication;
 
     OAuthCredential credential = GoogleAuthProvider.credential(
       accessToken: googleAuth?.accessToken,
       idToken: googleAuth?.idToken,
     );
     UserCredential userCredential =
-    await _firebaseAuth.signInWithCredential(credential);
+        await _firebaseAuth.signInWithCredential(credential);
     return userCredential.user;
   }
 
@@ -103,7 +110,6 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       'user_name': name,
       'email': email,
       'user_type': 'nurse',
-
     });
     if (password != null) {
       await _firebaseAuth.createUserWithEmailAndPassword(
@@ -112,8 +118,6 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       );
     }
   }
-
-
 
   @override
   Future<Map<String, dynamic>?> getUserData({
@@ -125,7 +129,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
         .where('email', isEqualTo: email)
         .get()
         .then(
-          (value) {
+      (value) {
         user = value.docs.firstOrNull?.data();
       },
     );
@@ -133,14 +137,15 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<void> resetPassword({required String email}) async{
-   await _firebaseAuth.sendPasswordResetEmail(email: email);
+  Future<void> resetPassword({required String email}) async {
+    await _firebaseAuth.sendPasswordResetEmail(email: email);
   }
 
   @override
   Future<GoogleSignInAccount?> selectGoogleAccount() async {
     return await GoogleSignIn().signIn();
   }
+
   @override
   Future<RegisteredBeforeError?> doesUserExists({
     required String email,
@@ -151,7 +156,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
         .where('email', isEqualTo: email)
         .get()
         .then(
-          (value) {
+      (value) {
         if (value.docs.isNotEmpty) {
           emailUsed = true;
         }
@@ -165,4 +170,18 @@ class RemoteDataSourceImpl implements RemoteDataSource {
     }
   }
 
+  @override
+  Future<void> addPatient({required PatientRequest patientRequest}) async {
+
+    await _firestore.collection('patients').doc(patientRequest.uid).set({
+      'uid': patientRequest.uid,
+      'name': patientRequest.name,
+      'age': patientRequest.age,
+      'phone': patientRequest.phone,
+      'gender': patientRequest.gender,
+      'address': patientRequest.address,
+      'services': patientRequest.services,
+      'create_At': DateTime.now()
+    });
+  }
 }

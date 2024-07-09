@@ -132,9 +132,11 @@ class AppStrings {
   static const String home = "home";
   static const String addPatient = "addPatient";
   static const String patient = "patient";
+  static const String addPatientMessage = "addPatientMessage";
 
   //Validation Messages
   static const String validationsFieldRequired = "validationsFieldRequired";
+  static const String validationsValidValue = "validationsValidValue";
   static const String validationsArabicAndEnglishLetters =
       "validationsArabicAndEnglishLetters";
   static const String validationsNumbersOnly = "validationsNumbersOnly";

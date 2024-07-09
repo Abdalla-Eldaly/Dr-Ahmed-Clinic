@@ -9,21 +9,22 @@ import '../../../../../../common/widget/app_button.dart';
 import '../../../../../../resources/color_manager.dart';
 import '../../../../../../resources/text_styles.dart';
 import '../../../../../../resources/values_manager.dart';
+import '../../viewmodel/home_nurse_viewmodel.dart';
 
-class SearchFuncationalityState extends StatefulWidget {
-  const SearchFuncationalityState({
+class SearchFunctionalityState extends StatefulWidget {
+  const SearchFunctionalityState({
     super.key,
-    // required this.viewModel,
+     required this.viewModel,
   });
 
-  // final AddTripViewModel viewModel;
+  final HomeNurseViewModel viewModel;
 
   @override
-  State<SearchFuncationalityState> createState() =>
+  State<SearchFunctionalityState> createState() =>
       _SearchFuncationalityStateState();
 }
 
-class _SearchFuncationalityStateState extends State<SearchFuncationalityState> {
+class _SearchFuncationalityStateState extends State<SearchFunctionalityState> {
   List<String> locations = [
     "بنها",
     "كفر شكر",
@@ -154,7 +155,7 @@ class _SearchFuncationalityStateState extends State<SearchFuncationalityState> {
             Expanded(
               child: MainTextField(
                 hintTextStyle: AppTextStyles.createAccountTextStyle(context),
-                // controller: widget.viewModel.getToSearchController,
+                controller: widget.viewModel.getPatientAddressSearch,
                 onChanged: (value) {
                   filterSearchResults(value);
                 },
@@ -174,8 +175,8 @@ class _SearchFuncationalityStateState extends State<SearchFuncationalityState> {
                 onTap: () {
                   setState(() {
                     isSearching = true;
-                    // widget.viewModel.getToSearchController.text =
-                    // filteredList[index];
+                    widget.viewModel.getPatientAddressSearch.text =
+                    filteredList[index];
                   });
                 },
                 child: ListTile(
@@ -196,8 +197,8 @@ class _SearchFuncationalityStateState extends State<SearchFuncationalityState> {
                 color: ColorManager.secondary,
                 text: AppStrings.confirm.tr(),
                 onPressed: () {
-                  // widget.viewModel.getToController.text = widget.viewModel.getToSearchController.text;
-                  // widget.viewModel.getToSearchController.clear();
+                  widget.viewModel.getPatientAddress.text = widget.viewModel.getPatientAddressSearch.text;
+                  widget.viewModel.getPatientAddressSearch.clear();
 
                   Navigator.pop(context);
                 },

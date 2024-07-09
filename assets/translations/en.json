@@ -60,6 +60,7 @@
   "patientMale" : "Male",
   "patientFemale" : "Female",
   "patient" : "Patient",
+  "addPatientMessage" : "patient added Successfully",
 
 
 
@@ -72,6 +73,7 @@
   "successOperation": "Login Successfully",
 
   "validationsFieldRequired": "field is required",
+  "validationsValidValue": "please enter valid value",
   "validationsFieldLengthMoreThan6": "length must be more than 6 characters",
   "validationsValidEmail": "enter a valid email",
   "validationsNumbersOnly": "enter numbers only",

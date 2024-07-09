@@ -53,6 +53,7 @@
   "patientMale" : "ذكر",
   "patientFemale" : "أنثى",
   "patient" : "مرضي",
+  "addPatientMessage" : "تمت إضافة المريض بنجاح",
 
   "areYouSure": "هل أنت متأكد؟",
   "sure": "نعم",
@@ -67,7 +68,7 @@
   "validationsValidEmail": "أدخل بريد ألكتروني صحيح",
   "validationsNumbersOnly": "استعمل أرقام فقط",
   "validationsArabicAndEnglishLetters": "أدخل الاسم يطريقه صحيحه",
-
+  "validationsValidValue": "يُرجى إدخال قيمة صحيحة",
   "validationsNumbersMustEqual16Digit": "يرجي كتابة 16 رقما",
   "validationsNumbersMustEqual14Digit": "يرجي كتابة 14 رقما",
   "validationsNumbersMustEqual11Digit": "يرجي كتابة 11 رقما",

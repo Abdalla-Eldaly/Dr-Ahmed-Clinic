@@ -77,7 +77,7 @@ class _MainTextFieldState extends State<MainTextField> {
           focusNode: widget.focusNode,
           readOnly: widget.readOnly,
           style:
-              widget.hintTextStyle ?? AppTextStyles.authHintTextStyle(context),
+              widget.hintTextStyle ?? AppTextStyles.authTextStyle(context),
           obscureText: hidden,
           keyboardType: widget.textInputType,
           obscuringCharacter: '*',

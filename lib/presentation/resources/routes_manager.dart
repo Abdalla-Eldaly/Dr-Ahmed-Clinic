@@ -58,6 +58,7 @@ class RouteGenerator {
       case Routes.doctorMainLayoutRoute:
         return MaterialPageRoute(builder: (_) => const DoctorMainLayOut());
       case Routes.nurseHomeScreenRoute:
+        initAddPatientUseCase();
         return MaterialPageRoute(builder: (_) => const NurseHomeScreen());
 
       default:
