@@ -159,7 +159,7 @@ class _SearchFuncationalityStateState extends State<SearchFunctionalityState> {
                 onChanged: (value) {
                   filterSearchResults(value);
                 },
-                prefixIcon: Icons.search,
+                prefixIcon: const Icon(Icons.search),
                 hint: AppStrings.nurseScreenSearchHint.tr(),
               ),
             ),

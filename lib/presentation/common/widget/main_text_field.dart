@@ -36,7 +36,7 @@ class MainTextField extends StatefulWidget {
   final String hint;
   final TextInputType textInputType;
   final IconData? iconData;
-  final IconData? prefixIcon;
+  final Widget? prefixIcon;
   final Color? backgroundColor;
   final TextStyle? hintTextStyle;
   final TextStyle? labelTextStyle;
@@ -109,7 +109,7 @@ class _MainTextFieldState extends State<MainTextField> {
             contentPadding: const EdgeInsets.all(AppPadding.p12),
             hintText: widget.hint,
 
-            prefixIcon: Icon(widget.prefixIcon),
+            prefixIcon: widget.prefixIcon,
             suffixIcon: widget.isObscured
                 ? IconButton(
                     onPressed: () {

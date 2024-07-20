@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:zag_nights/presentation/resources/assets_manager.dart';
+import 'package:zag_nights/presentation/resources/routes_manager.dart';
 import 'package:zag_nights/presentation/resources/strings_manager.dart';
 import 'package:zag_nights/presentation/resources/values_manager.dart';
 import '../../../common/data_intent/data_intent.dart';
@@ -101,7 +102,7 @@ class _NurseScreenBodyState extends State<NurseScreenBody>
           _buildAnimatedItem(
             GestureDetector(
               onTap: () {
-                // Navigator.pushNamed(context, Routes.s);
+                Navigator.pushNamed(context, Routes.patientSearchScreenRoute);
               },
               child: Container(
                 height: AppSize.s50,

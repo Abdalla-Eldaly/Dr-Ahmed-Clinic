@@ -177,7 +177,7 @@ class AppTextStyles {
       getBoldStyle(
         fontFamily: AppLanguages.getPrimaryFont(context),
         color: ColorManager.gray,
-        fontSize: FontSize.f12,
+        fontSize: FontSize.f17,
       );
 
   static TextStyle smallNurseTextStyle(BuildContext context) =>

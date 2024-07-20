@@ -10,6 +10,7 @@ import '../common/animation/animation.dart';
 import '../doctor_mainlayout_screen/doctor_mainlayout_screen.dart';
 import '../nures_mainlayout_screen/view/nurse_mainlayout_screen.dart';
 import '../nures_mainlayout_screen/view/widgets/home_screen/view/nurse_home_screen.dart';
+import '../nures_mainlayout_screen/view/widgets/search_screen/view/nurse_screen_body_search.dart';
 import '../onboarding_screen/view/onBoardingView.dart';
 import '../register_screen/view/sign_up_page.dart';
 import 'strings_manager.dart';
@@ -27,6 +28,8 @@ class Routes {
   static const String doctorMainLayoutRoute = "/doctorMainLayout";
   static const String nurseHomeScreenRoute = "/nurseHomeScreen";
   static const String patientScreenRoute = "/patientScreen";
+  static const String patientSearchScreenRoute = "/patientSearchScreen";
+
 }
 
 class RouteGenerator {
@@ -68,6 +71,9 @@ class RouteGenerator {
        case Routes.patientScreenRoute:
          initGetPatientUseCase();
          return MaterialPageRoute(builder: (_) => const PatientScreen());
+      case Routes.patientSearchScreenRoute:
+        return MaterialPageRoute(builder: (_) => const PatientSearchScreen());
+
 
       default:
         return unDefinedRoute();

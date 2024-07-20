@@ -65,7 +65,7 @@ class NurseHomeBody extends StatelessWidget {
                 MainTextField(
                   controller: viewModel.getPatientName,
 
-                  prefixIcon: Icons.person,
+                  prefixIcon: const Icon(Icons.person),
                   hint: AppStrings.patientNameHint.tr(),
                   label: AppStrings.patientName.tr(),
                   validation: AppValidators.validateEmpty,
@@ -78,7 +78,7 @@ class NurseHomeBody extends StatelessWidget {
                     controller: viewModel.getPatientAge,
 
                     validation: AppValidators.validateNotEmpty,
-                    prefixIcon: Icons.home_mini,
+                    prefixIcon: const Icon(Icons.home_mini),
                     hint: AppStrings.patientAgeHint.tr(),
                     textInputType: TextInputType.phone,
                     inputFormatters: [
@@ -93,7 +93,7 @@ class NurseHomeBody extends StatelessWidget {
                     controller: viewModel.getPatientPhone,
 
                     validation: AppValidators.validatePhoneNumber,
-                    prefixIcon: Icons.phone_android,
+                    prefixIcon: const Icon(Icons.phone_android),
                     textInputType: TextInputType.phone,
                     hint: AppStrings.patientPhoneHint.tr(),
                     label: AppStrings.patientPhoneHint.tr()),
@@ -113,7 +113,7 @@ class NurseHomeBody extends StatelessWidget {
                         title: AppStrings.patientGender.tr(),
                       );
                     },
-                    prefixIcon: Icons.man,
+                    prefixIcon: const Icon(Icons.man),
                     validation: AppValidators.validateNotEmpty,
                     hint: AppStrings.patientGenderHint.tr(),
                     label: AppStrings.patientGender.tr()),
@@ -152,7 +152,7 @@ class NurseHomeBody extends StatelessWidget {
                         },
                       );
                     },
-                    prefixIcon: Icons.home,
+                    prefixIcon: const Icon(Icons.home),
                     textInputType: TextInputType.multiline,
                     validation: AppValidators.validateNotEmpty,
                     hint: AppStrings.patientAddressHint.tr(),
@@ -175,7 +175,7 @@ class NurseHomeBody extends StatelessWidget {
                       );
                     },
                     validation: AppValidators.validateNotEmpty,
-                    prefixIcon: Icons.design_services_outlined,
+                    prefixIcon: const Icon(Icons.design_services_outlined),
                     hint: AppStrings.patientServicesHint.tr(),
                     label: AppStrings.patientServices.tr()),
                 const SizedBox(
