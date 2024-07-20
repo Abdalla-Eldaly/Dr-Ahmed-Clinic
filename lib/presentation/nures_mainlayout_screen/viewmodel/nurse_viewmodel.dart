@@ -21,7 +21,6 @@ class NurseViewModel extends BaseCubit
       BlocProvider.of<NurseViewModel>(context);
 
   NurseViewModel(this._logoutUseCase, this._getAllPatientsUseCase) {
-    // Initialize _dateController with current date in "day/month/year" format
     _dateController.text = DateFormat('dd/MM/yyyy').format(DateTime.now());
   }
 
@@ -34,7 +33,7 @@ class NurseViewModel extends BaseCubit
     emit(LoadingState(displayType: DisplayType.popUpDialog));
 
     await _getAllPatientsUseCase(
-      GetAllPatientUseCaseInput(date: DateTime.now()),
+      GetAllPatientUseCaseInput(date:_selectedDate ??DateTime.now()),
     ).then((value) {
       value.fold(
         (failure) {
@@ -43,7 +42,7 @@ class NurseViewModel extends BaseCubit
         },
         (r) {
           DataIntent.pushPatientsStream(r);
-          DataIntent.setPatientDate(_selectedDate ?? DateTime.now());
+          DataIntent.setPatientDate(_selectedDate! );
           emit(PatientDataSuccessState());
         },
       );

@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:zag_nights/data/network/requests.dart';
 
-
 import '../../domain/models/enums.dart';
 
 abstract class RemoteDataSource {
@@ -55,9 +54,9 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   final FirebaseAuth _firebaseAuth;
 
   RemoteDataSourceImpl(
-      this._firestore,
-      this._firebaseAuth,
-      );
+    this._firestore,
+    this._firebaseAuth,
+  );
 
   @override
   Future<void> login({required LoginRequest loginRequest}) async {
@@ -70,14 +69,14 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   @override
   Future<User?> signInWithGoogle(GoogleSignInAccount? googleAccount) async {
     GoogleSignInAuthentication? googleAuth =
-    await googleAccount?.authentication;
+        await googleAccount?.authentication;
 
     OAuthCredential credential = GoogleAuthProvider.credential(
       accessToken: googleAuth?.accessToken,
       idToken: googleAuth?.idToken,
     );
     UserCredential userCredential =
-    await _firebaseAuth.signInWithCredential(credential);
+        await _firebaseAuth.signInWithCredential(credential);
     return userCredential.user;
   }
 
@@ -133,7 +132,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
         .where('email', isEqualTo: email)
         .get()
         .then(
-          (value) {
+      (value) {
         user = value.docs.firstOrNull?.data();
       },
     );
@@ -160,7 +159,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
         .where('email', isEqualTo: email)
         .get()
         .then(
-          (value) {
+      (value) {
         if (value.docs.isNotEmpty) {
           emailUsed = true;
         }
@@ -192,23 +191,35 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   Future<Stream<List<Map<String, dynamic>>>> getPatientDataByDate({
     required DateTime date,
   }) async {
-    DateTime startOfDay = DateTime(date.year, date.month, date.day);
-    DateTime endOfDay = DateTime(date.year, date.month, date.day, 23, 59, 59, 999);
+    // Define the start and end timestamps for the date range
+    DateTime startOfDay = DateTime(date.year, date.month, date.day, 0, 0, 0); // 12 AM
+    DateTime endOfDay = DateTime(date.year, date.month, date.day, 23, 59, 59, 999, 999); // 11:59:59.999 PM
+
+    // Convert DateTime to Timestamp
+    Timestamp startTimestamp = Timestamp.fromDate(startOfDay);
+    Timestamp endTimestamp = Timestamp.fromDate(endOfDay);
+
+
 
     return _firestore
         .collection('patients')
-        .where('create_At', isGreaterThanOrEqualTo: Timestamp.fromDate(startOfDay))
-        .where('create_At', isLessThanOrEqualTo: Timestamp.fromDate(endOfDay))
+        .where('create_At', isGreaterThanOrEqualTo: startTimestamp)
+        .where('create_At', isLessThan: endTimestamp)
         .snapshots()
         .map(
-          (querySnapshot) => querySnapshot.docs
-          .map(
-            (doc) => doc.data(),
-      )
-          .toList(),
+          (querySnapshot) {
+
+        return querySnapshot.docs
+            .map(
+              (doc) {
+
+            return doc.data();
+          },
+        )
+            .toList();
+      },
     );
   }
-
 
 
 }
