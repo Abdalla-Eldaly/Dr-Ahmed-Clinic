@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zag_nights/presentation/base/base_states.dart';
-import 'package:zag_nights/presentation/nures_mainlayout_screen/view/widgets/home/view/nurse_home_screen.dart';
 import 'package:zag_nights/presentation/nures_mainlayout_screen/view/widgets/nurse_body.dart';
 
 import 'package:zag_nights/presentation/resources/color_manager.dart';
@@ -58,12 +57,16 @@ class _NurseMainLayOutScreenState extends State<NurseMainLayOutScreen> {
         ),
       ),
       body: BlocProvider(
-        create: (_) => NurseViewModel(sl())..start(),
+        create: (_) => NurseViewModel(sl(),sl())..start(),
         child: BlocConsumer<NurseViewModel, BaseStates>(
           listener: (context, state) {
             if (state is LogoutState) {
               Navigator.pop(context);
               Navigator.pushReplacementNamed(context, Routes.loginRoute);
+            }
+            if (state is PatientDataSuccessState) {
+              print('________________________________________________________');
+              Navigator.pushReplacementNamed(context, Routes.patientScreenRoute);
             }
           },
           builder: (context, state) {

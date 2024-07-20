@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zag_nights/presentation/nures_mainlayout_screen/view/widgets/home/view/widgets/home_body.dart';
+import 'package:zag_nights/presentation/nures_mainlayout_screen/view/widgets/home_screen/view/widgets/home_body.dart';
 import '../../../../../../app/sl.dart';
 import '../../../../../base/base_states.dart';
 import '../../../../../base/cubit_builder.dart';

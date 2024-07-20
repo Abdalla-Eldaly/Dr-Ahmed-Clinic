@@ -6,6 +6,7 @@ import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zag_nights/domain/usecase/add_patieint_usecase.dart';
+import 'package:zag_nights/domain/usecase/get_patients_usecase.dart';
 import '../data/data_source/cache_data_source.dart';
 import '../data/data_source/local_data_source.dart';
 import '../data/data_source/remote_data_source.dart';
@@ -109,5 +110,10 @@ void initLogOutUseCase() {
 void initAddPatientUseCase() {
   if (GetIt.instance.isRegistered<AddPatientUseCase>() == false) {
     sl.registerFactory<AddPatientUseCase>(() => AddPatientUseCase(sl()));
+  }
+}
+void initGetPatientUseCase() {
+  if (GetIt.instance.isRegistered<GetAllPatientUseCase>() == false) {
+    sl.registerFactory<GetAllPatientUseCase>(() => GetAllPatientUseCase(sl()));
   }
 }

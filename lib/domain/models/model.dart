@@ -93,3 +93,49 @@ class NurseModel {
     };
   }
 }
+
+class PatientModel {
+  final String id;
+  final String address;
+  final String name;
+  final String phone;
+  final String services;
+  final String age;
+  final String gender;
+  final DateTime create_At;
+
+  PatientModel({
+    required this.id,
+    required this.address,
+    required this.name,
+    required this.phone,
+    required this.services,
+    required this.age,
+    required this.gender,
+    required this.create_At,
+  });
+
+  factory PatientModel.fake() => PatientModel(
+        id: '',
+        create_At: DateTime(2024),
+        address: '',
+        name: '',
+        phone: '',
+        services: '',
+        age: '',
+        gender: '',
+      );
+
+  factory PatientModel.fromMap(Map<String, dynamic> map) {
+    return PatientModel(
+      id: map['id'] ?? '',
+      address: map['address'],
+      name: map['name'],
+      phone: map['phone'],
+      services: map['services'],
+      age: map['age'],
+      gender: map['gender'],
+      create_At: map['create_At'].toDate(),
+    );
+  }
+}

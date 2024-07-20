@@ -29,15 +29,46 @@
 
 
   "selectionGetStart" : "ابدأ",
+  "selectionScreenLanguageButton":"العربيه",
 
+
+
+  "nurseScreenTitle" : "السكرتيره",
+  "nurseScreenSearch" : "البحث",
+  "nurseScreenSearchHint" : "البحث...",
+  "patientName" : "اسم المريض",
+  "patientNameHint" : "أدخل اسم المريض",
+  "patientAge" : "سن المريض",
+  "patientAgeHint" : "أدخل سن المريض",
+  "patientGender" : "جنس المريض",
+  "patientGenderHint" : "أدخل جنس المريض",
+  "patientPhone" : "رقم الهاتف",
+  "patientPhoneHint" : "أدخل رقم الهاتف",
+  "patientAddress" : "عنوان المريض",
+  "patientAddressHint" : "أدخل عنوان المريض",
+  "patientServices" : " خدمة المريض",
+  "patientServicesHint" : "أدخل خدمة المريض",
+  "home" : "الصفحه الرئيسية ",
+  "addPatient" : " أضف المريض",
+  "patientMale" : "ذكر",
+  "patientFemale" : "أنثى",
+  "patient" : "مرضي",
+  "addPatientMessage" : "تمت إضافة المريض بنجاح",
 
   "areYouSure": "هل أنت متأكد؟",
   "sure": "نعم",
+  "confirm": "تأكٍيد",
   "cancel": "لا",
+  "successOperation": "تم تسجيل الدخول بنجاح",
+
+
+
   "validationsFieldRequired": "هذا الحقل مطلوب",
   "validationsFieldLengthMoreThan6": "يجب ان يحتوي علي 6 حروف او اكتر",
   "validationsValidEmail": "أدخل بريد ألكتروني صحيح",
   "validationsNumbersOnly": "استعمل أرقام فقط",
+  "validationsArabicAndEnglishLetters": "أدخل الاسم يطريقه صحيحه",
+  "validationsValidValue": "يُرجى إدخال قيمة صحيحة",
   "validationsNumbersMustEqual16Digit": "يرجي كتابة 16 رقما",
   "validationsNumbersMustEqual14Digit": "يرجي كتابة 14 رقما",
   "validationsNumbersMustEqual11Digit": "يرجي كتابة 11 رقما",
@@ -46,5 +77,9 @@
   "validationsEnterTheSamePassword": "يرجي كتابة نفس كلمة المرور",
   "validationsInvalidCardExpirationDate": "تاريخ البطاقة غير صالح",
   "validationsUsername": "استعمل حروف و أرقام فقط",
-  "validationsTitle": "ادخل عنوان مناسب"
+  "validationsTitle": "ادخل عنوان مناسب",
+  "defaultError": "حدث خطأ. يرجى المحاولة مرة أخرى",
+  "retryAgain": "إعادة المحاولة مرة أخرى",
+  "noInternetError": "لا يوجد اتصال بالإنترنت. يرجى التحقق من إعدادات الشبكة."
+
 }

@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:zag_nights/presentation/nures_mainlayout_screen/view/widgets/home/view/widgets/search_funcationalty.dart';
+import 'package:zag_nights/presentation/nures_mainlayout_screen/view/widgets/home_screen/view/widgets/search_funcationalty.dart';
 
 import '../../../../../../common/validators/validators.dart';
 import '../../../../../../common/widget/app_button.dart';

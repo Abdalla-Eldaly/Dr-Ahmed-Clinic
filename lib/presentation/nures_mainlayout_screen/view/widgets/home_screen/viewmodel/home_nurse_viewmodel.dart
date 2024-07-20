@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zag_nights/domain/usecase/add_patieint_usecase.dart';
 import 'package:zag_nights/presentation/base/base_cubit.dart';
-import 'package:zag_nights/presentation/nures_mainlayout_screen/view/widgets/home/viewmodel/states/nurse-home_states.dart';
+import 'package:zag_nights/presentation/nures_mainlayout_screen/view/widgets/home_screen/viewmodel/states/nurse-home_states.dart';
 import 'package:zag_nights/presentation/resources/strings_manager.dart';
 
 import '../../../../../base/base_states.dart';

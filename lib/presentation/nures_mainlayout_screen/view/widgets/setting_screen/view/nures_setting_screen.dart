@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zag_nights/presentation/nures_mainlayout_screen/view/widgets/setting/view/widgets/nurse_setting_body.dart';
+import 'package:zag_nights/presentation/nures_mainlayout_screen/view/widgets/setting_screen/view/widgets/nurse_setting_body.dart';
 
 import '../../../../../../app/sl.dart';
 import '../../../../../base/base_states.dart';
@@ -14,7 +14,7 @@ class NurseSettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => NurseViewModel(sl())..start(),
+      create: (_) => NurseViewModel(sl(),sl())..start(),
       child: BlocConsumer<NurseViewModel, BaseStates>(
         listener: (context, state) {
           if (state is LogoutState) {

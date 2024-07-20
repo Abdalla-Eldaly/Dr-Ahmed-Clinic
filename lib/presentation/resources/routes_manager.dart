@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:zag_nights/presentation/login_screen/view/login_screen_view.dart';
+import 'package:zag_nights/presentation/nures_mainlayout_screen/view/widgets/patient_screen/view/patient_screen.dart';
 import 'package:zag_nights/presentation/selection_screen/view/selection_view.dart';
 import 'package:zag_nights/presentation/splash_screen/view/splash_view.dart';
 import '../../app/sl.dart';
@@ -8,7 +9,7 @@ import '../../app/sl.dart';
 import '../common/animation/animation.dart';
 import '../doctor_mainlayout_screen/doctor_mainlayout_screen.dart';
 import '../nures_mainlayout_screen/view/nurse_mainlayout_screen.dart';
-import '../nures_mainlayout_screen/view/widgets/home/view/nurse_home_screen.dart';
+import '../nures_mainlayout_screen/view/widgets/home_screen/view/nurse_home_screen.dart';
 import '../onboarding_screen/view/onBoardingView.dart';
 import '../register_screen/view/sign_up_page.dart';
 import 'strings_manager.dart';
@@ -25,6 +26,7 @@ class Routes {
   static const String nurseMainLayoutRoute = "/nurseMainLayout";
   static const String doctorMainLayoutRoute = "/doctorMainLayout";
   static const String nurseHomeScreenRoute = "/nurseHomeScreen";
+  static const String patientScreenRoute = "/patientScreen";
 }
 
 class RouteGenerator {
@@ -54,12 +56,18 @@ class RouteGenerator {
 
       case Routes.nurseMainLayoutRoute:
         initLogOutUseCase();
+        initGetPatientUseCase();
         return MaterialPageRoute(builder: (_) => const NurseMainLayOutScreen());
       case Routes.doctorMainLayoutRoute:
         return MaterialPageRoute(builder: (_) => const DoctorMainLayOut());
       case Routes.nurseHomeScreenRoute:
         initAddPatientUseCase();
+        initGetPatientUseCase();
+
         return MaterialPageRoute(builder: (_) => const NurseHomeScreen());
+       case Routes.patientScreenRoute:
+         initGetPatientUseCase();
+         return MaterialPageRoute(builder: (_) => const PatientScreen());
 
       default:
         return unDefinedRoute();

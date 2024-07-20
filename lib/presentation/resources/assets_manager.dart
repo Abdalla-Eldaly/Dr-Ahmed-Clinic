@@ -45,4 +45,5 @@ class LottieAssets {
   static const String success = "${_basePath}success.json";
   static const String error = "${_basePath}error.json";
   static const String doctor = "${_basePath}doctor.json";
+  static const String empty = "${_basePath}empty.json";
 }

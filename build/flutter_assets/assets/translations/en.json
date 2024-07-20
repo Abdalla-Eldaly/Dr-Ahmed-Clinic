@@ -38,14 +38,46 @@
   "selectionGetStart" : "Get Start",
 
 
+
+
+  "nurseScreenTitle" : "Secretary",
+  "nurseScreenSearch" : "Search",
+  "nurseScreenSearchHint" : "Search...",
+  "patientName" : "Patient name",
+  "patientNameHint" : "Enter patient name",
+  "patientAge" : "Patient age",
+  "patientAgeHint" : "enter patient age",
+  "patientGender" : "Patient gender",
+  "patientGenderHint" : "enter patient gender",
+  "patientPhone" : "Phone",
+  "patientPhoneHint" : "Enter patient phone",
+  "patientAddress" : "Patient address",
+  "patientAddressHint" : "Enter patient address",
+  "patientServices" : "Patient services",
+  "patientServicesHint" : "Enter patient services",
+  "home" : "Home",
+  "addPatient" : "Add patient",
+  "patientMale" : "Male",
+  "patientFemale" : "Female",
+  "patient" : "Patient",
+  "addPatientMessage" : "patient added Successfully",
+
+
+
+
+"selectionScreenLanguageButton":"English",
   "areYouSure": "Are You Sure",
   "sure": "Sure",
+  "confirm": "Confirm",
   "cancel": "Cancel",
+  "successOperation": "Login Successfully",
 
   "validationsFieldRequired": "field is required",
+  "validationsValidValue": "please enter valid value",
   "validationsFieldLengthMoreThan6": "length must be more than 6 characters",
   "validationsValidEmail": "enter a valid email",
   "validationsNumbersOnly": "enter numbers only",
+  "validationsArabicAndEnglishLetters": "enter a valid name",
   "validationsNumbersMustEqual16Digit": "field must contain more than 16 digits",
   "validationsNumbersMustEqual14Digit": "field must contain more than 14 digits",
   "validationsNumbersMustEqual11Digit": "field must contain more than 11 digits",
@@ -54,6 +86,9 @@
   "validationsEnterTheSamePassword": "please enter the same password",
   "validationsInvalidCardExpirationDate": "Card Expiration Date is Invalid",
   "validationsUsername": "use letters and numbers only",
-  "validationsTitle": "Enter an appropriate title "
+  "validationsTitle": "Enter an appropriate title ",
+  "defaultError": "An error has occurred. Please try again.",
+  "retryAgain": "Retry Again",
+  "noInternetError": "No internet connection. Please check your network settings."
 
 }

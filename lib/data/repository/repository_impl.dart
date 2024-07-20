@@ -1,12 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:uuid/uuid.dart';
-import 'package:zag_nights/data/mappers/mappers.dart';
 import 'package:zag_nights/data/network/requests.dart';
 import 'package:zag_nights/domain/models/model.dart';
-
 import '../../domain/models/enums.dart';
 import '../../domain/repository/repository.dart';
 import '../../presentation/common/data_intent/data_intent.dart';
@@ -31,7 +28,8 @@ class RepositoryImpl implements Repository {
     this._remoteDataSource,
     // this._localDataSource,
     this._networkInfo,
-    this._cacheDataSource, this._userManager,
+    this._cacheDataSource,
+    this._userManager,
     // this._gSheetFactory,
     // this._dateNTP,
   );
@@ -106,6 +104,7 @@ class RepositoryImpl implements Repository {
       return Left(ErrorHandler.handle(e).failure);
     }
   }
+
   @override
   Future<Either<Failure, void>> passwordReset({
     required String email,
@@ -128,7 +127,6 @@ class RepositoryImpl implements Repository {
     }
   }
 
-
   @override
   Future<Either<Failure, void>> logout() async {
     try {
@@ -139,15 +137,14 @@ class RepositoryImpl implements Repository {
     }
   }
 
-
   @override
   Future<Either<Failure, User?>> signInWithGoogle() async {
     try {
       if (await _networkInfo.isConnected) {
         GoogleSignInAccount? googleAccount =
-        await _remoteDataSource.selectGoogleAccount();
+            await _remoteDataSource.selectGoogleAccount();
         bool userExists = (await _remoteDataSource.doesUserExists(
-            email: googleAccount!.email)) ==
+                email: googleAccount!.email)) ==
             RegisteredBeforeError.emailUsed;
         User? user = await _remoteDataSource.signInWithGoogle(googleAccount);
         if (!userExists) {
@@ -166,21 +163,40 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  Future<Either<Failure, void>> addPatient(PatientRequest patientRequest) async{
-    try{
-      if(await _networkInfo.isConnected){
-
-        await _remoteDataSource.addPatient(
-          patientRequest: patientRequest
-
-        );
+  Future<Either<Failure, void>> addPatient(
+      PatientRequest patientRequest) async {
+    try {
+      if (await _networkInfo.isConnected) {
+        await _remoteDataSource.addPatient(patientRequest: patientRequest);
         return const Right(null);
-      }else{
+      } else {
         return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
       }
-
-    }catch(error){
+    } catch (error) {
       return Left(ErrorHandler.handle(error).failure);
     }
+  }
 
-  }}
+  @override
+  Future<Either<Failure, Stream<List<PatientModel>>>> getAllPatient({
+    required DateTime date,
+  }) async {
+    try {
+      Stream<List<PatientModel>> patientStream =
+      await _remoteDataSource.getPatientDataByDate(date: date).then(
+            (stream) {
+          return stream.map(
+                (list) => list
+                .map(
+                  (data) => PatientModel.fromMap(data),
+            )
+                .toList(),
+          );
+        },
+      );
+      return Right(patientStream);
+    } catch (e) {
+      return Left(ErrorHandler.handle(e).failure);
+    }
+  }
+}

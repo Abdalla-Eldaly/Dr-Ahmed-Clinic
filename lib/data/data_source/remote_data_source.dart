@@ -1,12 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:zag_nights/data/network/requests.dart';
-import 'package:zag_nights/data/response/responses.dart';
+
 
 import '../../domain/models/enums.dart';
-import '../network/api.dart';
 
 abstract class RemoteDataSource {
   Future<void> login({
@@ -35,14 +33,20 @@ abstract class RemoteDataSource {
     required String email,
     required String? password,
   });
+
   Future<Map<String, dynamic>?> getUserData({
     required String email,
   });
+
   Future<void> saveNurseToDataBase({
     required String id,
     required String name,
     required String email,
     required String? password,
+  });
+
+  Future<Stream<List<Map<String, dynamic>>>> getPatientDataByDate({
+    required DateTime date,
   });
 }
 
@@ -51,9 +55,9 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   final FirebaseAuth _firebaseAuth;
 
   RemoteDataSourceImpl(
-    this._firestore,
-    this._firebaseAuth,
-  );
+      this._firestore,
+      this._firebaseAuth,
+      );
 
   @override
   Future<void> login({required LoginRequest loginRequest}) async {
@@ -66,14 +70,14 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   @override
   Future<User?> signInWithGoogle(GoogleSignInAccount? googleAccount) async {
     GoogleSignInAuthentication? googleAuth =
-        await googleAccount?.authentication;
+    await googleAccount?.authentication;
 
     OAuthCredential credential = GoogleAuthProvider.credential(
       accessToken: googleAuth?.accessToken,
       idToken: googleAuth?.idToken,
     );
     UserCredential userCredential =
-        await _firebaseAuth.signInWithCredential(credential);
+    await _firebaseAuth.signInWithCredential(credential);
     return userCredential.user;
   }
 
@@ -129,7 +133,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
         .where('email', isEqualTo: email)
         .get()
         .then(
-      (value) {
+          (value) {
         user = value.docs.firstOrNull?.data();
       },
     );
@@ -156,7 +160,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
         .where('email', isEqualTo: email)
         .get()
         .then(
-      (value) {
+          (value) {
         if (value.docs.isNotEmpty) {
           emailUsed = true;
         }
@@ -172,7 +176,6 @@ class RemoteDataSourceImpl implements RemoteDataSource {
 
   @override
   Future<void> addPatient({required PatientRequest patientRequest}) async {
-
     await _firestore.collection('patients').doc(patientRequest.uid).set({
       'uid': patientRequest.uid,
       'name': patientRequest.name,
@@ -181,7 +184,31 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       'gender': patientRequest.gender,
       'address': patientRequest.address,
       'services': patientRequest.services,
-      'create_At': DateTime.now()
+      'create_At': DateTime.now(),
     });
   }
+
+  @override
+  Future<Stream<List<Map<String, dynamic>>>> getPatientDataByDate({
+    required DateTime date,
+  }) async {
+    DateTime startOfDay = DateTime(date.year, date.month, date.day);
+    DateTime endOfDay = DateTime(date.year, date.month, date.day, 23, 59, 59, 999);
+
+    return _firestore
+        .collection('patients')
+        .where('create_At', isGreaterThanOrEqualTo: Timestamp.fromDate(startOfDay))
+        .where('create_At', isLessThanOrEqualTo: Timestamp.fromDate(endOfDay))
+        .snapshots()
+        .map(
+          (querySnapshot) => querySnapshot.docs
+          .map(
+            (doc) => doc.data(),
+      )
+          .toList(),
+    );
+  }
+
+
+
 }

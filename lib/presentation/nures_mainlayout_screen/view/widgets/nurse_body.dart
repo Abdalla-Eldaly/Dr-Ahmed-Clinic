@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:zag_nights/presentation/nures_mainlayout_screen/view/widgets/setting/view/nures_setting_screen.dart';
 import 'package:zag_nights/presentation/resources/assets_manager.dart';
 import 'package:zag_nights/presentation/resources/strings_manager.dart';
 import 'package:zag_nights/presentation/resources/values_manager.dart';
@@ -12,8 +11,7 @@ import '../../../resources/font_manager.dart';
 import '../../../resources/routes_manager.dart';
 import '../../../resources/text_styles.dart';
 import '../../viewmodel/nurse_viewmodel.dart';
-import 'home/view/nurse_home_screen.dart';
-import 'search/view/nurse_screen_body_search.dart';
+
 
 class NurseScreenBody extends StatefulWidget {
   const NurseScreenBody({
@@ -168,40 +166,46 @@ class _NurseScreenBodyState extends State<NurseScreenBody>
                   const SizedBox(width: AppSize.s15,),
 
                   Expanded(
-                    child: Container(
-                      height: AppSize.s70,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                            color: ColorManager.secondary.withOpacity(.5),
-                            width: AppSize.s1),
-                        borderRadius: BorderRadius.circular(AppSize.s16),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(AppPadding.p12),
-                        child: FittedBox(
-                          child: Row(
-                            children: [
-                              const Icon(
-                                Icons.arrow_back_ios,
-                                color: ColorManager.secondary,
-                                size: AppSize.s18,
-                              ),
-                              Text(
-                                AppStrings.patient.tr(),
-                                style: AppTextStyles.smallNurseTextStyle(context),
-                              ),
-                              const SizedBox(
-                                width: AppSize.s5,
-                              ),
-                              Text(
-                                '10',
-                                style: AppTextStyles.smallNurseTextStyleNumber(
-                                    context),
-                              ),
-                              const SizedBox(width: AppSize.s10,),
+                    child: InkWell(
+                      onTap: () {
+                        // Navigator.pushNamed(context, Routes.patientScreenRoute);
+                        widget.viewModel.getPatients();
+                      },
+                      child: Container(
+                        height: AppSize.s70,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              color: ColorManager.secondary.withOpacity(.5),
+                              width: AppSize.s1),
+                          borderRadius: BorderRadius.circular(AppSize.s16),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(AppPadding.p12),
+                          child: FittedBox(
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  Icons.arrow_back_ios,
+                                  color: ColorManager.secondary,
+                                  size: AppSize.s18,
+                                ),
+                                Text(
+                                  AppStrings.patient.tr(),
+                                  style: AppTextStyles.smallNurseTextStyle(context),
+                                ),
+                                const SizedBox(
+                                  width: AppSize.s5,
+                                ),
+                                Text(
+                                  '10',
+                                  style: AppTextStyles.smallNurseTextStyleNumber(
+                                      context),
+                                ),
+                                const SizedBox(width: AppSize.s10,),
 
-                              SvgPicture.asset(SVGAssets.patient),
-                            ],
+                                SvgPicture.asset(SVGAssets.patient),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -218,20 +222,46 @@ class _NurseScreenBodyState extends State<NurseScreenBody>
                             width: AppSize.s1),
                         borderRadius: BorderRadius.circular(AppSize.s16),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(AppPadding.p12),
-                        child: FittedBox(
-                          child: Row(
-                            children: [
-                              Text(formattedDate,
-                                  style:
-                                      AppTextStyles.smallNurseTextStyle(context)),
-                              const SizedBox(width: AppSize.s10,),
+                      child: TextField(
+                        readOnly: true,
+                        onTap: () {
+                          showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime.now().subtract(const Duration(days: 365)),
+                            lastDate: DateTime.now(),
+                            builder: (context, child) {
+                              return Theme(
+                                data: ThemeData.light().copyWith(
+                                  colorScheme: const ColorScheme.light().copyWith(
+                                    primary: ColorManager.green,
+                                    onPrimary: Colors.white,
+                                    surface: ColorManager.white,
+                                    onSurface: ColorManager.black,
+                                  ),
+                                  dialogBackgroundColor: Colors.white,
+                                ),
+                                child: child!,
+                              );
+                            },
+                          ).then((selectedDate) {
+                            if (selectedDate != null) {
+                              widget.viewModel.setDate = selectedDate;
+                            }
+                          });
+                        },
 
-                              SvgPicture.asset(SVGAssets.calender),
-                            ],
+                        decoration:  InputDecoration(
+                          suffixIcon: Padding(
+                            padding: const EdgeInsets.all(AppPadding.p8),
+                            child: SvgPicture.asset(SVGAssets.calender),
                           ),
+
+                          border: InputBorder.none,
+                          focusedBorder: InputBorder.none
+
                         ),
+                        controller: widget.viewModel.getDateController,
                       ),
                     ),
                   ),
