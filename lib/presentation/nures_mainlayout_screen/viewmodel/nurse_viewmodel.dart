@@ -27,7 +27,9 @@ class NurseViewModel extends BaseCubit
   final TextEditingController _dateController = TextEditingController();
 
   @override
-  void start() {}
+  void start() {
+    getPatientCount();
+  }
 
   Future<void> getPatients() async {
     emit(LoadingState(displayType: DisplayType.popUpDialog));
@@ -41,9 +43,36 @@ class NurseViewModel extends BaseCubit
               failure: failure, displayType: DisplayType.popUpDialog));
         },
         (r) {
+// emit(ContentState());
           DataIntent.pushPatientsStream(r);
-          DataIntent.setPatientDate(_selectedDate! );
+          DataIntent.setPatientDate(_selectedDate ?? DateTime.now());
           emit(PatientDataSuccessState());
+        },
+      );
+    });
+  }
+
+
+  Future<void> getPatientCount() async {
+    emit(LoadingState(displayType: DisplayType.popUpDialog));
+
+    await _getAllPatientsUseCase(
+      GetAllPatientUseCaseInput(date: _selectedDate ?? DateTime.now()),
+    ).then((value) {
+      value.fold(
+            (failure) {
+          emit(ErrorState(
+              failure: failure, displayType: DisplayType.popUpDialog));
+        },
+            (patientsStream) async {
+          patientsStream.listen((patients) {
+            emit(PatientDataCounterState(patients.length));
+
+            DataIntent.setPatientCount(patients.length);
+          }).onError((failure) {
+            emit(ErrorState(
+                failure: failure, displayType: DisplayType.popUpDialog));
+          });
         },
       );
     });

@@ -65,8 +65,7 @@ class _NurseMainLayOutScreenState extends State<NurseMainLayOutScreen> {
               Navigator.pushReplacementNamed(context, Routes.loginRoute);
             }
             if (state is PatientDataSuccessState) {
-              print('________________________________________________________');
-              Navigator.pushReplacementNamed(context, Routes.patientScreenRoute);
+              Navigator.pushNamed(context, Routes.patientScreenRoute);
             }
           },
           builder: (context, state) {

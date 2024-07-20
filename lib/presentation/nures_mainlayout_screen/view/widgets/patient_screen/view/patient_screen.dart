@@ -31,9 +31,9 @@ class PatientScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(leading: IconButton(onPressed: () {
-        Navigator.pushNamed(context, Routes.nurseMainLayoutRoute);
+        Navigator.pop(context);
       }, icon: Icon(Icons.arrow_forward)),
-      ),
+       ),
       body: SizedBox(
         width: AppSize.infinity,
         height: AppSize.infinity,

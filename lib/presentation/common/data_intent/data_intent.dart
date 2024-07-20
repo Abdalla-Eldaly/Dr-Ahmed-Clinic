@@ -56,6 +56,18 @@ class DataIntent {
     }
     return _patientDepartureDate!;
   }
+
+
+  static int? _patientCount;
+
+  static void setPatientCount(int count) {
+    _patientCount = count;
+  }
+
+
+  static int? getPatientCount() {
+    return _patientCount;
+  }
 }
 
 

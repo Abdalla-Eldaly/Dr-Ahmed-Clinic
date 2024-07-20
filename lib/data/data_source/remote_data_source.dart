@@ -191,11 +191,9 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   Future<Stream<List<Map<String, dynamic>>>> getPatientDataByDate({
     required DateTime date,
   }) async {
-    // Define the start and end timestamps for the date range
-    DateTime startOfDay = DateTime(date.year, date.month, date.day, 0, 0, 0); // 12 AM
+    DateTime startOfDay = DateTime(date.year, date.month, date.day, 0, 0, 0);
     DateTime endOfDay = DateTime(date.year, date.month, date.day, 23, 59, 59, 999, 999); // 11:59:59.999 PM
 
-    // Convert DateTime to Timestamp
     Timestamp startTimestamp = Timestamp.fromDate(startOfDay);
     Timestamp endTimestamp = Timestamp.fromDate(endOfDay);
 

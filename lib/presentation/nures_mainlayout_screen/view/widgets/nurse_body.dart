@@ -1,17 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:zag_nights/presentation/resources/assets_manager.dart';
 import 'package:zag_nights/presentation/resources/strings_manager.dart';
 import 'package:zag_nights/presentation/resources/values_manager.dart';
+import '../../../common/data_intent/data_intent.dart';
 import '../../../resources/color_manager.dart';
 import '../../../resources/font_manager.dart';
-import '../../../resources/routes_manager.dart';
 import '../../../resources/text_styles.dart';
 import '../../viewmodel/nurse_viewmodel.dart';
-
 
 class NurseScreenBody extends StatefulWidget {
   const NurseScreenBody({
@@ -29,7 +26,7 @@ class _NurseScreenBodyState extends State<NurseScreenBody>
     with TickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _animation;
-  String formattedDate = DateFormat('MM/dd/yyyy').format(DateTime.now());
+
   @override
   void initState() {
     super.initState();
@@ -47,12 +44,21 @@ class _NurseScreenBodyState extends State<NurseScreenBody>
       ),
     );
     _controller.forward();
+
+    widget.viewModel.getDateController.addListener(_onDateChanged);
   }
 
   @override
   void dispose() {
     _controller.dispose();
+    widget.viewModel.getDateController.removeListener(_onDateChanged);
     super.dispose();
+  }
+
+  void _onDateChanged() {
+    final newDate = DateFormat('dd/MM/yyyy').parse(widget.viewModel.getDateController.text);
+    widget.viewModel.setDate = newDate;
+    widget.viewModel.getPatientCount();
   }
 
   Widget _buildAnimatedItem(Widget child) {
@@ -159,17 +165,17 @@ class _NurseScreenBodyState extends State<NurseScreenBody>
           ),
           const SizedBox(height: AppSize.s10,),
           _buildAnimatedItem(
-             SizedBox(
-               height: AppSize.s60,
-               child: Row(
+            SizedBox(
+              height: AppSize.s60,
+              child: Row(
                 children: [
                   const SizedBox(width: AppSize.s15,),
 
                   Expanded(
                     child: InkWell(
                       onTap: () {
-                        // Navigator.pushNamed(context, Routes.patientScreenRoute);
                         widget.viewModel.getPatients();
+                        widget.viewModel.getPatientCount();
                       },
                       child: Container(
                         height: AppSize.s70,
@@ -197,7 +203,7 @@ class _NurseScreenBodyState extends State<NurseScreenBody>
                                   width: AppSize.s5,
                                 ),
                                 Text(
-                                  '10',
+                                  DataIntent.getPatientCount()?.toString() ?? '0',
                                   style: AppTextStyles.smallNurseTextStyleNumber(
                                       context),
                                 ),
@@ -215,7 +221,6 @@ class _NurseScreenBodyState extends State<NurseScreenBody>
                   Expanded(
                     child: Container(
                       height: AppSize.s70,
-
                       decoration: BoxDecoration(
                         border: Border.all(
                             color: ColorManager.secondary.withOpacity(.5),
@@ -250,26 +255,22 @@ class _NurseScreenBodyState extends State<NurseScreenBody>
                             }
                           });
                         },
-
                         decoration:  InputDecoration(
-                          suffixIcon: Padding(
-                            padding: const EdgeInsets.all(AppPadding.p8),
-                            child: SvgPicture.asset(SVGAssets.calender),
-                          ),
-
-                          border: InputBorder.none,
-                          focusedBorder: InputBorder.none
-
+                            suffixIcon: Padding(
+                              padding: const EdgeInsets.all(AppPadding.p8),
+                              child: SvgPicture.asset(SVGAssets.calender),
+                            ),
+                            border: InputBorder.none,
+                            focusedBorder: InputBorder.none
                         ),
                         controller: widget.viewModel.getDateController,
                       ),
                     ),
                   ),
                   const SizedBox(width: AppSize.s15,),
-
                 ],
-                           ),
-             ),
+              ),
+            ),
           )
         ],
       ),
